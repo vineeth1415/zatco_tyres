@@ -1,0 +1,306 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ZATCO - Compare Tires</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts based on Theme -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600;700&amp;family=Josefin+Sans:wght@300;400;500;600;700&amp;family=Work+Sans:wght@400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "primary-container": "#1e3a8a",
+                    "on-tertiary-container": "#9eadc4",
+                    "surface-container-highest": "#e0e3e5",
+                    "tertiary-fixed-dim": "#b9c7df",
+                    "surface-tint": "#4059aa",
+                    "surface-container-high": "#e6e8ea",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-tertiary-fixed-variant": "#3a485b",
+                    "secondary-container": "#e02928",
+                    "tertiary-container": "#334154",
+                    "on-primary-container": "#90a8ff",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#2d3133",
+                    "on-background": "#191c1e",
+                    "primary-fixed": "#dce1ff",
+                    "tertiary-fixed": "#d5e3fc",
+                    "background": "#f7f9fb",
+                    "secondary": "#bb0112",
+                    "surface-container-low": "#f2f4f6",
+                    "on-primary-fixed-variant": "#264191",
+                    "outline": "#757682",
+                    "on-secondary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#93000b",
+                    "surface-container": "#eceef0",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#00164e",
+                    "primary": "#00236f",
+                    "surface-bright": "#f7f9fb",
+                    "inverse-primary": "#b6c4ff",
+                    "secondary-fixed": "#ffdad6",
+                    "on-tertiary-fixed": "#0d1c2e",
+                    "outline-variant": "#c5c5d3",
+                    "on-surface": "#191c1e",
+                    "surface": "#f7f9fb",
+                    "surface-variant": "#e0e3e5",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#444651",
+                    "surface-dim": "#d8dadc",
+                    "on-secondary-container": "#fffbff",
+                    "secondary-fixed-dim": "#ffb4ab",
+                    "on-secondary-fixed": "#410002",
+                    "primary-fixed-dim": "#b6c4ff",
+                    "tertiary": "#1d2b3d",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "max-width": "1280px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "label-md": [
+                            "Josefin Sans"
+                    ],
+                    "label-sm": [
+                            "Josefin Sans"
+                    ],
+                    "display-lg": [
+                            "IBM Plex Sans"
+                    ],
+                    "headline-md": [
+                            "IBM Plex Sans"
+                    ],
+                    "display-lg-mobile": [
+                            "IBM Plex Sans"
+                    ],
+                    "body-md": [
+                            "Work Sans"
+                    ],
+                    "headline-lg": [
+                            "IBM Plex Sans"
+                    ],
+                    "body-lg": [
+                            "Work Sans"
+                    ]
+            },
+            "fontSize": {
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Sub-page Header: Suppressing global nav for focused task flow -->
+<header class="bg-surface w-full top-0 border-b-2 border-outline-variant z-10">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop h-20 flex items-center gap-6">
+<button aria-label="Go back" class="text-on-surface hover:text-secondary transition-colors duration-200 flex items-center justify-center p-2 rounded-full hover:bg-surface-container hover:bg-surface-container-high active:scale-[0.98] focus:ring-2 focus:ring-outline">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'wght' 600;">arrow_back</span>
+</button>
+<h1 class="text-headline-lg font-headline-lg font-semibold text-primary tracking-tighter">Compare Tires</h1>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop py-12">
+<!-- Comparison Subject Headers -->
+<div class="grid grid-cols-2 gap-4 md:gap-gutter mb-8">
+<!-- Tire A Header -->
+<div class="flex flex-col items-center bg-surface border border-outline-variant rounded-lg p-4 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-primary"></div>
+<div class="w-full aspect-square bg-cover bg-center rounded bg-surface-container-lowest mb-6 border border-outline-variant/50 group-hover:border-primary transition-colors duration-300" data-alt="Close up studio shot of a massive, rugged earthmoving tire with deep treads, industrial lighting, set against a clean white background, high contrast, ZATCO heavy machinery brand aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCoOL5ywEj3uUxX4AZhYCv5TUN7KZv_A_-Pc-m-7obT3cQPwvUuYlYgmBJ2OskilPvDq3qHsWG2rcKlaaBcByIxGVZ6C8tN0Rf_R-NewvkW6KBXqqX5Q4cQrLrT-GD43KjfudiYvNwNEcEcWJrbZQOUqnuTYiWoskkpVhcpes-ql0jRrFzw2lLSAwGF5FEvazb4zNngbmFDfNcrt0Rp2kNIw4P7A70AZmhmYw45iax5LlTWg3uuoRdzQw')"></div>
+<h2 class="text-headline-md font-headline-md font-semibold text-primary text-center tracking-tight">ZT-RockMaster 3000</h2>
+</div>
+<!-- Tire B Header -->
+<div class="flex flex-col items-center bg-surface border border-outline-variant rounded-lg p-4 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-secondary"></div>
+<div class="w-full aspect-square bg-cover bg-center rounded bg-surface-container-lowest mb-6 border border-outline-variant/50 group-hover:border-secondary transition-colors duration-300" data-alt="Close up studio shot of a solid industrial forklift tire, smooth sidewalls, heavy duty structural rubber, industrial lighting, set against a clean white background, high contrast, ZATCO material handling brand aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDwrc_3Ymyer2p3uLkee1dlNkSnD3xW6Xr8T9UfxBPeRH-KA_gN-I2kDNxg9lWjyPEm-UJLsggFJClfsDRY5qUd1VbtIy4fLgPeSRlM0_WUkpQDdPDrdsSNpNAwzu3oAtdxxvC_ZzVHpVq31iwP7mipYzAG-NBVH_m8GDqcsaRAKK3-wSAbkkz4b8wf0pj5H1bQnUI8T4zz8Wfjv_poA8SznqfVZb0VHx9Hs7a-U3K0j8ajd6EgAxYs6w')"></div>
+<h2 class="text-headline-md font-headline-md font-semibold text-primary text-center tracking-tight">ZT-LiftPro Solid</h2>
+</div>
+</div>
+<!-- Technical Specification Table (Zebra Striping) -->
+<div class="bg-surface border border-outline-variant rounded-lg overflow-hidden shadow-sm mb-12">
+<table class="w-full text-left border-collapse">
+<tbody class="divide-y divide-outline-variant">
+<!-- Spec: Application -->
+<tr class="bg-surface hover:bg-surface-container-low transition-colors duration-150">
+<th class="w-1/3 md:w-1/4 p-4 md:p-6 align-top border-r border-outline-variant bg-surface-container-lowest" scope="row">
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-widest" data-stitch-orig-opacity="0">Application</span>
+</th>
+<td class="w-1/3 md:w-3/8 p-4 md:p-6 align-top border-r border-outline-variant">
+<span class="text-label-md font-label-md text-on-surface">Earthmoving</span>
+</td>
+<td class="w-1/3 md:w-3/8 p-4 md:p-6 align-top">
+<span class="text-label-md font-label-md text-on-surface">Industrial</span>
+</td>
+</tr>
+<!-- Spec: Construction -->
+<tr class="bg-surface-container-low hover:bg-surface-container transition-colors duration-150">
+<th class="w-1/3 md:w-1/4 p-4 md:p-6 align-top border-r border-outline-variant bg-surface-container-lowest" scope="row">
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-widest" data-stitch-orig-opacity="0">Application</span>
+</th>
+<td class="w-1/3 md:w-3/8 p-4 md:p-6 align-top border-r border-outline-variant">
+<span class="text-label-md font-label-md text-on-surface">Radial</span>
+</td>
+<td class="w-1/3 md:w-3/8 p-4 md:p-6 align-top">
+<span class="text-label-md font-label-md text-on-surface">Solid</span>
+</td>
+</tr>
+<!-- Spec: Ply Rating -->
+<tr class="bg-surface hover:bg-surface-container-low transition-colors duration-150">
+<th class="w-1/3 md:w-1/4 p-4 md:p-6 align-top border-r border-outline-variant bg-surface-container-lowest" scope="row">
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-widest" data-stitch-orig-opacity="0">Application</span>
+</th>
+<td class="w-1/3 md:w-3/8 p-4 md:p-6 align-top border-r border-outline-variant">
+<span class="text-label-md font-label-md text-on-surface">20 PR</span>
+</td>
+<td class="w-1/3 md:w-3/8 p-4 md:p-6 align-top">
+<span class="text-label-md font-label-md text-outline">N/A</span>
+</td>
+</tr>
+<!-- Spec: Max Load -->
+<tr class="bg-surface-container-low hover:bg-surface-container transition-colors duration-150">
+<th class="w-1/3 md:w-1/4 p-4 md:p-6 align-top border-r border-outline-variant bg-surface-container-lowest" scope="row">
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-widest" data-stitch-orig-opacity="0">Application</span>
+</th>
+<td class="w-1/3 md:w-3/8 p-4 md:p-6 align-top border-r border-outline-variant">
+<span class="text-label-md font-label-md text-primary font-bold">15,500kg</span>
+</td>
+<td class="w-1/3 md:w-3/8 p-4 md:p-6 align-top">
+<span class="text-label-md font-label-md text-primary font-bold">8,250kg</span>
+</td>
+</tr>
+<!-- Spec: Compound -->
+<tr class="bg-surface hover:bg-surface-container-low transition-colors duration-150">
+<th class="w-1/3 md:w-1/4 p-4 md:p-6 align-top border-r border-outline-variant bg-surface-container-lowest" scope="row">
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-widest" data-stitch-orig-opacity="0">Application</span>
+</th>
+<td class="w-1/3 md:w-3/8 p-4 md:p-6 align-top border-r border-outline-variant">
+<span class="text-label-md font-label-md text-on-surface">High Heat Resistance</span>
+</td>
+<td class="w-1/3 md:w-3/8 p-4 md:p-6 align-top">
+<span class="text-label-md font-label-md text-on-surface">Abrasion Resistant</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Call to Action -->
+<div class="flex justify-center mt-12 mb-8">
+<button class="bg-primary text-on-primary font-label-md text-label-md uppercase px-8 py-4 rounded flex items-center justify-center gap-3 hover:bg-on-primary-fixed-variant transition-colors duration-200 hover:bg-primary/90 active:scale-[0.98] focus:ring-2 focus:ring-primary focus:ring-offset-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1, 'wght' 600;">picture_as_pdf</span>
+                Download Comparison PDF
+            </button>
+</div>
+</main>
+<!-- Shared Footer Component -->
+<footer class="bg-tertiary border-t-4 border-secondary w-full mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-12 max-w-max-width mx-auto">
+<!-- Brand & Copyright -->
+<div class="col-span-1 md:col-span-2 flex flex-col justify-between">
+<div>
+<h2 class="text-headline-md font-headline-md font-bold text-on-tertiary mb-4">ZATCO</h2>
+<p class="text-tertiary-fixed-dim text-body-md font-body-md max-w-md">Engineered for Performance. Delivering industrial-grade durability and precision for heavy machinery worldwide.</p>
+</div>
+<p class="text-label-sm font-label-sm text-on-tertiary mt-8 md:mt-0">© 2024 ZATCO Tires. All Rights Reserved. Engineered for Performance.</p>
+</div>
+<!-- Links Column 1 -->
+<div class="col-span-1 flex flex-col gap-3">
+<a class="text-tertiary-fixed-dim transition-colors text-body-md font-body-md hover:text-primary duration-200" href="#">Terms of Use</a>
+<a class="text-tertiary-fixed-dim transition-colors text-body-md font-body-md hover:text-primary duration-200" href="#">Privacy Policy</a>
+<a class="text-tertiary-fixed-dim transition-colors text-body-md font-body-md hover:text-primary duration-200" href="#">Cookie Settings</a>
+</div>
+<!-- Links Column 2 -->
+<div class="col-span-1 flex flex-col gap-3">
+<a class="text-tertiary-fixed-dim transition-colors text-body-md font-body-md hover:text-primary duration-200" href="#">Dealer Portal</a>
+<a class="text-tertiary-fixed-dim transition-colors text-body-md font-body-md hover:text-primary duration-200" href="#">Global Offices</a>
+</div>
+</div>
+</footer>
+
+
+</body></html>

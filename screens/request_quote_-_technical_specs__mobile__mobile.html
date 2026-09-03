@@ -1,0 +1,286 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ZATCO - Technical Specs</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=Josefin+Sans:wght@300;400;500;600;700&amp;family=Work+Sans:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-container": "#fffbff",
+                      "tertiary-fixed-dim": "#b9c7df",
+                      "tertiary-container": "#334154",
+                      "surface-tint": "#4059aa",
+                      "on-surface-variant": "#444651",
+                      "primary": "#00236f",
+                      "on-primary-fixed-variant": "#264191",
+                      "error": "#ba1a1a",
+                      "secondary": "#bb0112",
+                      "inverse-on-surface": "#eff1f3",
+                      "secondary-fixed": "#ffdad6",
+                      "surface-container": "#eceef0",
+                      "surface-container-high": "#e6e8ea",
+                      "on-primary-fixed": "#00164e",
+                      "primary-container": "#1e3a8a",
+                      "inverse-surface": "#2d3133",
+                      "secondary-fixed-dim": "#ffb4ab",
+                      "on-secondary-fixed": "#410002",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "inverse-primary": "#b6c4ff",
+                      "primary-fixed-dim": "#b6c4ff",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed-variant": "#3a485b",
+                      "on-background": "#191c1e",
+                      "on-primary-container": "#90a8ff",
+                      "primary-fixed": "#dce1ff",
+                      "on-surface": "#191c1e",
+                      "secondary-container": "#e02928",
+                      "on-tertiary-container": "#9eadc4",
+                      "on-primary": "#ffffff",
+                      "on-secondary-fixed-variant": "#93000b",
+                      "surface": "#f7f9fb",
+                      "outline-variant": "#c5c5d3",
+                      "tertiary-fixed": "#d5e3fc",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-dim": "#d8dadc",
+                      "error-container": "#ffdad6",
+                      "outline": "#757682",
+                      "surface-bright": "#f7f9fb",
+                      "surface-variant": "#e0e3e5",
+                      "on-error": "#ffffff",
+                      "surface-container-low": "#f2f4f6",
+                      "tertiary": "#1d2b3d",
+                      "background": "#f7f9fb",
+                      "on-tertiary-fixed": "#0d1c2e"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "base": "8px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "64px",
+                      "gutter": "24px",
+                      "max-width": "1280px"
+              },
+              "fontFamily": {
+                      "label-md": [
+                              "Josefin Sans"
+                      ],
+                      "display-lg-mobile": [
+                              "IBM Plex Sans"
+                      ],
+                      "headline-lg": [
+                              "IBM Plex Sans"
+                      ],
+                      "label-sm": [
+                              "Josefin Sans"
+                      ],
+                      "body-md": [
+                              "Work Sans"
+                      ],
+                      "body-lg": [
+                              "Work Sans"
+                      ],
+                      "display-lg": [
+                              "IBM Plex Sans"
+                      ],
+                      "headline-md": [
+                              "IBM Plex Sans"
+                      ]
+              },
+              "fontSize": {
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased">
+<!-- Top Navigation Area (Transactional/Linear flow, so stripped down) -->
+<header class="bg-surface sticky top-0 z-50 border-b border-outline-variant px-margin-mobile h-16 flex items-center justify-between">
+<button aria-label="Go back" class="text-on-surface-variant p-2 -ml-2 rounded-DEFAULT hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<div class="font-headline-md text-headline-md text-primary font-bold">ZATCO</div>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</header>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container-high h-2 relative">
+<div class="absolute top-0 left-0 h-full bg-primary w-1/3 transition-all duration-300"></div>
+</div>
+<div class="px-margin-mobile py-2 bg-surface-container-low flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest border-b border-outline-variant">
+<span class="">Step 1 of 3</span>
+<span class="font-bold text-primary">Technical Specs</span>
+</div>
+<!-- Main Content Canvas -->
+<main class="flex-grow p-margin-mobile flex flex-col gap-6 max-w-md mx-auto w-full">
+<div class="space-y-2">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-on-background">Configure Tire</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Select the required technical specifications for your heavy machinery application.</p>
+</div>
+<form class="flex flex-col gap-8" onsubmit="event.preventDefault(); window.location.href='#step2';">
+<!-- Tread Pattern Section -->
+<fieldset class="bg-surface rounded-DEFAULT border border-outline-variant p-4 space-y-4">
+<legend class="font-label-md text-label-md text-primary uppercase mb-2 px-1">Tread Pattern</legend>
+<div class="grid grid-cols-2 gap-3">
+<label class="relative cursor-pointer">
+<input checked="" class="peer sr-only" name="tread" type="radio" value="l3">
+<div class="h-full border border-outline-variant rounded-DEFAULT p-3 hover:bg-surface-container-low peer-checked:border-primary peer-checked:border-2 peer-checked:bg-primary-fixed transition-all flex flex-col items-center text-center gap-2">
+<span class="material-symbols-outlined text-3xl text-on-surface-variant peer-checked:text-primary" style="font-variation-settings: 'FILL' 0;">tire_repair</span>
+<div>
+<div class="font-label-md text-label-md text-on-background font-bold">L3 / E3</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Standard Rock</div>
+</div>
+</div>
+</label>
+<label class="relative cursor-pointer">
+<input class="peer sr-only" name="tread" type="radio" value="l5">
+<div class="h-full border border-outline-variant rounded-DEFAULT p-3 hover:bg-surface-container-low peer-checked:border-primary peer-checked:border-2 peer-checked:bg-primary-fixed transition-all flex flex-col items-center text-center gap-2">
+<span class="material-symbols-outlined text-3xl text-on-surface-variant peer-checked:text-primary" style="font-variation-settings: 'FILL' 0;">construction</span>
+<div>
+<div class="font-label-md text-label-md text-on-background font-bold">L5 / L5S</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Extra Deep Mine</div>
+</div>
+</div>
+</label>
+</div>
+</fieldset>
+<!-- Size Configuration -->
+<fieldset class="bg-surface rounded-DEFAULT border border-outline-variant p-4 space-y-4">
+<legend class="font-label-md text-label-md text-primary uppercase mb-2 px-1">Dimensions</legend>
+<div class="space-y-4">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1" for="rim_size">Rim Diameter (inches)</label>
+<select class="w-full bg-surface border border-outline text-on-background font-label-md text-label-md rounded-DEFAULT p-3 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-shadow appearance-none" id="rim_size" name="rim_size">
+<option value="">Select Diameter</option>
+<option value="25">25"</option>
+<option value="29">29"</option>
+<option value="33">33"</option>
+<option value="49">49"</option>
+</select>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1" for="section_width">Section Width</label>
+<select class="w-full bg-surface border border-outline text-on-background font-label-md text-label-md rounded-DEFAULT p-3 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-shadow appearance-none" id="section_width" name="section_width">
+<option value="">Select Width</option>
+<option value="20.5">20.5</option>
+<option value="23.5">23.5</option>
+<option value="26.5">26.5</option>
+<option value="29.5">29.5</option>
+</select>
+</div>
+</div>
+</fieldset>
+<!-- Compound Selection -->
+<fieldset class="bg-surface rounded-DEFAULT border border-outline-variant p-4 space-y-4">
+<legend class="font-label-md text-label-md text-primary uppercase mb-2 px-1">Rubber Compound</legend>
+<div class="flex flex-col gap-3">
+<label class="flex items-center p-3 border border-outline-variant rounded-DEFAULT cursor-pointer hover:bg-surface-container-low has-[:checked]:border-primary has-[:checked]:bg-primary-fixed transition-all">
+<input checked="" class="w-5 h-5 text-primary border-outline focus:ring-primary" name="compound" type="radio" value="standard">
+<span class="ml-3 font-label-md text-label-md text-on-background flex-grow">Standard Wear Resistance</span>
+</label>
+<label class="flex items-center p-3 border border-outline-variant rounded-DEFAULT cursor-pointer hover:bg-surface-container-low has-[:checked]:border-primary has-[:checked]:bg-primary-fixed transition-all">
+<input class="w-5 h-5 text-primary border-outline focus:ring-primary" name="compound" type="radio" value="cut">
+<span class="ml-3 font-label-md text-label-md text-on-background flex-grow">Cut Resistant (CR)</span>
+</label>
+<label class="flex items-center p-3 border border-outline-variant rounded-DEFAULT cursor-pointer hover:bg-surface-container-low has-[:checked]:border-primary has-[:checked]:bg-primary-fixed transition-all">
+<input class="w-5 h-5 text-primary border-outline focus:ring-primary" name="compound" type="radio" value="heat">
+<span class="ml-3 font-label-md text-label-md text-on-background flex-grow">Heat Resistant (HR)</span>
+</label>
+</div>
+</fieldset>
+<!-- Quantity & Actions -->
+<div class="mt-4 bg-surface rounded-DEFAULT border-t-4 border-primary p-4 shadow-sm flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-background font-bold" for="quantity">Required Quantity</label>
+<div class="flex items-center border border-outline rounded-DEFAULT overflow-hidden h-12">
+<button class="px-3 py-2 bg-surface-container-low hover:bg-surface-variant text-on-surface-variant border-r border-outline h-full" onclick="document.getElementById('quantity').stepDown()" type="button">
+<span class="material-symbols-outlined" style="font-size: 18px;">remove</span>
+</button>
+<input class="w-16 text-center font-label-md text-label-md border-none p-2 focus:ring-0 appearance-none bg-surface" id="quantity" max="100" min="1" name="quantity" type="number" value="4">
+<button class="px-3 py-2 bg-surface-container-low hover:bg-surface-variant text-on-surface-variant border-l border-outline h-full" onclick="document.getElementById('quantity').stepUp()" type="button">
+<span class="material-symbols-outlined" style="font-size: 18px;">add</span>
+</button>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider py-4 rounded-DEFAULT hover:bg-on-primary-fixed-variant transition-colors flex items-center justify-center gap-2 font-bold" type="submit">
+                    Continue to Delivery
+                    <span class="material-symbols-outlined" style="font-size: 20px;">arrow_forward</span>
+</button>
+</div>
+</form>
+</main>
+<!-- Bottom spacing for mobile -->
+<div class="h-8"></div>
+
+
+</body></html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>ZATCO Tyres - Sustainability & Green Rubber Manufacturing</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#00236f",
+                        "secondary": "#bb0112",
+                        "tertiary": "#1d2b3d",
+                        "background": "#f7f9fb"
+                    },
+                    "fontFamily": {
+                        "headline": ["IBM Plex Sans", "sans-serif"],
+                        "body": ["Work Sans", "sans-serif"],
+                        "mono": ["Josefin Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-[#f7f9fb] text-slate-900 flex flex-col min-h-screen">
+
+    <header class="bg-white border-b border-slate-200 w-full sticky top-0 z-50 shadow-sm">
+        <div class="flex justify-between items-center px-4 md:px-12 max-w-[1280px] mx-auto h-20">
+            <a href="home.html" class="flex items-center gap-3">
+                <img src="images/zatco-logo.jpg" alt="ZATCO Tyres"
+                    class="h-10 md:h-12 object-contain rounded bg-black px-3 py-1.5 border border-slate-800 shadow-md">
+            </a>
+            <nav class="hidden lg:flex gap-6 text-sm font-headline font-semibold">
+                <a class="text-slate-700 hover:text-primary transition py-2" href="home.html">Home</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="product-detail.html">Products</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="tyre-finder.html">Tyre Finder</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="compare-tires.html">Compare</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="case-study.html">Case Studies</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="dealer-portal.html">Dealer
+                    Network</a>
+                <a class="text-[#bb0112] border-b-2 border-[#bb0112] py-2" href="sustainability.html">Sustainability</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow py-10 px-4 md:px-12 max-w-[1280px] mx-auto space-y-12">
+        <div class="bg-emerald-950 text-white rounded-xl p-8 shadow-xl border border-emerald-800">
+            <span
+                class="bg-emerald-800 text-white text-[10px] font-mono font-bold px-2.5 py-1 rounded uppercase tracking-wider">ECO-FRIENDLY
+                RUBBER ENGINEERING</span>
+            <h1 class="font-headline font-bold text-3xl md:text-4xl text-white mt-3">ZATCO Green Mobility & Recycling
+                Commitments</h1>
+            <p class="text-emerald-200 text-sm mt-2 max-w-3xl leading-relaxed">
+                Reducing rolling resistance to save vehicle fuel emissions while operating zero-landfill scrap rubber
+                devulcanization plants across India.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white border border-slate-200 p-6 rounded-xl shadow-sm">
+                <span class="material-symbols-outlined text-4xl text-emerald-700 mb-2">eco</span>
+                <h3 class="font-headline font-bold text-xl text-slate-900 mb-2">Low Rolling Resistance (LRR)</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    Advanced silica compounding reduces internal friction during tyre rotation, directly reducing CO2
+                    emissions and saving up to 8% fuel in commercial transport fleets.
+                </p>
+            </div>
+
+            <div class="bg-white border border-slate-200 p-6 rounded-xl shadow-sm">
+                <span class="material-symbols-outlined text-4xl text-emerald-700 mb-2">recycling</span>
+                <h3 class="font-headline font-bold text-xl text-slate-900 mb-2">Zero Landfill Devulcanization</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    100% of factory trim scrap and end-of-life tyres are processed through eco-friendly thermal
+                    devulcanization to produce reclaimed rubber for industrial applications.
+                </p>
+            </div>
+
+            <div class="bg-white border border-slate-200 p-6 rounded-xl shadow-sm">
+                <span class="material-symbols-outlined text-4xl text-emerald-700 mb-2">solar_power</span>
+                <h3 class="font-headline font-bold text-xl text-slate-900 mb-2">Solar Powered Curing Presses</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    Our manufacturing facilities utilize a 3.5 MW rooftop solar installation, powering 40% of thermal
+                    curing energy requirements from renewable clean energy.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-black text-white border-t-4 border-[#bb0112] py-8 text-center text-xs font-mono">
+        © 2026 ZATCO Tyres - zatco tyres Group India. All Rights Reserved.
+    </footer>
+</body>
+
+</html>

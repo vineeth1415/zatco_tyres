@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZATCO - Request Quote Step 1</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600;700&amp;family=Josefin+Sans:wght@300;400;500;600;700&amp;family=Work+Sans:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#fffbff",
+                        "tertiary-fixed-dim": "#b9c7df",
+                        "tertiary-container": "#334154",
+                        "surface-tint": "#4059aa",
+                        "on-surface-variant": "#444651",
+                        "primary": "#00236f",
+                        "on-primary-fixed-variant": "#264191",
+                        "error": "#ba1a1a",
+                        "secondary": "#bb0112",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary-fixed": "#ffdad6",
+                        "surface-container": "#eceef0",
+                        "surface-container-high": "#e6e8ea",
+                        "on-primary-fixed": "#00164e",
+                        "primary-container": "#1e3a8a",
+                        "inverse-surface": "#2d3133",
+                        "secondary-fixed-dim": "#ffb4ab",
+                        "on-secondary-fixed": "#410002",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#b6c4ff",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#3a485b",
+                        "on-background": "#191c1e",
+                        "on-primary-container": "#90a8ff",
+                        "primary-fixed": "#dce1ff",
+                        "on-surface": "#191c1e",
+                        "secondary-container": "#e02928",
+                        "on-tertiary-container": "#9eadc4",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#93000b",
+                        "surface": "#f7f9fb",
+                        "outline-variant": "#c5c5d3",
+                        "tertiary-fixed": "#d5e3fc",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "error-container": "#ffdad6",
+                        "outline": "#757682",
+                        "surface-bright": "#f7f9fb",
+                        "surface-variant": "#e0e3e5",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary": "#1d2b3d",
+                        "background": "#f7f9fb",
+                        "on-tertiary-fixed": "#0d1c2e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "max-width": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Josefin Sans"],
+                        "display-lg-mobile": ["IBM Plex Sans"],
+                        "headline-lg": ["IBM Plex Sans"],
+                        "label-sm": ["Josefin Sans"],
+                        "body-md": ["Work Sans"],
+                        "body-lg": ["Work Sans"],
+                        "display-lg": ["IBM Plex Sans"],
+                        "headline-md": ["IBM Plex Sans"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md text-body-md">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-background docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows flex justify-between items-center w-full px-margin-desktop max-w-max-width mx-auto h-20 z-50 relative">
+<div class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">
+            ZATCO
+        </div>
+<nav class="hidden md:flex gap-gutter items-center">
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Tires</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Solutions</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Industries</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Resources</a>
+</nav>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-4 py-2 rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-colors hidden md:block uppercase">
+            Request Quote
+        </button>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop py-12">
+<!-- Progress Indicator -->
+<div class="mb-12 max-w-3xl mx-auto">
+<div class="flex items-center justify-between relative">
+<!-- Line -->
+<div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-full h-1 bg-surface-variant z-0"></div>
+<div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-1/3 h-1 bg-primary z-0 transition-all duration-300"></div>
+<!-- Steps -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md border-2 border-primary">
+                        1
+                    </div>
+<span class="mt-2 font-label-sm text-label-sm text-primary uppercase">Requirements</span>
+</div>
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-surface text-on-surface-variant flex items-center justify-center font-label-md text-label-md border-2 border-outline-variant">
+                        2
+                    </div>
+<span class="mt-2 font-label-sm text-label-sm text-on-surface-variant uppercase">Details</span>
+</div>
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-surface text-on-surface-variant flex items-center justify-center font-label-md text-label-md border-2 border-outline-variant">
+                        3
+                    </div>
+<span class="mt-2 font-label-sm text-label-sm text-on-surface-variant uppercase">Review</span>
+</div>
+</div>
+</div>
+<div class="max-w-3xl mx-auto">
+<div class="bg-surface p-8 rounded-lg border border-outline-variant shadow-sm relative overflow-hidden">
+<!-- Top Accent Line -->
+<div class="absolute top-0 left-0 w-full h-1 bg-primary"></div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">Quote Requirements</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Please specify your technical requirements to generate an accurate quote.</p>
+<form class="space-y-6">
+<!-- Tire Category -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2 uppercase">Tire Category</label>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Option 1 -->
+<label class="cursor-pointer relative">
+<input checked="" class="peer sr-only" name="category" type="radio"/>
+<div class="p-4 border border-outline-variant rounded bg-surface-container-lowest peer-checked:border-primary peer-checked:border-2 peer-checked:bg-primary-fixed-dim/10 hover:bg-surface-container-low transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="material-symbols-outlined text-primary">conveyor_belt</span>
+<span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity">check_circle</span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface font-bold">Earthmoving (OTR)</h3>
+</div>
+</label>
+<!-- Option 2 -->
+<label class="cursor-pointer relative">
+<input class="peer sr-only" name="category" type="radio"/>
+<div class="p-4 border border-outline-variant rounded bg-surface-container-lowest peer-checked:border-primary peer-checked:border-2 peer-checked:bg-primary-fixed-dim/10 hover:bg-surface-container-low transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="material-symbols-outlined text-on-surface-variant">forklift</span>
+<span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity">check_circle</span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface font-bold">Material Handling</h3>
+</div>
+</label>
+<!-- Option 3 -->
+<label class="cursor-pointer relative">
+<input class="peer sr-only" name="category" type="radio"/>
+<div class="p-4 border border-outline-variant rounded bg-surface-container-lowest peer-checked:border-primary peer-checked:border-2 peer-checked:bg-primary-fixed-dim/10 hover:bg-surface-container-low transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="material-symbols-outlined text-on-surface-variant">local_shipping</span>
+<span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity">check_circle</span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface font-bold">Commercial Truck</h3>
+</div>
+</label>
+</div>
+</div>
+<!-- Usage Environment & Size -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2 uppercase" for="environment">Usage Environment</label>
+<div class="relative">
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary appearance-none" id="environment">
+<option disabled="" selected="" value="">Select environment...</option>
+<option value="mining">Underground Mining</option>
+<option value="surface_mining">Surface Mining</option>
+<option value="construction">Heavy Construction</option>
+<option value="quarry">Quarry &amp; Aggregate</option>
+<option value="port">Port &amp; Terminal</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 transform -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2 uppercase" for="size">Tire Size <span class="text-on-surface-variant font-normal text-sm lowercase">(Optional)</span></label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-4 py-3 font-label-md text-label-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary placeholder:text-outline" id="size" placeholder="e.g., 29.5R25" type="text"/>
+</div>
+</div>
+<!-- Quantity & Urgency -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-6 border-b border-outline-variant">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2 uppercase" for="quantity">Quantity Needed</label>
+<div class="flex items-center">
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant border-r-0 rounded-l bg-surface-container hover:bg-surface-container-high text-on-surface-variant transition-colors" onclick="document.getElementById('quantity').stepDown()" type="button">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<input class="w-full text-center bg-surface-container-lowest border-y border-outline-variant py-3 font-label-md text-label-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary appearance-none" id="quantity" min="1" type="number" value="4"/>
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant border-l-0 rounded-r bg-surface-container hover:bg-surface-container-high text-on-surface-variant transition-colors" onclick="document.getElementById('quantity').stepUp()" type="button">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex justify-end pt-4">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-8 py-3 rounded-lg hover:bg-primary-container transition-colors uppercase flex items-center gap-2" type="button">
+                            Next Step
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Technical Assistance Card -->
+<div class="mt-6 bg-surface-container p-4 rounded-lg flex items-start gap-4 border border-outline-variant">
+<span class="material-symbols-outlined text-primary mt-1">support_agent</span>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface font-bold">Need Technical Assistance?</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Our engineering team can help identify the optimal tread pattern and compound for your specific operating conditions.</p>
+<a class="font-label-md text-label-md text-primary hover:underline mt-2 inline-block" href="#">Contact Engineering</a>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-margin-desktop bg-tertiary dark:bg-on-tertiary-fixed border-t border-outline dark:border-outline-variant flat mt-auto">
+<div class="max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="font-headline-md text-headline-md text-on-tertiary">
+                ZATCO
+            </div>
+<nav class="flex gap-6 flex-wrap justify-center font-label-sm text-label-sm">
+<a class="text-on-tertiary-container hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-tertiary-container hover:text-white transition-colors" href="#">Technical Specs</a>
+<a class="text-on-tertiary-container hover:text-white transition-colors" href="#">Compliance</a>
+<a class="text-on-tertiary-container hover:text-white transition-colors" href="#">Contact</a>
+</nav>
+<div class="font-body-md text-body-md text-on-tertiary-container text-sm">
+                © 2024 ZATCO Industrial Tires. All rights reserved.
+            </div>
+</div>
+</footer>
+</body></html>

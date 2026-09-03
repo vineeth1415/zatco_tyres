@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZATCO Tires - Homepage</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=Josefin+Sans:wght@300;400;500;600;700&amp;family=Work+Sans:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-surface-variant": "#444651",
+                "secondary-container": "#e02928",
+                "surface-container": "#eceef0",
+                "on-primary-fixed": "#00164e",
+                "inverse-primary": "#b6c4ff",
+                "on-error": "#ffffff",
+                "tertiary": "#1d2b3d",
+                "primary-fixed-dim": "#b6c4ff",
+                "on-secondary": "#ffffff",
+                "outline-variant": "#c5c5d3",
+                "on-background": "#191c1e",
+                "on-secondary-fixed-variant": "#93000b",
+                "surface-container-highest": "#e0e3e5",
+                "surface-variant": "#e0e3e5",
+                "secondary-fixed-dim": "#ffb4ab",
+                "surface-bright": "#f7f9fb",
+                "error": "#ba1a1a",
+                "on-primary": "#ffffff",
+                "on-tertiary-container": "#9eadc4",
+                "secondary-fixed": "#ffdad6",
+                "surface-container-lowest": "#ffffff",
+                "on-tertiary-fixed-variant": "#3a485b",
+                "secondary": "#bb0112",
+                "surface-container-high": "#e6e8ea",
+                "surface-container-low": "#f2f4f6",
+                "inverse-surface": "#2d3133",
+                "surface": "#f7f9fb",
+                "surface-tint": "#4059aa",
+                "on-primary-container": "#90a8ff",
+                "tertiary-container": "#334154",
+                "on-secondary-container": "#fffbff",
+                "outline": "#757682",
+                "on-primary-fixed-variant": "#264191",
+                "on-tertiary-fixed": "#0d1c2e",
+                "background": "#f7f9fb",
+                "primary-fixed": "#dce1ff",
+                "on-surface": "#191c1e",
+                "tertiary-fixed": "#d5e3fc",
+                "surface-dim": "#d8dadc",
+                "primary": "#00236f",
+                "on-tertiary": "#ffffff",
+                "on-secondary-fixed": "#410002",
+                "error-container": "#ffdad6",
+                "on-error-container": "#93000a",
+                "inverse-on-surface": "#eff1f3",
+                "primary-container": "#1e3a8a",
+                "tertiary-fixed-dim": "#b9c7df"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "base": "8px",
+                "gutter": "24px",
+                "margin-desktop": "64px",
+                "margin-mobile": "16px",
+                "max-width": "1280px"
+        },
+        "fontFamily": {
+                "body-md": [
+                        "Work Sans"
+                ],
+                "headline-lg": [
+                        "IBM Plex Sans"
+                ],
+                "label-sm": [
+                        "Josefin Sans"
+                ],
+                "headline-md": [
+                        "IBM Plex Sans"
+                ],
+                "display-lg": [
+                        "IBM Plex Sans"
+                ],
+                "body-lg": [
+                        "Work Sans"
+                ],
+                "label-md": [
+                        "Josefin Sans"
+                ],
+                "display-lg-mobile": [
+                        "IBM Plex Sans"
+                ]
+        },
+        "fontSize": {
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "display-lg-mobile": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "fontWeight": "700"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased flex flex-col min-h-screen font-headline-lg">
+<!-- TopAppBar -->
+<header class="bg-on-background border-b-2 border-secondary w-full sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto h-20">
+<div class="flex items-center gap-4">
+<button class="text-on-primary p-2 hover:bg-tertiary active:scale-[0.98] focus:ring-2 focus:ring-outline rounded-DEFAULT transition-all duration-200 outline-none">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="flex items-center">
+<img alt="ZATCO Logo" class="h-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0Q1f5tnFq0eQ0hBkibFQaUqsJFo-zyaRLvdWSYJCyeASbBsidbszcJkS5CuyL6JWAXbcU5arHtTjD3rJUoPWNz-ciEZ4fdQG1g5wc-5XXvEBb2iwXOJo5cLzj6c_ycqquaeXhjdSn641U-yuOWSUlMvJElptOvRntiKAaDA4AxpShC8ynLJ5VHo4koIw8jjJcytUaKOkEq3PDkwfK6Um2mbbdNLxUAycBOuKbFmrB03yST1msra_rzIs_Clq9fpFVMhM"/>
+</div>
+</div>
+<nav class="hidden md:flex gap-8">
+<div class="relative nav-dropdown h-full flex items-center">
+<a class="text-on-primary font-medium hover:text-secondary transition-colors duration-200 py-6 flex items-center gap-1 cursor-pointer" href="#">Products <span class="material-symbols-outlined text-[20px]">expand_more</span></a>
+<div class="dropdown-menu hidden absolute top-[78px] left-0 bg-surface border border-outline-variant shadow-lg min-w-[200px] z-50">
+<a class="block px-4 py-3 text-on-surface hover:bg-surface-container hover:text-primary transition-colors text-body-md font-body-md" href="#">Agriculture</a>
+<a class="block px-4 py-3 text-on-surface hover:bg-surface-container hover:text-primary transition-colors text-body-md font-body-md" href="#">Earthmoving</a>
+<a class="block px-4 py-3 text-on-surface hover:bg-surface-container hover:text-primary transition-colors text-body-md font-body-md" href="#">Industrial</a>
+</div>
+</div>
+<a class="text-on-primary font-medium hover:text-secondary transition-colors duration-200 py-6" href="#">Sustainability</a>
+<a class="text-on-primary font-medium hover:text-secondary transition-colors duration-200 py-6" href="#">Media</a>
+<a class="text-on-primary font-medium hover:text-secondary transition-colors duration-200 py-6" href="#">Contact</a>
+</nav>
+<button class="text-on-primary p-2 hover:bg-tertiary active:scale-[0.98] focus:ring-2 focus:ring-outline rounded-DEFAULT transition-all duration-200 outline-none">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</button>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative w-full h-[600px] flex items-center bg-on-background overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-50" data-alt="A wide shot of a massive, modern industrial manufacturing facility under a dramatic, cloudy sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfdI1K_60A1tN5JizEADtESFJDWE18nlUNnnMBw65CXifDOmmJwWbiAU0m9UUnyYB7-WoKF6uc-OOLTtLMQrzowUXLei6Ir9zPoiW8PD__ntQekl_0tKAdmrhSvb8xgeS7GLpOiSGSPtsKenrK0JkWvm3z5o0-Ekoa0YDidvgEi7Z8Kvor-gayJkwudb8swEb43hDFLZ052OKpQCpqR-mz_JgWckzYVk3DHrtr4qB17rv5cbZbchZSM_hgDL5vCGjXMc8"/>
+<div class="absolute inset-0 bg-gradient-to-r from-on-background via-on-background/80 to-transparent"></div>
+</div>
+<div class="relative z-10 w-full px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="max-w-2xl text-on-primary">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-secondary text-on-primary text-label-sm font-label-sm uppercase tracking-widest mb-4 rounded-DEFAULT">
+<span class="material-symbols-outlined text-[16px]">sensors</span> IoT Enabled
+</div>
+<h1 class="text-display-lg-mobile md:text-display-lg font-display-lg-mobile md:font-display-lg font-bold mb-6 tracking-tighter text-on-primary">The Future of Smart Industrial Tires.</h1>
+<p class="text-body-lg font-body-lg mb-8 text-surface-variant leading-relaxed">Integrating advanced Internet of Things (IoT) sensors to deliver real-time data for maximum durability, grip, and longevity in the world's most demanding environments.</p>
+<button class="bg-secondary hover:bg-secondary-container active:scale-[0.98] focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-on-background text-on-primary text-label-md font-label-md uppercase px-8 py-4 rounded-DEFAULT transition-all duration-200 shadow-md outline-none border border-secondary">
+                        Explore Smart Catalog
+                    </button>
+</div>
+</div>
+</section>
+<!-- Quick Tyre Finder -->
+<section class="relative -mt-16 z-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto mb-24">
+<div class="bg-surface border border-outline-variant shadow-md p-8">
+<h2 class="text-headline-md font-headline-md font-semibold text-primary mb-6 border-b-2 border-secondary pb-2 inline-block">Quick Tyre Finder</h2>
+<form class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
+<div class="flex flex-col gap-2">
+<label class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">Vehicle Segment</label>
+<select class="form-select w-full border-outline-variant focus:border-primary focus:ring-0 rounded-DEFAULT bg-surface text-on-surface h-12">
+<option>Select Segment</option>
+<option>Agriculture</option>
+<option>Earthmoving</option>
+<option>Industrial</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">Rim Size</label>
+<select class="form-select w-full border-outline-variant focus:border-primary focus:ring-0 rounded-DEFAULT bg-surface text-on-surface h-12">
+<option>Select Size</option>
+<option>16"</option>
+<option>20"</option>
+<option>22.5"</option>
+<option>24"</option>
+</select>
+</div>
+<button class="bg-secondary hover:bg-secondary-container active:scale-[0.98] focus:ring-2 focus:ring-secondary focus:ring-offset-2 text-on-primary text-label-md font-label-md uppercase h-12 rounded-DEFAULT transition-all duration-200 flex justify-center items-center gap-2 outline-none" type="submit">
+<span class="material-symbols-outlined">search</span> Find Matches
+                    </button>
+</form>
+</div>
+</section>
+<!-- Global Presence & News Grid -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto mb-24 grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Global Presence (Bento Style) -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<h3 class="text-headline-md font-headline-md font-semibold text-primary tracking-tighter">Global Presence</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
+<div class="bg-surface border border-outline-variant p-6 relative overflow-hidden group hover:border-primary transition-colors flex flex-col justify-end min-h-[300px]">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-500" data-alt="A detailed, modern architectural visualization of a high-tech corporate manufacturing facility at twilight. The building features stark, angular lines, extensive glass facades glowing with cool blue interior light, and structural steel elements. The scene is immaculate and highly professional, reflecting a high-performance industrial brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvMUQsLpp8Kt2zfJ6FG4WP3IOwGPGJyeX3qwZGRK1Bl08oZgmuMCC5oaA415IH_AQkedsDYdA-fkMk_ZQ00s28thSapeafsSvNZZXDFQBMevWEiDnO3kpMqcXKe9isJYjuqY-q_eMmErx3xOf8jCmnBpfTt9ib8luzpBvRwD5YdZdGJoH_oYq_6iuG1aZ3fJbcB7WFmmCGEhsOCE5yX-NWgRUrQNChHOVPIy58S7lfRW6br1kqnB4bhA"/>
+</div>
+<div class="relative z-10 bg-surface/90 backdrop-blur-sm p-4 border-l-4 border-secondary">
+<h4 class="text-headline-lg font-headline-lg font-bold text-primary mb-1">State-of-the-art Manufacturing</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">Our flagship facility setting new standards in automated production.</p>
+</div>
+</div>
+<div class="grid grid-rows-2 gap-6">
+<div class="bg-surface border border-outline-variant p-6 flex flex-col justify-center items-center text-center hover:bg-surface-container transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-primary text-[48px] mb-4">public</span>
+<div class="text-headline-lg font-headline-lg font-bold text-primary">45+</div>
+<div class="text-label-md font-label-md text-on-surface-variant uppercase">Countries Served</div>
+</div>
+<div class="bg-surface border border-outline-variant p-6 flex flex-col justify-center items-center text-center hover:bg-surface-container transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-primary text-[48px] mb-4">factory</span>
+<div class="text-headline-lg font-headline-lg font-bold text-primary">6</div>
+<div class="text-label-md font-label-md text-on-surface-variant uppercase">Global Plants</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Latest News -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<h3 class="text-headline-md font-headline-md font-semibold text-primary tracking-tighter">Latest News</h3>
+<div class="flex flex-col gap-4">
+<a class="block bg-surface border border-outline-variant p-4 hover:border-primary transition-colors" href="#">
+<div class="text-label-sm font-label-sm text-secondary mb-2 uppercase tracking-widest">Press Release</div>
+<h4 class="text-body-lg font-body-lg font-semibold text-on-surface mb-2">ZATCO Unveils New Ultra-Durable Mining Series</h4>
+<p class="text-body-md font-body-md text-on-surface-variant line-clamp-2 text-sm">A new compound formulation promises 20% longer life in severe mining applications.</p>
+</a>
+<a class="block bg-surface border border-outline-variant p-4 hover:border-primary transition-colors" href="#">
+<div class="text-label-sm font-label-sm text-secondary mb-2 uppercase tracking-widest">Corporate</div>
+<h4 class="text-body-lg font-body-lg font-semibold text-on-surface mb-2">Q3 Sustainability Report Published</h4>
+<p class="text-body-md font-body-md text-on-surface-variant line-clamp-2 text-sm">Significant reductions in water usage and carbon footprint achieved across all European facilities.</p>
+</a>
+<a class="block bg-surface border border-outline-variant p-4 hover:border-primary transition-colors" href="#">
+<div class="text-label-sm font-label-sm text-secondary mb-2 uppercase tracking-widest">Event</div>
+<h4 class="text-body-lg font-body-lg font-semibold text-on-surface mb-2">Join Us at the Hannover Messe 2024</h4>
+<p class="text-body-md font-body-md text-on-surface-variant line-clamp-2 text-sm">Experience our latest heavy-duty commercial range at Hall 5, Stand B24.</p>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-tertiary text-on-tertiary border-t-4 border-secondary mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-12 max-w-max-width mx-auto">
+<div class="flex flex-col gap-4">
+<div class="text-headline-md font-headline-md font-bold text-on-tertiary tracking-tighter">
+<img alt="ZATCO Logo" class="h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBntKKU0nnTd_rF0Idx1lAU_vaujV5mjNEfoTaRhXfMmsGVAU_M9SSfy3pmJnoWIIncfEUEvcI_m9nj3yVvMdTU7aSgD_wJyjWA3DRoyg5HtRElTswnWQ0b6u7AKoe8Z0Y1Rm5-XM8SNXYtz3CwYrzQxaSV4FEg-L6Qlc_eOwO1s3Fnmov-FMcgg1Lv8zBntA2D019RfMJXiFZcog_UHZgUDbiMQ3_3QwVP2HaSWY-TFrSuYEY8sW4b6SyZCLuXOV81lGg"/>
+</div>
+<p class="text-body-md font-body-md text-tertiary-fixed-dim text-sm mt-2">Engineered for Performance.</p>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="text-label-md font-label-md uppercase mb-2 text-surface-variant tracking-widest">Legal</h4>
+<a class="text-label-sm font-label-sm text-tertiary-fixed-dim hover:text-on-tertiary transition-colors duration-300" href="#">Terms of Use</a>
+<a class="text-label-sm font-label-sm text-tertiary-fixed-dim hover:text-on-tertiary transition-colors duration-300" href="#">Privacy Policy</a>
+<a class="text-label-sm font-label-sm text-tertiary-fixed-dim hover:text-on-tertiary transition-colors duration-300" href="#">Cookie Settings</a>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="text-label-md font-label-md uppercase mb-2 text-surface-variant tracking-widest">Partners</h4>
+<a class="text-label-sm font-label-sm text-tertiary-fixed-dim hover:text-on-tertiary transition-colors duration-300" href="#">Dealer Portal</a>
+<a class="text-label-sm font-label-sm text-tertiary-fixed-dim hover:text-on-tertiary transition-colors duration-300" href="#">Global Offices</a>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="text-label-md font-label-md uppercase mb-2 text-surface-variant tracking-widest">Connect</h4>
+<div class="flex gap-4">
+<a class="text-tertiary-fixed-dim hover:text-on-tertiary transition-colors duration-300" href="#"><span class="material-symbols-outlined">mail</span></a>
+<a class="text-tertiary-fixed-dim hover:text-on-tertiary transition-colors duration-300" href="#"><span class="material-symbols-outlined">share</span></a>
+</div>
+</div>
+</div>
+<div class="border-t border-tertiary-container">
+<div class="px-margin-mobile md:px-margin-desktop py-6 max-w-max-width mx-auto text-label-sm font-label-sm text-tertiary-fixed-dim">
+                © 2024 ZATCO Tires. All Rights Reserved. Engineered for Performance.
+            </div>
+</div>
+</footer>
+</body></html>

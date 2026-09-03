@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>ZATCO Tyres - Authorized Dealer Network & B2B Portal</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#00236f",
+                        "secondary": "#bb0112",
+                        "tertiary": "#1d2b3d",
+                        "background": "#f7f9fb"
+                    },
+                    "fontFamily": {
+                        "headline": ["IBM Plex Sans", "sans-serif"],
+                        "body": ["Work Sans", "sans-serif"],
+                        "mono": ["Josefin Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-[#f7f9fb] text-slate-900 flex flex-col min-h-screen">
+
+    <header class="bg-white border-b border-slate-200 w-full sticky top-0 z-50 shadow-sm">
+        <div class="flex justify-between items-center px-4 md:px-12 max-w-[1280px] mx-auto h-20">
+            <a href="home.html" class="flex items-center gap-3">
+                <img src="images/zatco-logo.jpg" alt="ZATCO Tyres"
+                    class="h-10 md:h-12 object-contain rounded bg-black px-3 py-1.5 border border-slate-800 shadow-md">
+            </a>
+            <nav class="hidden lg:flex gap-6 text-sm font-headline font-semibold">
+                <a class="text-slate-700 hover:text-primary transition py-2" href="home.html">Home</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="product-detail.html">Products</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="tyre-finder.html">Tyre Finder</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="compare-tires.html">Compare</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="case-study.html">Case Studies</a>
+                <a class="text-[#bb0112] border-b-2 border-[#bb0112] py-2" href="dealer-portal.html">Dealer Network</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="contact.html">Contact</a>
+            </nav>
+            <a href="dealer-login.html"
+                class="bg-[#00236f] hover:bg-[#001850] text-white text-xs font-headline font-semibold px-4 py-2 rounded transition">
+                Dealer Sign In
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow py-10 px-4 md:px-12 max-w-[1280px] mx-auto space-y-12">
+        <div
+            class="bg-black text-white rounded-xl p-8 shadow-xl border border-slate-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <span
+                    class="bg-[#bb0112] text-white text-[10px] font-mono font-bold px-2.5 py-1 rounded uppercase tracking-wider">PAN-INDIA
+                    NETWORK</span>
+                <h1 class="font-headline font-bold text-3xl md:text-4xl text-white mt-2">ZATCO Authorized Dealership &
+                    Stockist Network</h1>
+                <p class="text-slate-300 text-sm mt-1">Locate verified retail showrooms or join the ZATCO B2B dealership
+                    program for exclusive territorial rights.</p>
+            </div>
+            <a href="https://wa.me/919876543210?text=Become%20ZATCO%20Dealer" target="_blank"
+                class="bg-emerald-700 hover:bg-emerald-600 text-white font-headline font-semibold text-xs uppercase px-5 py-3 rounded transition flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm">chat</span> Apply for Dealership
+            </a>
+        </div>
+
+        <!-- Dealership Partnership Tiers -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white border border-slate-200 p-6 rounded-xl shadow-sm">
+                <div
+                    class="w-10 h-10 rounded bg-blue-50 text-[#00236f] flex items-center justify-center font-bold mb-4">
+                    T1</div>
+                <h3 class="font-headline font-bold text-lg text-slate-900 mb-1">Tier 1: Authorized Retailer</h3>
+                <p class="text-xs text-slate-600 mb-4">Stocking shop for 2-wheeler and scooter tyres with direct
+                    warranty registration support.</p>
+                <ul class="text-xs font-mono text-slate-700 space-y-1.5 mb-6">
+                    <li>• Min Stock: 50 Tyres</li>
+                    <li>• Free Display Stand & Branding</li>
+                    <li>• Instant Digital Warranty App</li>
+                </ul>
+                <a href="contact.html" class="text-xs font-bold text-[#00236f] hover:underline block">Apply for Retailer
+                    Tier →</a>
+            </div>
+
+            <div class="bg-white border border-slate-200 p-6 rounded-xl shadow-sm border-t-4 border-[#bb0112]">
+                <div class="w-10 h-10 rounded bg-red-50 text-[#bb0112] flex items-center justify-center font-bold mb-4">
+                    T2</div>
+                <h3 class="font-headline font-bold text-lg text-slate-900 mb-1">Tier 2: District Distributor</h3>
+                <p class="text-xs text-slate-600 mb-4">Exclusive district-level distribution rights for LCV and tractor
+                    commercial tyres.</p>
+                <ul class="text-xs font-mono text-slate-700 space-y-1.5 mb-6">
+                    <li>• Min Stock: 300 Commercial Units</li>
+                    <li>• Protected District Territory</li>
+                    <li>• 30-Day B2B Credit Facility</li>
+                </ul>
+                <a href="contact.html" class="text-xs font-bold text-[#bb0112] hover:underline block">Apply for
+                    Distributor Tier →</a>
+            </div>
+
+            <div class="bg-white border border-slate-200 p-6 rounded-xl shadow-sm">
+                <div
+                    class="w-10 h-10 rounded bg-emerald-50 text-emerald-800 flex items-center justify-center font-bold mb-4">
+                    T3</div>
+                <h3 class="font-headline font-bold text-lg text-slate-900 mb-1">Tier 3: Master State Stockist</h3>
+                <p class="text-xs text-slate-600 mb-4">Statewide master warehouse stocking complete 26-spec ZATCO tyre
+                    catalogue.</p>
+                <ul class="text-xs font-mono text-slate-700 space-y-1.5 mb-6">
+                    <li>• Master Warehouse Allocation</li>
+                    <li>• Factory Direct Container Rates</li>
+                    <li>• Dedicated Key Account Manager</li>
+                </ul>
+                <a href="contact.html" class="text-xs font-bold text-emerald-800 hover:underline block">Apply for Master
+                    Stockist →</a>
+            </div>
+        </section>
+
+        <!-- Searchable Dealer Directory Grid -->
+        <section class="bg-white border border-slate-200 rounded-xl p-8 shadow-sm">
+            <h2 class="font-headline font-bold text-2xl text-[#00236f] mb-6">Verified Pan-India ZATCO Dealer Network
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Dealer 1: Kochi -->
+                <div class="p-5 bg-slate-50 border border-slate-200 rounded-lg">
+                    <span
+                        class="text-[10px] font-mono bg-blue-100 text-[#00236f] px-2 py-0.5 rounded font-bold">KERALA</span>
+                    <h3 class="font-headline font-bold text-base text-slate-900 mt-2">Royal Tyre World</h3>
+                    <p class="text-xs text-slate-600 mt-1">NH Bypass, Edappally Junction, Kochi, Kerala 682024</p>
+                    <div
+                        class="mt-4 pt-3 border-t border-slate-200 text-xs font-mono flex justify-between items-center">
+                        <span class="text-slate-700 font-bold">+91 94471 23456</span>
+                        <a href="https://wa.me/919447123456" target="_blank"
+                            class="text-emerald-700 font-bold hover:underline">WhatsApp →</a>
+                    </div>
+                </div>
+
+                <!-- Dealer 2: Calicut -->
+                <div class="p-5 bg-slate-50 border border-slate-200 rounded-lg">
+                    <span
+                        class="text-[10px] font-mono bg-blue-100 text-[#00236f] px-2 py-0.5 rounded font-bold">KERALA</span>
+                    <h3 class="font-headline font-bold text-base text-slate-900 mt-2">Malabar Tyre House</h3>
+                    <p class="text-xs text-slate-600 mt-1">Mavoor Road, Near KSRTC Stand, Kozhikode, Kerala 673004</p>
+                    <div
+                        class="mt-4 pt-3 border-t border-slate-200 text-xs font-mono flex justify-between items-center">
+                        <span class="text-slate-700 font-bold">+91 94472 34567</span>
+                        <a href="https://wa.me/919447234567" target="_blank"
+                            class="text-emerald-700 font-bold hover:underline">WhatsApp →</a>
+                    </div>
+                </div>
+
+                <!-- Dealer 3: Thrissur -->
+                <div class="p-5 bg-slate-50 border border-slate-200 rounded-lg">
+                    <span
+                        class="text-[10px] font-mono bg-blue-100 text-[#00236f] px-2 py-0.5 rounded font-bold">KERALA</span>
+                    <h3 class="font-headline font-bold text-base text-slate-900 mt-2">Thrissur Commercial Tyre Care</h3>
+                    <p class="text-xs text-slate-600 mt-1">Swaraj Round North, Thrissur, Kerala 680001</p>
+                    <div
+                        class="mt-4 pt-3 border-t border-slate-200 text-xs font-mono flex justify-between items-center">
+                        <span class="text-slate-700 font-bold">+91 94473 45678</span>
+                        <a href="https://wa.me/919447345678" target="_blank"
+                            class="text-emerald-700 font-bold hover:underline">WhatsApp →</a>
+                    </div>
+                </div>
+
+                <!-- Dealer 4: Bangalore -->
+                <div class="p-5 bg-slate-50 border border-slate-200 rounded-lg">
+                    <span
+                        class="text-[10px] font-mono bg-amber-100 text-amber-900 px-2 py-0.5 rounded font-bold">KARNATAKA</span>
+                    <h3 class="font-headline font-bold text-base text-slate-900 mt-2">Bangalore Commercial Tyre Hub</h3>
+                    <p class="text-xs text-slate-600 mt-1">Peenya Industrial Area Stage 2, Bengaluru 560058</p>
+                    <div
+                        class="mt-4 pt-3 border-t border-slate-200 text-xs font-mono flex justify-between items-center">
+                        <span class="text-slate-700 font-bold">+91 98801 12233</span>
+                        <a href="https://wa.me/919880112233" target="_blank"
+                            class="text-emerald-700 font-bold hover:underline">WhatsApp →</a>
+                    </div>
+                </div>
+
+                <!-- Dealer 5: Chennai -->
+                <div class="p-5 bg-slate-50 border border-slate-200 rounded-lg">
+                    <span
+                        class="text-[10px] font-mono bg-purple-100 text-purple-900 px-2 py-0.5 rounded font-bold">TAMIL
+                        NADU</span>
+                    <h3 class="font-headline font-bold text-base text-slate-900 mt-2">Chennai Auto & Tyre Traders</h3>
+                    <p class="text-xs text-slate-600 mt-1">GNT Road, Red Hills, Chennai, Tamil Nadu 600052</p>
+                    <div
+                        class="mt-4 pt-3 border-t border-slate-200 text-xs font-mono flex justify-between items-center">
+                        <span class="text-slate-700 font-bold">+91 98400 55667</span>
+                        <a href="https://wa.me/919840055667" target="_blank"
+                            class="text-emerald-700 font-bold hover:underline">WhatsApp →</a>
+                    </div>
+                </div>
+
+                <!-- Dealer 6: Jaipur -->
+                <div class="p-5 bg-slate-50 border border-slate-200 rounded-lg">
+                    <span
+                        class="text-[10px] font-mono bg-red-100 text-[#bb0112] px-2 py-0.5 rounded font-bold">RAJASTHAN</span>
+                    <h3 class="font-headline font-bold text-base text-slate-900 mt-2">Rajasthan Agrityre Agencies</h3>
+                    <p class="text-xs text-slate-600 mt-1">VKI Industrial Area Road No. 9, Jaipur, Rajasthan 302013</p>
+                    <div
+                        class="mt-4 pt-3 border-t border-slate-200 text-xs font-mono flex justify-between items-center">
+                        <span class="text-slate-700 font-bold">+91 94140 77889</span>
+                        <a href="https://wa.me/919414077889" target="_blank"
+                            class="text-emerald-700 font-bold hover:underline">WhatsApp →</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black text-white border-t-4 border-[#bb0112] py-8 text-center text-xs font-mono">
+        © 2026 ZATCO Tyres - zatco tyres Group India. All Rights Reserved.
+    </footer>
+</body>
+
+</html>

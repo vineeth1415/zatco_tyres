@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>ZATCO Tyres - Full Product Catalogue & Engineering Specifications</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#00236f",
+                        "secondary": "#bb0112",
+                        "tertiary": "#1d2b3d",
+                        "background": "#f7f9fb"
+                    },
+                    "fontFamily": {
+                        "headline": ["IBM Plex Sans", "sans-serif"],
+                        "body": ["Work Sans", "sans-serif"],
+                        "mono": ["Josefin Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .font-headline {
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+
+        .font-mono {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-[#f7f9fb] text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Top Navigation Header -->
+    <header class="bg-white border-b border-slate-200 w-full sticky top-0 z-50 shadow-sm">
+        <div class="flex justify-between items-center w-full px-4 md:px-12 max-w-[1280px] mx-auto h-20">
+            <a href="home.html" class="flex items-center gap-3">
+                <img src="images/zatco-logo.jpg" alt="ZATCO Tyres"
+                    class="h-10 md:h-12 object-contain rounded bg-black px-3 py-1.5 border border-slate-800 shadow-md">
+            </a>
+            <nav class="hidden lg:flex items-center gap-6 text-sm font-headline font-semibold">
+                <a class="text-slate-700 hover:text-primary transition py-2" href="home.html">Home</a>
+                <a class="text-[#bb0112] border-b-2 border-[#bb0112] py-2" href="product-detail.html">Products</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="tyre-finder.html">Tyre Finder</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="compare-tires.html">Compare</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="case-study.html">Case Studies</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="dealer-portal.html">Dealer
+                    Network</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="about.html">About Us</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="contact.html">Contact</a>
+            </nav>
+            <a href="request-quote.html"
+                class="bg-[#00236f] hover:bg-[#001850] text-white text-xs font-headline font-semibold px-4 py-2 rounded transition">
+                Request Bulk Quote
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow py-10">
+        <div class="px-4 md:px-12 max-w-[1280px] mx-auto">
+            <!-- Header Banner -->
+            <div
+                class="bg-black text-white rounded-xl p-8 mb-10 shadow-lg border border-slate-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <div>
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#bb0112]/20 border border-[#bb0112]/40 text-[#ffb4ab] text-xs font-mono font-bold uppercase mb-3">
+                        ISO 9001:2015 & BIS ISI CERTIFIED RUBBER
+                    </div>
+                    <h1 class="font-headline font-bold text-3xl md:text-4xl text-white tracking-tight">ZATCO Product
+                        Catalogue & Engineering Specs</h1>
+                    <p class="text-slate-300 text-sm mt-2 max-w-2xl">High-performance tyres for 2-Wheelers, 3-Wheelers,
+                        Light Commercial Vehicles (LCV), Tractors, and Farm Implements.</p>
+                </div>
+                <a href="compare-tires.html"
+                    class="bg-[#bb0112] hover:bg-red-700 text-white font-headline font-semibold text-xs uppercase px-5 py-3 rounded shadow transition flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm">compare</span>
+                    <span>Compare Models Side-by-Side</span>
+                </a>
+            </div>
+
+            <!-- Category Filter Buttons -->
+            <div class="flex flex-wrap gap-2 mb-8 border-b border-slate-200 pb-4">
+                <button onclick="filterCategory('all')"
+                    class="cat-btn active px-4 py-2 rounded text-xs font-headline font-bold bg-[#00236f] text-white transition">All
+                    Categories (26 Models)</button>
+                <button onclick="filterCategory('motorcycle')"
+                    class="cat-btn px-4 py-2 rounded text-xs font-headline font-bold bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition">Motorcycle</button>
+                <button onclick="filterCategory('scooter')"
+                    class="cat-btn px-4 py-2 rounded text-xs font-headline font-bold bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition">Scooter</button>
+                <button onclick="filterCategory('3wheeler')"
+                    class="cat-btn px-4 py-2 rounded text-xs font-headline font-bold bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition">3-Wheeler
+                    / Auto</button>
+                <button onclick="filterCategory('lcv')"
+                    class="cat-btn px-4 py-2 rounded text-xs font-headline font-bold bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition">LCV
+                    Commercial Truck</button>
+                <button onclick="filterCategory('tractor')"
+                    class="cat-btn px-4 py-2 rounded text-xs font-headline font-bold bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition">Tractor
+                    Rear & Front</button>
+                <button onclick="filterCategory('farm')"
+                    class="cat-btn px-4 py-2 rounded text-xs font-headline font-bold bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition">Farm
+                    Implement</button>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Item 1: ZT-100 Grip -->
+                <div
+                    class="product-item motorcycle bg-white border border-slate-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+                    <div class="h-52 bg-slate-100 relative p-4 flex items-center justify-center">
+                        <img src="images/tyre3.jpeg" alt="ZT-100 Grip" class="max-h-full object-contain">
+                        <span
+                            class="absolute top-3 right-3 bg-[#00236f] text-white text-[10px] font-mono px-2 py-0.5 rounded font-bold">2-WHEELER</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <span class="text-[10px] font-mono text-slate-500 uppercase block">Code:
+                                    ZT-100-M18</span>
+                                <h3 class="font-headline font-bold text-xl text-slate-900">ZT-100 Grip</h3>
+                            </div>
+                            <span
+                                class="text-xs font-mono bg-blue-50 text-[#00236f] font-bold px-2 py-1 rounded border border-blue-200">90/90-18
+                                6PR</span>
+                        </div>
+                        <p class="text-xs text-slate-600 mb-4">High silica tread compounding providing 50,000+ km long
+                            commuter life with superior monsoon wet road braking.</p>
+                        <div
+                            class="space-y-1 text-xs font-mono text-slate-600 mb-6 bg-slate-50 p-3 rounded border border-slate-200">
+                            <div class="flex justify-between"><span>Max Load Capacity:</span><span
+                                    class="font-bold text-slate-900">230 kg</span></div>
+                            <div class="flex justify-between"><span>Speed Rating:</span><span
+                                    class="font-bold text-slate-900">P (150 km/h)</span></div>
+                            <div class="flex justify-between"><span>Tread Depth:</span><span
+                                    class="font-bold text-slate-900">7.5 mm</span></div>
+                            <div class="flex justify-between"><span>Fitments:</span><span
+                                    class="font-bold text-slate-900">Hero Splendor, Pulsar, Shine</span></div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button
+                                onclick="openSpecModal('ZT-100 Grip', '90/90-18 6PR', 'images/IMG_0092.JPG.jpeg', '230 kg', '36 PSI', '7.5 mm', 'Hero Splendor, Bajaj Pulsar, Honda CB Shine', 'High Silica Commuter Compound')"
+                                class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-headline font-semibold py-2.5 rounded transition">
+                                Technical Specs
+                            </button>
+                            <a href="https://wa.me/919876543210?text=Inquiry%20for%20ZATCO%20ZT-100%20Grip"
+                                target="_blank"
+                                class="bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-headline font-semibold px-4 py-2.5 rounded transition flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">chat</span> Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2: ZT-125 SpeedGrip -->
+                <div
+                    class="product-item motorcycle bg-white border border-slate-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+                    <div class="h-52 bg-slate-100 relative p-4 flex items-center justify-center">
+                        <img src="images/tyre2.jpeg" alt="ZT-125 SpeedGrip" class="max-h-full object-contain">
+                        <span
+                            class="absolute top-3 right-3 bg-[#00236f] text-white text-[10px] font-mono px-2 py-0.5 rounded font-bold">2-WHEELER</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <span class="text-[10px] font-mono text-slate-500 uppercase block">Code:
+                                    ZT-125-M17</span>
+                                <h3 class="font-headline font-bold text-xl text-slate-900">ZT-125 SpeedGrip</h3>
+                            </div>
+                            <span
+                                class="text-xs font-mono bg-blue-50 text-[#00236f] font-bold px-2 py-1 rounded border border-blue-200">100/90-17
+                                6PR</span>
+                        </div>
+                        <p class="text-xs text-slate-600 mb-4">Directional tread groove geometry for enhanced highway
+                            stability and lean angle cornering safety.</p>
+                        <div
+                            class="space-y-1 text-xs font-mono text-slate-600 mb-6 bg-slate-50 p-3 rounded border border-slate-200">
+                            <div class="flex justify-between"><span>Max Load Capacity:</span><span
+                                    class="font-bold text-slate-900">265 kg</span></div>
+                            <div class="flex justify-between"><span>Speed Rating:</span><span
+                                    class="font-bold text-slate-900">S (180 km/h)</span></div>
+                            <div class="flex justify-between"><span>Tread Depth:</span><span
+                                    class="font-bold text-slate-900">8.0 mm</span></div>
+                            <div class="flex justify-between"><span>Fitments:</span><span
+                                    class="font-bold text-slate-900">TVS Apache, Pulsar 150/180, FZ</span></div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button
+                                onclick="openSpecModal('ZT-125 SpeedGrip', '100/90-17 6PR', 'images/IMG_0092.JPG.jpeg', '265 kg', '38 PSI', '8.0 mm', 'TVS Apache, Bajaj Pulsar 150/180, Yamaha FZ', 'Directional Highway Compound')"
+                                class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-headline font-semibold py-2.5 rounded transition">
+                                Technical Specs
+                            </button>
+                            <a href="https://wa.me/919876543210?text=Inquiry%20for%20ZATCO%20ZT-125%20SpeedGrip"
+                                target="_blank"
+                                class="bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-headline font-semibold px-4 py-2.5 rounded transition flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">chat</span> Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3: ZT-Scoot Urban Grip -->
+                <div
+                    class="product-item scooter bg-white border border-slate-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+                    <div class="h-52 bg-slate-100 relative p-4 flex items-center justify-center">
+                        <img src="images/tyre1jpeg" alt="ZT-Scoot Urban Grip" class="max-h-full object-contain">
+                        <span
+                            class="absolute top-3 right-3 bg-[#00236f] text-white text-[10px] font-mono px-2 py-0.5 rounded font-bold">SCOOTER</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <span class="text-[10px] font-mono text-slate-500 uppercase block">Code:
+                                    ZT-SCT-9010</span>
+                                <h3 class="font-headline font-bold text-xl text-slate-900">ZT-Scoot Urban</h3>
+                            </div>
+                            <span
+                                class="text-xs font-mono bg-blue-50 text-[#00236f] font-bold px-2 py-1 rounded border border-blue-200">90/100-10
+                                53J</span>
+                        </div>
+                        <p class="text-xs text-slate-600 mb-4">Dual-ply sidewall structure engineered to withstand urban
+                            potholes and heavy daily loads.</p>
+                        <div
+                            class="space-y-1 text-xs font-mono text-slate-600 mb-6 bg-slate-50 p-3 rounded border border-slate-200">
+                            <div class="flex justify-between"><span>Max Load Capacity:</span><span
+                                    class="font-bold text-slate-900">206 kg</span></div>
+                            <div class="flex justify-between"><span>Speed Rating:</span><span
+                                    class="font-bold text-slate-900">J (100 km/h)</span></div>
+                            <div class="flex justify-between"><span>Tread Depth:</span><span
+                                    class="font-bold text-slate-900">6.8 mm</span></div>
+                            <div class="flex justify-between"><span>Fitments:</span><span
+                                    class="font-bold text-slate-900">Honda Activa 3G/4G/5G/6G, Jupiter</span></div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button
+                                onclick="openSpecModal('ZT-Scoot Urban', '90/100-10 53J', 'images/IMG_0095.JPG.jpeg', '206 kg', '32 PSI', '6.8 mm', 'Honda Activa 3G/4G/5G/6G, TVS Jupiter, Suzuki Access', 'Dual-Ply Urban Pothole Compound')"
+                                class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-headline font-semibold py-2.5 rounded transition">
+                                Technical Specs
+                            </button>
+                            <a href="https://wa.me/919876543210?text=Inquiry%20for%20ZATCO%20ZT-Scoot%20Urban"
+                                target="_blank"
+                                class="bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-headline font-semibold px-4 py-2.5 rounded transition flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">chat</span> Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4: ZT-3W Payload King -->
+                <div
+                    class="product-item 3wheeler bg-white border border-slate-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+                    <div class="h-52 bg-slate-100 relative p-4 flex items-center justify-center">
+                        <img src="images/IMG_0097.JPG.jpeg" alt="ZT-3W Payload King" class="max-h-full object-contain">
+                        <span
+                            class="absolute top-3 right-3 bg-[#bb0112] text-white text-[10px] font-mono px-2 py-0.5 rounded font-bold">3-WHEELER</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <span class="text-[10px] font-mono text-slate-500 uppercase block">Code:
+                                    ZT-3W-4008</span>
+                                <h3 class="font-headline font-bold text-xl text-slate-900">ZT-3W Payload King</h3>
+                            </div>
+                            <span
+                                class="text-xs font-mono bg-red-50 text-[#bb0112] font-bold px-2 py-1 rounded border border-red-200">4.00-8
+                                8PR</span>
+                        </div>
+                        <p class="text-xs text-slate-600 mb-4">Heavy-duty 8-ply rated casing for passenger autorickshaws
+                            and commercial cargo 3-wheelers.</p>
+                        <div
+                            class="space-y-1 text-xs font-mono text-slate-600 mb-6 bg-slate-50 p-3 rounded border border-slate-200">
+                            <div class="flex justify-between"><span>Max Load Capacity:</span><span
+                                    class="font-bold text-slate-900">475 kg</span></div>
+                            <div class="flex justify-between"><span>Ply Rating:</span><span
+                                    class="font-bold text-slate-900">8 PR Steel Reinforced</span></div>
+                            <div class="flex justify-between"><span>Tread Depth:</span><span
+                                    class="font-bold text-slate-900">9.2 mm</span></div>
+                            <div class="flex justify-between"><span>Fitments:</span><span
+                                    class="font-bold text-slate-900">Bajaj RE, Piaggio Ape, Mahindra Alfa</span></div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button
+                                onclick="openSpecModal('ZT-3W Payload King', '4.00-8 8PR', 'images/IMG_0097.JPG.jpeg', '475 kg', '44 PSI', '9.2 mm', 'Bajaj RE, Piaggio Ape, Mahindra Alfa 3W', '8-Ply Steel Reinforced Cargo Compound')"
+                                class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-headline font-semibold py-2.5 rounded transition">
+                                Technical Specs
+                            </button>
+                            <a href="https://wa.me/919876543210?text=Inquiry%20for%20ZATCO%20ZT-3W%20Payload%20King"
+                                target="_blank"
+                                class="bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-headline font-semibold px-4 py-2.5 rounded transition flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">chat</span> Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5: ZT-LCV Titan Load -->
+                <div
+                    class="product-item lcv bg-white border border-slate-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+                    <div class="h-52 bg-slate-100 relative p-4 flex items-center justify-center">
+                        <img src="images/IMG_0099.JPG.jpeg" alt="ZT-LCV Titan Load" class="max-h-full object-contain">
+                        <span
+                            class="absolute top-3 right-3 bg-[#bb0112] text-white text-[10px] font-mono px-2 py-0.5 rounded font-bold">LCV
+                            TRUCK</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <span class="text-[10px] font-mono text-slate-500 uppercase block">Code:
+                                    ZT-LCV-70016</span>
+                                <h3 class="font-headline font-bold text-xl text-slate-900">ZT-LCV Titan Load</h3>
+                            </div>
+                            <span
+                                class="text-xs font-mono bg-red-50 text-[#bb0112] font-bold px-2 py-1 rounded border border-red-200">7.00-16
+                                12PR</span>
+                        </div>
+                        <p class="text-xs text-slate-600 mb-4">Commercial heavy truck tyre designed to carry 2.5 ton
+                            payload per axle with zero sidewall deformation.</p>
+                        <div
+                            class="space-y-1 text-xs font-mono text-slate-600 mb-6 bg-slate-50 p-3 rounded border border-slate-200">
+                            <div class="flex justify-between"><span>Max Load Capacity:</span><span
+                                    class="font-bold text-slate-900">1,250 kg / Tyre</span></div>
+                            <div class="flex justify-between"><span>Ply Rating:</span><span
+                                    class="font-bold text-slate-900">12 PR Titan Casing</span></div>
+                            <div class="flex justify-between"><span>Tread Depth:</span><span
+                                    class="font-bold text-slate-900">12.5 mm</span></div>
+                            <div class="flex justify-between"><span>Fitments:</span><span
+                                    class="font-bold text-slate-900">Mahindra Bolero Pickup, Tata 407, Eicher</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button
+                                onclick="openSpecModal('ZT-LCV Titan Load', '7.00-16 12PR', 'images/IMG_0099.JPG.jpeg', '1,250 kg', '65 PSI', '12.5 mm', 'Mahindra Bolero Pickup, Tata 407, Eicher 10.50, Ashok Leyland Dost', '12-Ply Heavy Steel Commercial Compound')"
+                                class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-headline font-semibold py-2.5 rounded transition">
+                                Technical Specs
+                            </button>
+                            <a href="https://wa.me/919876543210?text=Inquiry%20for%20ZATCO%20ZT-LCV%20Titan%20Load"
+                                target="_blank"
+                                class="bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-headline font-semibold px-4 py-2.5 rounded transition flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">chat</span> Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 6: ZT-AgriTuf 45° Lugs -->
+                <div
+                    class="product-item tractor bg-white border border-slate-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+                    <div class="h-52 bg-slate-100 relative p-4 flex items-center justify-center">
+                        <img src="images/IMG_0091.JPG.jpeg" alt="ZT-AgriTuf 45° Lugs" class="max-h-full object-contain">
+                        <span
+                            class="absolute top-3 right-3 bg-emerald-800 text-white text-[10px] font-mono px-2 py-0.5 rounded font-bold">TRACTOR
+                            REAR</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <span class="text-[10px] font-mono text-slate-500 uppercase block">Code:
+                                    ZT-AGR-13628</span>
+                                <h3 class="font-headline font-bold text-xl text-slate-900">ZT-AgriTuf 45° Lugs</h3>
+                            </div>
+                            <span
+                                class="text-xs font-mono bg-emerald-50 text-emerald-800 font-bold px-2 py-1 rounded border border-emerald-200">13.6-28
+                                12PR</span>
+                        </div>
+                        <p class="text-xs text-slate-600 mb-4">Deep 45-degree angled lug tread engineered for
+                            self-cleaning mud shedding and maximum drawbar pull.</p>
+                        <div
+                            class="space-y-1 text-xs font-mono text-slate-600 mb-6 bg-slate-50 p-3 rounded border border-slate-200">
+                            <div class="flex justify-between"><span>Max Drawbar Pull:</span><span
+                                    class="font-bold text-slate-900">1,850 kg</span></div>
+                            <div class="flex justify-between"><span>Tillage Rating:</span><span
+                                    class="font-bold text-slate-900">3,200 Engine Hours</span></div>
+                            <div class="flex justify-between"><span>Tread Lug Depth:</span><span
+                                    class="font-bold text-slate-[#00236f]">34.0 mm</span></div>
+                            <div class="flex justify-between"><span>Fitments:</span><span
+                                    class="font-bold text-slate-900">Mahindra 575, Swaraj 744, John Deere 5050</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button
+                                onclick="openSpecModal('ZT-AgriTuf 45° Lugs', '13.6-28 12PR', 'images/IMG_0091.JPG.jpeg', '1,850 kg', '24 PSI', '34.0 mm', 'Mahindra 575 DI, Swaraj 744 FE, John Deere 5050D, Eicher 557', 'Stubble Resistant Self-Cleaning Mud Compound')"
+                                class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-headline font-semibold py-2.5 rounded transition">
+                                Technical Specs
+                            </button>
+                            <a href="https://wa.me/919876543210?text=Inquiry%20for%20ZATCO%20ZT-AgriTuf" target="_blank"
+                                class="bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-headline font-semibold px-4 py-2.5 rounded transition flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">chat</span> Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Technical Specification Modal -->
+    <div id="spec-modal"
+        class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white border border-slate-300 rounded-xl w-full max-w-2xl overflow-hidden shadow-2xl">
+            <div class="bg-[#00236f] text-white p-6 flex justify-between items-center">
+                <div>
+                    <h3 id="modal-title" class="font-headline font-bold text-xl">ZATCO Tyre Specifications</h3>
+                    <p id="modal-size" class="text-xs font-mono text-blue-200">Specification Sheet</p>
+                </div>
+                <button onclick="closeSpecModal()"
+                    class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center">
+                    <span class="material-symbols-outlined text-sm">close</span>
+                </button>
+            </div>
+            <div class="p-6 space-y-4 text-xs font-mono">
+                <div class="flex items-center gap-4 bg-slate-50 p-4 rounded border border-slate-200">
+                    <img id="modal-img" src="" alt="Tyre Image" class="w-24 h-24 object-contain">
+                    <div class="space-y-1">
+                        <div class="text-slate-500 uppercase">Compounding Formula:</div>
+                        <div id="modal-compound" class="font-bold text-slate-900 text-sm">High Silica Rubber</div>
+                        <div class="text-emerald-700 font-bold">100% Laser Inspected & BIS Certified</div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-3 bg-slate-50 rounded border border-slate-200">
+                        <span class="text-slate-500 block">Max Load Rating:</span>
+                        <span id="modal-load" class="font-bold text-slate-900 text-sm">230 kg</span>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded border border-slate-200">
+                        <span class="text-slate-500 block">Rec Inflation Pressure:</span>
+                        <span id="modal-psi" class="font-bold text-slate-900 text-sm">36 PSI</span>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded border border-slate-200">
+                        <span class="text-slate-500 block">Tread Groove Depth:</span>
+                        <span id="modal-depth" class="font-bold text-slate-900 text-sm">7.5 mm</span>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded border border-slate-200">
+                        <span class="text-slate-500 block">Warranty Period:</span>
+                        <span class="font-bold text-emerald-700 text-sm">3-Year Unconditional</span>
+                    </div>
+                </div>
+                <div class="p-3 bg-slate-50 rounded border border-slate-200">
+                    <span class="text-slate-500 block mb-1">Target Vehicle Fitments:</span>
+                    <span id="modal-fitments" class="font-bold text-slate-900 text-sm">Hero Splendor, Pulsar,
+                        Shine</span>
+                </div>
+            </div>
+            <div class="p-4 bg-slate-100 border-t border-slate-200 flex justify-end gap-3">
+                <button onclick="closeSpecModal()"
+                    class="px-4 py-2 bg-slate-200 text-slate-800 text-xs font-semibold rounded">Close</button>
+                <a href="https://wa.me/919876543210" target="_blank"
+                    class="px-4 py-2 bg-[#00236f] text-white text-xs font-semibold rounded flex items-center gap-1">
+                    <span class="material-symbols-outlined text-sm">chat</span> Order via Dealer
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-black text-white border-t-4 border-[#bb0112] py-8 text-center text-xs font-mono">
+        © 2026 ZATCO Tyres - zatco tyres Group India. All Rights Reserved.
+    </footer>
+
+    <script>
+        function filterCategory(cat) {
+            document.querySelectorAll('.cat-btn').forEach(b => b.className = 'cat-btn px-4 py-2 rounded text-xs font-headline font-bold bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition');
+            event.target.className = 'cat-btn active px-4 py-2 rounded text-xs font-headline font-bold bg-[#00236f] text-white transition';
+
+            const items = document.querySelectorAll('.product-item');
+            items.forEach(item => {
+                if (cat === 'all' || item.classList.contains(cat)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function openSpecModal(title, size, img, load, psi, depth, fitments, compound) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-size').innerText = 'Size & Ply: ' + size;
+            document.getElementById('modal-img').src = img;
+            document.getElementById('modal-load').innerText = load;
+            document.getElementById('modal-psi').innerText = psi;
+            document.getElementById('modal-depth').innerText = depth;
+            document.getElementById('modal-fitments').innerText = fitments;
+            document.getElementById('modal-compound').innerText = compound;
+            document.getElementById('spec-modal').classList.remove('hidden');
+        }
+
+        function closeSpecModal() {
+            document.getElementById('spec-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+
+</html>

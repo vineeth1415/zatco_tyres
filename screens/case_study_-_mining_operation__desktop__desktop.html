@@ -1,0 +1,334 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ZATCO - Mining Operation Case Study</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=Josefin+Sans:wght@300;400;500;600;700&amp;family=Work+Sans:wght@400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#444651",
+                        "on-tertiary-fixed-variant": "#3a485b",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-background": "#191c1e",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#90a8ff",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffdad6",
+                        "secondary": "#bb0112",
+                        "background": "#f7f9fb",
+                        "inverse-surface": "#2d3133",
+                        "surface-dim": "#d8dadc",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed-variant": "#93000b",
+                        "primary-fixed": "#dce1ff",
+                        "secondary-fixed-dim": "#ffb4ab",
+                        "inverse-primary": "#b6c4ff",
+                        "tertiary-container": "#334154",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#d5e3fc",
+                        "surface-container": "#eceef0",
+                        "tertiary": "#1d2b3d",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#b9c7df",
+                        "on-tertiary-container": "#9eadc4",
+                        "primary": "#00236f",
+                        "on-primary-fixed": "#00164e",
+                        "primary-container": "#1e3a8a",
+                        "on-primary-fixed-variant": "#264191",
+                        "outline-variant": "#c5c5d3",
+                        "on-surface": "#191c1e",
+                        "on-secondary-container": "#fffbff",
+                        "on-tertiary-fixed": "#0d1c2e",
+                        "outline": "#757682",
+                        "secondary-container": "#e02928",
+                        "surface": "#f7f9fb",
+                        "on-secondary-fixed": "#410002",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#4059aa",
+                        "surface-bright": "#f7f9fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "max-width": "1280px",
+                        "gutter": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["IBM Plex Sans"],
+                        "label-sm": ["Josefin Sans"],
+                        "display-lg-mobile": ["IBM Plex Sans"],
+                        "body-lg": ["Work Sans"],
+                        "display-lg": ["IBM Plex Sans"],
+                        "label-md": ["Josefin Sans"],
+                        "body-md": ["Work Sans"],
+                        "headline-lg": ["IBM Plex Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
+<!-- Navigation Drawer (Mobile) -->
+<div class="md:hidden hidden bg-surface dark:bg-inverse-surface text-primary dark:text-primary-fixed-dim docked full-height left-0 w-80 bg-surface dark:bg-inverse-surface border-r border-outline-variant shadow-md flex flex-col h-full py-base fixed z-50" id="mobile-menu">
+<div class="px-4 mb-8 flex justify-between items-center">
+<span class="text-headline-md font-headline-md font-bold text-primary">ZATCO Industrial</span>
+<button class="text-on-surface p-2" onclick="document.getElementById('mobile-menu').classList.add('hidden')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container mx-2 p-3 rounded flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">tire_repair</span>
+<span class="text-label-md font-label-md">Products</span>
+</a>
+<a class="bg-primary-container text-on-primary-container rounded-lg mx-2 p-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">factory</span>
+<span class="text-label-md font-label-md">Case Studies</span>
+</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container mx-2 p-3 rounded flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">eco</span>
+<span class="text-label-md font-label-md">Sustainability</span>
+</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container mx-2 p-3 rounded flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">newspaper</span>
+<span class="text-label-md font-label-md">Media Center</span>
+</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container mx-2 p-3 rounded flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="text-label-md font-label-md">Contact</span>
+</a>
+<div class="flex gap-6 px-4 mt-8">
+    <a href="#" class="text-on-surface-variant hover:text-primary transition-colors duration-300">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+    </a>
+    <a href="#" class="text-on-surface-variant hover:text-primary transition-colors duration-300">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.231-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.13 8.13 0 0 1-2.019 2.083z"></path></svg>
+    </a>
+    <a href="#" class="text-on-surface-variant hover:text-primary transition-colors duration-300">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg>
+    </a>
+</div></nav>
+</div>
+<!-- Top App Bar -->
+<header class="bg-surface dark:bg-on-surface text-primary dark:text-primary-fixed-dim docked full-width top-0 border-b-2 border-outline-variant dark:border-outline flat no shadows flex justify-between items-center w-full px-margin-desktop max-w-max-width mx-auto h-20 sticky z-40 bg-opacity-95 backdrop-blur-sm">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-primary hover:text-secondary transition-colors duration-200" onclick="document.getElementById('mobile-menu').classList.remove('hidden')">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="text-headline-lg font-headline-lg font-bold text-primary dark:text-inverse-primary tracking-tighter">ZATCO</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface dark:text-on-surface-variant font-medium hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200 text-label-md font-label-md" href="#">Products</a>
+<a class="text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary font-bold hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200 text-label-md font-label-md py-6" href="#">Case Studies</a>
+<a class="text-on-surface dark:text-on-surface-variant font-medium hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200 text-label-md font-label-md" href="#">Sustainability</a>
+<a class="text-on-surface dark:text-on-surface-variant font-medium hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200 text-label-md font-label-md" href="#">Media Center</a>
+<a class="text-on-surface dark:text-on-surface-variant font-medium hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200 text-label-md font-label-md" href="#">Contact</a>
+</nav>
+<div>
+<button class="text-primary hover:text-secondary transition-colors duration-200 flex items-center justify-center">
+<span class="material-symbols-outlined">language</span>
+</button>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative w-full h-[60vh] min-h-[500px] flex flex-col justify-end">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A massive, dust-covered haul truck navigating a steep, rocky incline in a high-altitude copper mine in the Atacama Desert. The environment is harsh and desolate, featuring sharp volcanic rocks and a hazy, sun-bleached sky. The aesthetic is rugged, industrial, and high-contrast, dominated by earthy tones, deep shadows, and the bright yellow of the heavy machinery, reflecting the extreme conditions and mechanical power of the operation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACTHEpQCQBH22xtyf8YVN6MPkQnxoo-YJGEpjY3p1XmoCpgifsOWksMfYTUvOQLBCk4su4QOd0cQW_2G38Ne-T7jslOgdJHz4trM0HGQspO1fNEh_1jcYlDWCGQiJxcLWiBwyPy0oRXj3VucGTBFezoxOpi04kADFT5pPD49mNBmf5EhVsFKPkBZ3ghA198Kg--Puxctl0wpBZJ0bDk_GE13dVm9i8Kz81I2ldIJFIsizV7wgxntIiYSwx3bwTvCIvCec">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
+</div>
+<div class="relative z-10 w-full px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto pb-16">
+<div class="flex items-center gap-2 mb-6 text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm">home</span>
+<span class="">/</span>
+<span class="">Case Studies</span>
+<span class="">/</span>
+<span class="text-primary font-bold">Mining</span>
+</div>
+<h1 class="text-display-lg-mobile md:text-display-lg font-display-lg text-primary mb-8 max-w-4xl">Optimizing Fleet Uptime in High-Altitude Copper Mining</h1>
+<!-- Quick Stats Bar -->
+<div class="flex flex-wrap gap-4 md:gap-8 bg-surface border border-outline-variant p-6 max-w-3xl">
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-outline uppercase mb-1">Location</span>
+<span class="text-body-lg font-body-lg text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">location_on</span>
+                            Atacama, Chile
+                        </span>
+</div>
+<div class="w-px h-12 bg-outline-variant hidden md:block"></div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-outline uppercase mb-1">Product Used</span>
+<span class="text-body-lg font-body-lg text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">tire_repair</span>
+                            Earthmover XL
+                        </span>
+</div>
+<div class="w-px h-12 bg-outline-variant hidden md:block"></div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-secondary uppercase mb-1">Key Result</span>
+<span class="text-body-lg font-body-lg text-secondary font-bold flex items-center gap-2">
+<span class="material-symbols-outlined">trending_up</span>
+                            15% Uptime Increase
+                        </span>
+</div>
+</div>
+</div>
+</section>
+<!-- The Challenge & Solution -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+<!-- Challenge -->
+<div>
+<h2 class="text-headline-lg font-headline-lg text-primary mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-3xl">warning</span>
+                        The Environment
+                    </h2>
+<div class="prose max-w-none text-body-lg font-body-lg text-on-surface-variant space-y-6">
+<p class="">Operating at an elevation of over 4,000 meters in the Atacama Desert, the extraction facility faces some of the most brutal environmental conditions on the planet. The terrain is dominated by highly abrasive volcanic rock, which significantly accelerates tread wear and increases the risk of catastrophic carcass failure.</p>
+<p class="">Furthermore, the extreme temperature fluctuations—ranging from sub-zero nights to scorching daytime ground temperatures—stress standard rubber compounds beyond their operational limits. The existing tire inventory was experiencing a high rate of premature scrap, directly impacting fleet availability and ton-per-hour output.</p>
+</div>
+<div class="mt-8 border border-outline-variant p-2 bg-surface-container-low">
+<img class="w-full h-64 object-cover" data-alt="A high-angle view of a vast, open-pit copper mine in a mountainous, arid region. The terraced walls of the pit reveal striking layers of oxidized rock in rust, gray, and ochre hues. In the distance, a large-scale industrial processing facility with conveyor belts and crushing machinery stands against a stark, cloudless sky. The scene is dominated by geometric precision and monumental scale, typical of heavy extraction industries." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjXLJoOnGVDhhXqV2KwOx8IcNR97ovJkZevFO0jbMbsJGlXj074T0enJk3TcQorLArs6pIefnaPwANh3zYH3i-IOuGxGberQvJ5_XZBPmtZOFr9ltB9KA_1BCSLmcfLD-fU6bNiLvsNFEDoDzwFVKDmaxqXU6oOa4ZNLMvdhGM8Km5oS0TOiJuct21JhkhyhBcaLTIkLPelEU2DkUoI3shfbGZTM3zfllCihhLB3RCP7wUMN8tjWGxBkgJ5ql7oxg_kiU">
+</div>
+</div>
+<!-- Solution -->
+<div>
+<h2 class="text-headline-lg font-headline-lg text-primary mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
+                        The ZATCO Solution
+                    </h2>
+<div class="prose max-w-none text-body-lg font-body-lg text-on-surface-variant space-y-6">
+<p class="">ZATCO engineering teams conducted a comprehensive site audit, analyzing wear patterns, haul road profiles, and operational cycles. The resulting recommendation was the deployment of the <strong>Earthmover XL</strong> series, specifically configured for high-abrasion environments.</p>
+<ul class="list-none space-y-4 mt-6">
+<li class="flex items-start gap-4 p-4 border border-outline-variant bg-surface">
+<span class="material-symbols-outlined text-primary mt-1">layers</span>
+<div>
+<strong class="text-on-surface block mb-1">Proprietary Compound Z-74</strong>
+<span class="text-body-md font-body-md">A highly cut-resistant synthetic blend designed specifically to withstand the tearing forces of jagged volcanic rock while maintaining thermal stability under heavy loads.</span>
+</div>
+</li>
+<li class="flex items-start gap-4 p-4 border border-outline-variant bg-surface">
+<span class="material-symbols-outlined text-primary mt-1">settings_backup_restore</span>
+<div>
+<strong class="text-on-surface block mb-1">Reinforced Bead Construction</strong>
+<span class="text-body-md font-body-md">Engineered with high-tensile steel cord architecture to handle the extreme lateral forces exerted during tight cornering on steep inclines, minimizing bead chafing and rim slip.</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Impact -->
+<section class="bg-surface-container-low py-24 border-y border-outline-variant">
+<div class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<h2 class="text-headline-lg font-headline-lg text-primary text-center mb-16">Technical Impact &amp; Validation</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Metric Card 1 -->
+<div class="bg-surface border-t-4 border-secondary p-8 shadow-sm flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-secondary text-5xl mb-4">gpp_good</span>
+<span class="text-display-lg font-display-lg text-on-surface mb-2">+22%</span>
+<h3 class="text-headline-md font-headline-md text-primary mb-2">Puncture Resistance</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Reduction in catastrophic rock cuts and sidewall penetrations compared to previous baseline.</p>
+</div>
+<!-- Metric Card 2 -->
+<div class="bg-surface border-t-4 border-primary p-8 shadow-sm flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary text-5xl mb-4">thermostat</span>
+<span class="text-display-lg font-display-lg text-on-surface mb-2">+18%</span>
+<h3 class="text-headline-md font-headline-md text-primary mb-2">Heat Dissipation</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Improved TKPH (Ton-Kilometer-Per-Hour) rating due to optimized tread void volume and compound cooling.</p>
+</div>
+<!-- Metric Card 3 -->
+<div class="bg-surface border-t-4 border-primary p-8 shadow-sm flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary text-5xl mb-4">schedule</span>
+<span class="text-display-lg font-display-lg text-on-surface mb-2">+4,000h</span>
+<h3 class="text-headline-md font-headline-md text-primary mb-2">Service Life</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Average increase in total operational hours per tire before scheduled replacement.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- The Verdict -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="bg-tertiary text-on-tertiary p-12 md:p-20 relative overflow-hidden">
+<div class="absolute top-0 right-0 opacity-10 pointer-events-none transform translate-x-1/4 -translate-y-1/4">
+<span class="material-symbols-outlined text-[20rem]">format_quote</span>
+</div>
+<div class="relative z-10 max-w-4xl mx-auto text-center">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6">format_quote</span>
+<blockquote class="text-headline-md md:text-headline-lg font-headline-md font-medium leading-relaxed mb-8">
+                        "In this environment, downtime is calculated in thousands of dollars per minute. The ZATCO Earthmover XL hasn't just provided better tread wear; it has fundamentally improved the structural reliability of our hauling cycle. The structural integrity of these tires under payload is unmatched."
+                    </blockquote>
+<div class="flex flex-col items-center">
+<span class="text-label-md font-label-md text-secondary tracking-widest uppercase mb-1">Alejandro Vargas</span>
+<span class="text-body-md font-body-md text-tertiary-fixed-dim">Lead Procurement Engineer, Minera Atacama Norte</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-tertiary dark:bg-on-tertiary-fixed text-on-tertiary dark:text-tertiary-fixed full-width bottom-0 border-t-4 border-secondary flat no shadows grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-12 max-w-max-width mx-auto mt-auto">
+<div class="col-span-1 md:col-span-4 mb-8">
+<span class="text-headline-md font-headline-md font-bold text-on-tertiary">ZATCO</span>
+</div>
+<div class="col-span-1 md:col-span-2 mb-8 md:mb-0"><h4 class="text-label-sm font-label-sm text-on-tertiary uppercase tracking-widest mb-2">Stay Informed</h4><p class="text-body-md font-body-md text-on-tertiary mb-4">Get technical updates and engineering guides.</p><form class="flex flex-col sm:flex-row gap-2 sm:gap-0 w-full max-w-md" data-stitch-orig-opacity="0"><input type="email" placeholder="EMAIL_ADDRESS" class="bg-surface-container-highest text-on-surface border border-outline px-4 py-2 rounded-lg sm:rounded-r-none sm:rounded-l-lg flex-grow focus:outline-none focus:border-primary text-label-md font-label-md placeholder:font-label-sm" required=""><button type="submit" class="bg-primary text-on-primary px-6 py-2 rounded-lg sm:rounded-l-none sm:rounded-r-lg font-label-md hover:bg-primary-container transition-colors duration-200 border border-primary">Subscribe</button></form></div><div class="col-span-1 md:col-span-1">
+<p class="text-body-md font-body-md text-tertiary-fixed-dim">© 2024 ZATCO Tires. All Rights Reserved. Engineered for Performance.</p>
+</div>
+<div class="col-span-1 md:col-span-1 flex flex-col gap-2 md:items-end"><div class="flex gap-4 mb-4 md:justify-end">
+    <a href="#" class="text-tertiary-fixed-dim hover:text-on-tertiary transition-colors duration-300">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+        </svg>
+    </a>
+    <a href="#" class="text-tertiary-fixed-dim hover:text-on-tertiary transition-colors duration-300">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.231-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.13 8.13 0 0 1-2.019 2.083z"></path>
+        </svg>
+    </a>
+    <a href="#" class="text-tertiary-fixed-dim hover:text-on-tertiary transition-colors duration-300">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+        </svg>
+    </a>
+</div><a class="text-tertiary-fixed-dim hover:text-on-tertiary transition-colors duration-300 text-label-sm font-label-sm" href="#">Product Specifications</a><a class="text-tertiary-fixed-dim hover:text-on-tertiary transition-colors duration-300 text-label-sm font-label-sm" href="#">Engineering Guides</a><a class="text-tertiary-fixed-dim hover:text-on-tertiary transition-colors duration-300 text-label-sm font-label-sm" href="#">Safety Data Sheets</a><a class="text-tertiary-fixed-dim hover:text-on-tertiary transition-colors duration-300 text-label-sm font-label-sm" href="#">Compliance &amp; Standards</a><a class="text-tertiary-fixed-dim hover:text-on-tertiary transition-colors duration-300 text-label-sm font-label-sm" href="#">Technical Support</a></div>
+</footer>
+
+
+</body></html>

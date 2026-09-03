@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>ZATCO Tyres - Contact Us & WhatsApp Customer Care</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#00236f",
+                        "secondary": "#bb0112",
+                        "tertiary": "#1d2b3d",
+                        "background": "#f7f9fb"
+                    },
+                    "fontFamily": {
+                        "headline": ["IBM Plex Sans", "sans-serif"],
+                        "body": ["Work Sans", "sans-serif"],
+                        "mono": ["Josefin Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-[#f7f9fb] text-slate-900 flex flex-col min-h-screen">
+
+    <header class="bg-white border-b border-slate-200 w-full sticky top-0 z-50 shadow-sm">
+        <div class="flex justify-between items-center px-4 md:px-12 max-w-[1280px] mx-auto h-20">
+            <a href="home.html" class="flex items-center gap-3">
+                <img src="images/zatco-logo.jpg" alt="ZATCO Tyres"
+                    class="h-10 md:h-12 object-contain rounded bg-black px-3 py-1.5 border border-slate-800 shadow-md">
+            </a>
+            <nav class="hidden lg:flex gap-6 text-sm font-headline font-semibold">
+                <a class="text-slate-700 hover:text-primary transition py-2" href="home.html">Home</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="product-detail.html">Products</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="tyre-finder.html">Tyre Finder</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="compare-tires.html">Compare</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="case-study.html">Case Studies</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="dealer-portal.html">Dealer
+                    Network</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="about.html">About Us</a>
+                <a class="text-[#bb0112] border-b-2 border-[#bb0112] py-2" href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow py-10 px-4 md:px-12 max-w-[1280px] mx-auto space-y-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+            <!-- Contact Form -->
+            <div class="lg:col-span-7 bg-white border border-slate-200 rounded-xl p-8 shadow-md">
+                <h1 class="font-headline font-bold text-2xl text-[#00236f] mb-2">Connect with ZATCO Technical Team</h1>
+                <p class="text-slate-600 text-sm mb-6">Submit an inquiry for bulk transport orders, dealer application,
+                    or warranty check.</p>
+
+                <form
+                    onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent to ZATCO Corporate Support.');"
+                    class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-mono text-slate-600 uppercase mb-1">Full Name</label>
+                            <input type="text" placeholder="e.g. Rajesh Kumar" required
+                                class="w-full border border-slate-300 rounded p-3 text-sm bg-slate-50 font-medium">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-slate-600 uppercase mb-1">Mobile Number</label>
+                            <input type="tel" placeholder="+91 98765 43210" required
+                                class="w-full border border-slate-300 rounded p-3 text-sm bg-slate-50 font-medium">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-mono text-slate-600 uppercase mb-1">Inquiry
+                                Category</label>
+                            <select class="w-full border border-slate-300 rounded p-3 text-sm bg-slate-50 font-medium">
+                                <option>Dealership Application</option>
+                                <option>Fleet Commercial Purchase Order</option>
+                                <option>Warranty Claim Check</option>
+                                <option>Technical Specification Query</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-slate-600 uppercase mb-1">State /
+                                District</label>
+                            <input type="text" placeholder="e.g. Kerala / Ernakulam" required
+                                class="w-full border border-slate-300 rounded p-3 text-sm bg-slate-50 font-medium">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-mono text-slate-600 uppercase mb-1">Message Details</label>
+                        <textarea rows="4"
+                            placeholder="Specify tyre models, required quantities, or vehicle fleet details..." required
+                            class="w-full border border-slate-300 rounded p-3 text-sm bg-slate-50 font-medium"></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="bg-[#00236f] hover:bg-[#001850] text-white font-headline font-bold text-sm uppercase px-8 py-3 rounded shadow transition">
+                        Submit Inquiry
+                    </button>
+                </form>
+            </div>
+
+            <!-- Address & Direct Concierge Details -->
+            <div class="lg:col-span-5 space-y-6">
+                <div class="bg-black text-white rounded-xl p-8 shadow-md border border-slate-800 space-y-4">
+                    <span
+                        class="bg-[#bb0112] text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded uppercase">HEAD
+                        OFFICE</span>
+                    <h3 class="font-headline font-bold text-xl text-white">zatco tyres Group Headquarters</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed font-mono">
+                        ZATCO Tyres Corporate Office,<br>
+                        Industrial Area, Kanjikode,<br>
+                        Palakkad, Kerala, 680590, India
+                    </p>
+                    <div class="border-t border-slate-800 pt-4 space-y-2 text-xs font-mono">
+                        <div class="flex items-center gap-2"><span
+                                class="material-symbols-outlined text-sm text-blue-400">call</span> <span>Toll-Free
+                                Support: 1800-425-ZATCO</span></div>
+                        <div class="flex items-center gap-2"><span
+                                class="material-symbols-outlined text-sm text-blue-400">mail</span> <span>Email:
+                                sales@zatcotyres.com</span></div>
+                        <div class="flex items-center gap-2"><span
+                                class="material-symbols-outlined text-sm text-blue-400">schedule</span> <span>Mon - Sat:
+                                9:00 AM - 6:30 PM</span></div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-emerald-900 text-white rounded-xl p-6 shadow-md border border-emerald-800 flex items-center justify-between">
+                    <div>
+                        <h4 class="font-headline font-bold text-lg">WhatsApp Support</h4>
+                        <p class="text-xs text-emerald-200 font-mono">Instant fitment quote & warranty check</p>
+                    </div>
+                    <a href="https://wa.me/919876543210?text=ZATCO%20Customer%20Support" target="_blank"
+                        class="bg-emerald-600 hover:bg-emerald-500 text-white font-headline font-semibold text-xs uppercase px-4 py-2.5 rounded shadow transition flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">chat</span> Chat Now
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-black text-white border-t-4 border-[#bb0112] py-8 text-center text-xs font-mono">
+        © 2026 ZATCO Tyres - zatco tyres Group India. All Rights Reserved.
+    </footer>
+</body>
+
+</html>

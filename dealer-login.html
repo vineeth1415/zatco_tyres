@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>ZATCO Tyres - B2B Dealer Portal Sign In</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#00236f",
+                        "secondary": "#bb0112",
+                        "tertiary": "#1d2b3d",
+                        "background": "#f7f9fb"
+                    },
+                    "fontFamily": {
+                        "headline": ["IBM Plex Sans", "sans-serif"],
+                        "body": ["Work Sans", "sans-serif"],
+                        "mono": ["Josefin Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white flex flex-col min-h-screen justify-center items-center p-4">
+
+    <div class="bg-black border border-slate-800 rounded-xl p-8 max-w-md w-full shadow-2xl space-y-6">
+        <div class="text-center space-y-2">
+            <div class="w-12 h-12 rounded bg-[#00236f] flex items-center justify-center font-headline font-bold text-white text-2xl mx-auto shadow-md">Z</div>
+            <h1 class="font-headline font-bold text-2xl text-white">ZATCO Dealer Sign In</h1>
+            <p class="text-xs text-slate-400 font-mono">Authorized Stockist & Retailer B2B Console</p>
+        </div>
+
+        <form onsubmit="event.preventDefault(); alert('Demo Sign In Successful! Welcome ZATCO Partner.'); location.href='dealer-portal.html';" class="space-y-4">
+            <div>
+                <label class="block text-xs font-mono text-slate-400 uppercase mb-1">Dealer Code / GSTIN</label>
+                <input type="text" placeholder="e.g. DLR-KER-2026 / 32AAAAA0000A1Z5" required class="w-full bg-black border border-slate-700 text-white rounded p-3 text-sm font-mono focus:border-blue-500 outline-none">
+            </div>
+
+            <div>
+                <label class="block text-xs font-mono text-slate-400 uppercase mb-1">Password</label>
+                <input type="password" placeholder="••••••••••••" required class="w-full bg-black border border-slate-700 text-white rounded p-3 text-sm font-mono focus:border-blue-500 outline-none">
+            </div>
+
+            <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+                <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" class="rounded bg-black border-slate-700 text-blue-600">
+                    <span>Remember Device</span>
+                </label>
+                <a href="#" class="text-blue-400 hover:underline">Reset Code?</a>
+            </div>
+
+            <button type="submit" class="w-full bg-[#00236f] hover:bg-blue-800 text-white font-headline font-bold text-sm uppercase py-3 rounded shadow transition">
+                Sign In to B2B Dashboard
+            </button>
+        </form>
+
+        <div class="pt-4 border-t border-slate-800 text-center text-xs font-mono text-slate-500">
+            Need a new dealership allocation? <a href="contact.html" class="text-[#bb0112] font-bold hover:underline">Apply Here</a>
+        </div>
+    </div>
+
+</body>
+</html>

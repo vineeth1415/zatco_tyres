@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZATCO Tyres - Corporate Platform & Design System</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Google Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        zatco: {
+                            blue: '#00236f',
+                            red: '#bb0112',
+                            slate: '#1d2b3d',
+                            lightBg: '#f7f9fb',
+                            darkBg: '#0b111e',
+                            cardBg: '#131b2e'
+                        }
+                    },
+                    fontFamily: {
+                        headline: ['IBM Plex Sans', 'sans-serif'],
+                        body: ['Work Sans', 'sans-serif'],
+                        mono: ['Josefin Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: #0b111e;
+            color: #f1f5f9;
+        }
+        .mono-font { font-family: 'Josefin Sans', sans-serif; }
+        .headline-font { font-family: 'IBM Plex Sans', sans-serif; }
+        /* Custom scrollbars */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0b111e; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #bb0112; }
+        /* Device Preview Frame */
+        .preview-container {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .device-mobile {
+            width: 390px;
+            height: 844px;
+            border-radius: 40px;
+            border: 12px solid #1e293b;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+        }
+        .device-desktop {
+            width: 100%;
+            height: calc(100vh - 120px);
+            border-radius: 12px;
+            border: 1px solid #1e293b;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #ffffff;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden bg-[#0b111e] text-slate-100">
+
+    <!-- Top Executive Header -->
+    <header class="h-16 bg-[#0f172a]/90 backdrop-blur border-b border-slate-800 px-4 sm:px-6 flex items-center justify-between z-30 shrink-0">
+        <div class="flex items-center gap-4">
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-3">
+                <img src="images/zatco-logo.jpg" alt="ZATCO Tyres Logo" class="h-10 object-contain rounded bg-black px-3 py-1 border border-slate-800 shadow-md">
+                <span class="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-[#bb0112]/20 text-[#bb0112] border border-[#bb0112]/40 font-semibold">Corporate</span>
+            </div>
+        </div>
+
+        <!-- Center Viewport Switcher & Primary Nav -->
+        <div class="hidden md:flex items-center gap-1 bg-slate-900/80 p-1 rounded-lg border border-slate-800">
+            <button onclick="setViewport('desktop')" id="btn-desktop" class="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium bg-[#00236f] text-white shadow-sm transition-all">
+                <span class="material-symbols-outlined text-sm">desktop_windows</span>
+                Desktop (1440px)
+            </button>
+            <button onclick="setViewport('mobile')" id="btn-mobile" class="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium text-slate-400 hover:text-white transition-all">
+                <span class="material-symbols-outlined text-sm">smartphone</span>
+                Mobile (390px)
+            </button>
+            <button onclick="setViewport('full')" id="btn-full" class="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium text-slate-400 hover:text-white transition-all">
+                <span class="material-symbols-outlined text-sm">fullscreen</span>
+                Full Window
+            </button>
+        </div>
+
+        <!-- Right Quick Actions -->
+        <div class="flex items-center gap-3">
+            <a id="open-external-btn" href="home.html" target="_blank" class="flex items-center gap-1.5 px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-xs text-slate-200 border border-slate-700 transition">
+                <span class="material-symbols-outlined text-sm">open_in_new</span>
+                <span class="hidden sm:inline">Open Standalone</span>
+            </a>
+            <button onclick="toggleGridModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#bb0112] hover:bg-red-700 text-white text-xs font-semibold shadow-md shadow-red-950/40 transition">
+                <span class="material-symbols-outlined text-sm">grid_view</span>
+                View All 26 Screens
+            </button>
+        </div>
+    </header>
+
+    <!-- Sub Navigation Bar (Page Tabs) -->
+    <nav class="h-12 bg-slate-900/90 border-b border-slate-800 px-4 sm:px-6 flex items-center gap-2 overflow-x-auto shrink-0 scrollbar-none text-xs font-medium">
+        <button onclick="loadPage('home.html', this)" class="nav-tab active px-3 py-1.5 rounded-md text-white bg-[#00236f] border border-blue-500/30 flex items-center gap-1.5 whitespace-nowrap">
+            <span class="material-symbols-outlined text-sm">home</span>
+            Homepage
+        </button>
+        <button onclick="loadPage('product-detail.html', this)" class="nav-tab px-3 py-1.5 rounded-md text-slate-300 hover:text-white hover:bg-slate-800/80 flex items-center gap-1.5 whitespace-nowrap">
+            <span class="material-symbols-outlined text-sm">tire_repair</span>
+            Product Detail Specs
+        </button>
+        <button onclick="loadPage('tyre-finder.html', this)" class="nav-tab px-3 py-1.5 rounded-md text-slate-300 hover:text-white hover:bg-slate-800/80 flex items-center gap-1.5 whitespace-nowrap">
+            <span class="material-symbols-outlined text-sm">search</span>
+            Tyre Finder
+        </button>
+        <button onclick="loadPage('compare-tires.html', this)" class="nav-tab px-3 py-1.5 rounded-md text-slate-300 hover:text-white hover:bg-slate-800/80 flex items-center gap-1.5 whitespace-nowrap">
+            <span class="material-symbols-outlined text-sm">compare</span>
+            Compare Tires
+        </button>
+        <button onclick="loadPage('case-study.html', this)" class="nav-tab px-3 py-1.5 rounded-md text-slate-300 hover:text-white hover:bg-slate-800/80 flex items-center gap-1.5 whitespace-nowrap">
+            <span class="material-symbols-outlined text-sm">analytics</span>
+            Mining Case Study
+        </button>
+        <button onclick="loadPage('request-quote.html', this)" class="nav-tab px-3 py-1.5 rounded-md text-slate-300 hover:text-white hover:bg-slate-800/80 flex items-center gap-1.5 whitespace-nowrap">
+            <span class="material-symbols-outlined text-sm">request_quote</span>
+            Quote Flow
+        </button>
+        <button onclick="loadPage('dealer-portal.html', this)" class="nav-tab px-3 py-1.5 rounded-md text-slate-300 hover:text-white hover:bg-slate-800/80 flex items-center gap-1.5 whitespace-nowrap">
+            <span class="material-symbols-outlined text-sm">dashboard</span>
+            Dealer Dashboard
+        </button>
+        <button onclick="loadPage('dealer-login.html', this)" class="nav-tab px-3 py-1.5 rounded-md text-slate-300 hover:text-white hover:bg-slate-800/80 flex items-center gap-1.5 whitespace-nowrap">
+            <span class="material-symbols-outlined text-sm">lock</span>
+            Dealer Login
+        </button>
+        <button onclick="loadPage('about.html', this)" class="nav-tab px-3 py-1.5 rounded-md text-slate-300 hover:text-white hover:bg-slate-800/80 flex items-center gap-1.5 whitespace-nowrap">
+            <span class="material-symbols-outlined text-sm">info</span>
+            About Us
+        </button>
+        <button onclick="loadPage('infrastructure.html', this)" class="nav-tab px-3 py-1.5 rounded-md text-slate-300 hover:text-white hover:bg-slate-800/80 flex items-center gap-1.5 whitespace-nowrap">
+            <span class="material-symbols-outlined text-sm">factory</span>
+            Infrastructure
+        </button>
+        <button onclick="loadPage('sustainability.html', this)" class="nav-tab px-3 py-1.5 rounded-md text-slate-300 hover:text-white hover:bg-slate-800/80 flex items-center gap-1.5 whitespace-nowrap">
+            <span class="material-symbols-outlined text-sm">eco</span>
+            Sustainability
+        </button>
+        <button onclick="loadPage('contact.html', this)" class="nav-tab px-3 py-1.5 rounded-md text-slate-300 hover:text-white hover:bg-slate-800/80 flex items-center gap-1.5 whitespace-nowrap">
+            <span class="material-symbols-outlined text-sm">mail</span>
+            Contact Us
+        </button>
+    </nav>
+
+    <!-- Main Workspace Area -->
+    <main class="flex-1 flex overflow-hidden relative">
+
+        <!-- Sidebar Design Token Drawer -->
+        <aside id="token-sidebar" class="w-72 bg-[#0f172a] border-r border-slate-800 p-4 flex-col justify-between hidden lg:flex shrink-0">
+            <div>
+                <h3 class="headline-font font-bold text-xs uppercase text-slate-400 tracking-wider mb-4 flex items-center justify-between">
+                    <span>Design Tokens</span>
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                </h3>
+
+                <!-- Color Tokens -->
+                <div class="space-y-3 mb-6">
+                    <p class="text-[11px] font-mono text-slate-400">BRAND PALETTE</p>
+                    <div class="flex items-center gap-3 p-2 rounded bg-slate-900 border border-slate-800">
+                        <div class="w-8 h-8 rounded bg-[#00236f] shrink-0 border border-blue-400/40"></div>
+                        <div class="text-xs">
+                            <p class="font-semibold text-white">ZATCO Blue</p>
+                            <p class="font-mono text-[10px] text-slate-400">#00236f • Primary</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 p-2 rounded bg-slate-900 border border-slate-800">
+                        <div class="w-8 h-8 rounded bg-[#bb0112] shrink-0 border border-red-400/40"></div>
+                        <div class="text-xs">
+                            <p class="font-semibold text-white">Performance Red</p>
+                            <p class="font-mono text-[10px] text-slate-400">#bb0112 • Secondary</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 p-2 rounded bg-slate-900 border border-slate-800">
+                        <div class="w-8 h-8 rounded bg-[#1d2b3d] shrink-0 border border-slate-500/40"></div>
+                        <div class="text-xs">
+                            <p class="font-semibold text-white">Steel Slate</p>
+                            <p class="font-mono text-[10px] text-slate-400">#1d2b3d • Tertiary</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Typography System -->
+                <div class="space-y-3 mb-6">
+                    <p class="text-[11px] font-mono text-slate-400">TYPOGRAPHY</p>
+                    <div class="p-2 rounded bg-slate-900 border border-slate-800 text-xs">
+                        <p class="headline-font font-bold text-white">IBM Plex Sans</p>
+                        <p class="text-[10px] text-slate-400 font-mono">Headlines & Titles</p>
+                    </div>
+                    <div class="p-2 rounded bg-slate-900 border border-slate-800 text-xs">
+                        <p class="font-normal text-white">Work Sans</p>
+                        <p class="text-[10px] text-slate-400 font-mono">Body & Content</p>
+                    </div>
+                    <div class="p-2 rounded bg-slate-900 border border-slate-800 text-xs">
+                        <p class="mono-font text-white">Josefin Sans</p>
+                        <p class="text-[10px] text-slate-400 font-mono">Technical Specifications</p>
+                    </div>
+                </div>
+
+                <!-- Specs Summary -->
+                <div class="p-3 rounded bg-blue-950/40 border border-blue-900/50 text-xs space-y-1">
+                    <p class="font-semibold text-blue-300 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">verified</span>
+                        Industrial Precision Theme
+                    </p>
+                    <p class="text-[11px] text-slate-300">Modern Industrialism with high-utility 4px soft radius corners & 12-column fixed grid.</p>
+                </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800 text-[11px] text-slate-500 font-mono flex items-center justify-between">
+                <span>Stitch Engine v3.1</span>
+                <span>Active</span>
+            </div>
+        </aside>
+
+        <!-- Center Viewport Frame Container -->
+        <section class="flex-1 flex items-center justify-center p-4 bg-[#080d17] overflow-auto">
+            <div id="frame-wrapper" class="preview-container device-desktop overflow-hidden">
+                <iframe id="main-frame" src="home.html"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal: All 26 Screens Showcase Grid -->
+    <div id="screens-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 sm:p-6 hidden">
+        <div class="bg-[#0f172a] border border-slate-800 rounded-2xl w-full max-w-6xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+            <!-- Modal Header -->
+            <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between shrink-0">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-red-500">grid_view</span>
+                    <div>
+                        <h2 class="headline-font font-bold text-lg text-white">All Generated Screens (26 Variants)</h2>
+                        <p class="text-xs text-slate-400">Click any card to load it directly into the workspace frame.</p>
+                    </div>
+                </div>
+                <button onclick="toggleGridModal()" class="w-8 h-8 rounded-full bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center">
+                    <span class="material-symbols-outlined text-sm">close</span>
+                </button>
+            </div>
+
+            <!-- Modal Content Grid -->
+            <div class="p-6 overflow-y-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+
+                <!-- Homepage -->
+                <div onclick="selectScreen('home.html')" class="p-3 bg-black hover:bg-blue-950/40 border border-slate-800 hover:border-blue-500/50 rounded-xl cursor-pointer transition group">
+                    <div class="h-32 bg-black rounded-lg overflow-hidden flex items-center justify-center mb-3 relative border border-slate-800">
+                        <span class="material-symbols-outlined text-4xl text-blue-500/60 group-hover:scale-110 transition">home</span>
+                        <span class="absolute top-2 right-2 text-[9px] font-mono px-1.5 py-0.5 rounded bg-blue-600 text-white">MOBILE</span>
+                    </div>
+                    <h4 class="font-bold text-xs text-white group-hover:text-blue-400">ZATCO Home - BKT Refined</h4>
+                    <p class="text-[10px] text-slate-400 font-mono mt-0.5">home.html</p>
+                </div>
+
+                <!-- Product Detail -->
+                <div onclick="selectScreen('product-detail.html')" class="p-3 bg-black hover:bg-blue-950/40 border border-slate-800 hover:border-blue-500/50 rounded-xl cursor-pointer transition group">
+                    <div class="h-32 bg-black rounded-lg overflow-hidden flex items-center justify-center mb-3 relative border border-slate-800">
+                        <span class="material-symbols-outlined text-4xl text-blue-500/60 group-hover:scale-110 transition">tire_repair</span>
+                        <span class="absolute top-2 right-2 text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-700 text-white">DESKTOP</span>
+                    </div>
+                    <h4 class="font-bold text-xs text-white group-hover:text-blue-400">Product Detail Specs</h4>
+                    <p class="text-[10px] text-slate-400 font-mono mt-0.5">product-detail.html</p>
+                </div>
+
+                <!-- Product Detail - Case Studies -->
+                <div onclick="selectScreen('product-detail-cases.html')" class="p-3 bg-black hover:bg-blue-950/40 border border-slate-800 hover:border-blue-500/50 rounded-xl cursor-pointer transition group">
+                    <div class="h-32 bg-black rounded-lg overflow-hidden flex items-center justify-center mb-3 relative border border-slate-800">
+                        <span class="material-symbols-outlined text-4xl text-blue-500/60 group-hover:scale-110 transition">menu_book</span>
+                        <span class="absolute top-2 right-2 text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-700 text-white">DESKTOP</span>
+                    </div>
+                    <h4 class="font-bold text-xs text-white group-hover:text-blue-400">Product + Case Studies</h4>
+                    <p class="text-[10px] text-slate-400 font-mono mt-0.5">product-detail-cases.html</p>
+                </div>
+
+                <!-- Tyre Finder -->
+                <div onclick="selectScreen('tyre-finder.html')" class="p-3 bg-black hover:bg-blue-950/40 border border-slate-800 hover:border-blue-500/50 rounded-xl cursor-pointer transition group">
+                    <div class="h-32 bg-black rounded-lg overflow-hidden flex items-center justify-center mb-3 relative border border-slate-800">
+                        <span class="material-symbols-outlined text-4xl text-blue-500/60 group-hover:scale-110 transition">search</span>
+                        <span class="absolute top-2 right-2 text-[9px] font-mono px-1.5 py-0.5 rounded bg-blue-600 text-white">MOBILE</span>
+                    </div>
+                    <h4 class="font-bold text-xs text-white group-hover:text-blue-400">Tyre Finder & Calculator</h4>
+                    <p class="text-[10px] text-slate-400 font-mono mt-0.5">tyre-finder.html</p>
+                </div>
+
+                <!-- Compare Tires -->
+                <div onclick="selectScreen('compare-tires.html')" class="p-3 bg-black hover:bg-blue-950/40 border border-slate-800 hover:border-blue-500/50 rounded-xl cursor-pointer transition group">
+                    <div class="h-32 bg-black rounded-lg overflow-hidden flex items-center justify-center mb-3 relative border border-slate-800">
+                        <span class="material-symbols-outlined text-4xl text-blue-500/60 group-hover:scale-110 transition">compare</span>
+                        <span class="absolute top-2 right-2 text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-700 text-white">DESKTOP</span>
+                    </div>
+                    <h4 class="font-bold text-xs text-white group-hover:text-blue-400">Compare Tires Matrix</h4>
+                    <p class="text-[10px] text-slate-400 font-mono mt-0.5">compare-tires.html</p>
+                </div>
+
+                <!-- Case Study -->
+                <div onclick="selectScreen('case-study.html')" class="p-3 bg-black hover:bg-blue-950/40 border border-slate-800 hover:border-blue-500/50 rounded-xl cursor-pointer transition group">
+                    <div class="h-32 bg-black rounded-lg overflow-hidden flex items-center justify-center mb-3 relative border border-slate-800">
+                        <span class="material-symbols-outlined text-4xl text-blue-500/60 group-hover:scale-110 transition">analytics</span>
+                        <span class="absolute top-2 right-2 text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-700 text-white">DESKTOP</span>
+                    </div>
+                    <h4 class="font-bold text-xs text-white group-hover:text-blue-400">Chile Mining Case Study</h4>
+                    <p class="text-[10px] text-slate-400 font-mono mt-0.5">case-study.html</p>
+                </div>
+
+                <!-- Request Quote -->
+                <div onclick="selectScreen('request-quote.html')" class="p-3 bg-black hover:bg-blue-950/40 border border-slate-800 hover:border-blue-500/50 rounded-xl cursor-pointer transition group">
+                    <div class="h-32 bg-black rounded-lg overflow-hidden flex items-center justify-center mb-3 relative border border-slate-800">
+                        <span class="material-symbols-outlined text-4xl text-blue-500/60 group-hover:scale-110 transition">request_quote</span>
+                        <span class="absolute top-2 right-2 text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-700 text-white">DESKTOP</span>
+                    </div>
+                    <h4 class="font-bold text-xs text-white group-hover:text-blue-400">Request Quote Step 1</h4>
+                    <p class="text-[10px] text-slate-400 font-mono mt-0.5">request-quote.html</p>
+                </div>
+
+                <!-- Request Quote Company -->
+                <div onclick="selectScreen('request-quote-company.html')" class="p-3 bg-black hover:bg-blue-950/40 border border-slate-800 hover:border-blue-500/50 rounded-xl cursor-pointer transition group">
+                    <div class="h-32 bg-black rounded-lg overflow-hidden flex items-center justify-center mb-3 relative border border-slate-800">
+                        <span class="material-symbols-outlined text-4xl text-blue-500/60 group-hover:scale-110 transition">business</span>
+                        <span class="absolute top-2 right-2 text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-700 text-white">DESKTOP</span>
+                    </div>
+                    <h4 class="font-bold text-xs text-white group-hover:text-blue-400">Request Quote Step 2</h4>
+                    <p class="text-[10px] text-slate-400 font-mono mt-0.5">request-quote-company.html</p>
+                </div>
+
+                <!-- Request Quote Success -->
+                <div onclick="selectScreen('request-quote-success.html')" class="p-3 bg-black hover:bg-blue-950/40 border border-slate-800 hover:border-blue-500/50 rounded-xl cursor-pointer transition group">
+                    <div class="h-32 bg-black rounded-lg overflow-hidden flex items-center justify-center mb-3 relative border border-slate-800">
+                        <span class="material-symbols-outlined text-4xl text-emerald-500/60 group-hover:scale-110 transition">check_circle</span>
+                        <span class="absolute top-2 right-2 text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-700 text-white">DESKTOP</span>
+                    </div>
+                    <h4 class="font-bold text-xs text-white group-hover:text-blue-400">Quote Confirmed</h4>
+                    <p class="text-[10px] text-slate-400 font-mono mt-0.5">request-quote-success.html</p>
+                </div>
+
+                <!-- Dealer Dashboard -->
+                <div onclick="selectScreen('dealer-portal.html')" class="p-3 bg-black hover:bg-blue-950/40 border border-slate-800 hover:border-blue-500/50 rounded-xl cursor-pointer transition group">
+                    <div class="h-32 bg-black rounded-lg overflow-hidden flex items-center justify-center mb-3 relative border border-slate-800">
+                        <span class="material-symbols-outlined text-4xl text-blue-500/60 group-hover:scale-110 transition">dashboard</span>
+                        <span class="absolute top-2 right-2 text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-700 text-white">DESKTOP</span>
+                    </div>
+                    <h4 class="font-bold text-xs text-white group-hover:text-blue-400">Dealer Portal Dashboard</h4>
+                    <p class="text-[10px] text-slate-400 font-mono mt-0.5">dealer-portal.html</p>
+                </div>
+
+                <!-- Dealer Portal Login -->
+                <div onclick="selectScreen('dealer-login.html')" class="p-3 bg-black hover:bg-blue-950/40 border border-slate-800 hover:border-blue-500/50 rounded-xl cursor-pointer transition group">
+                    <div class="h-32 bg-black rounded-lg overflow-hidden flex items-center justify-center mb-3 relative border border-slate-800">
+                        <span class="material-symbols-outlined text-4xl text-blue-500/60 group-hover:scale-110 transition">lock</span>
+                        <span class="absolute top-2 right-2 text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-700 text-white">DESKTOP</span>
+                    </div>
+                    <h4 class="font-bold text-xs text-white group-hover:text-blue-400">Dealer Login Screen</h4>
+                    <p class="text-[10px] text-slate-400 font-mono mt-0.5">dealer-login.html</p>
+                </div>
+
+                <!-- About Us -->
+                <div onclick="selectScreen('about.html')" class="p-3 bg-black hover:bg-blue-950/40 border border-slate-800 hover:border-blue-500/50 rounded-xl cursor-pointer transition group">
+                    <div class="h-32 bg-black rounded-lg overflow-hidden flex items-center justify-center mb-3 relative border border-slate-800">
+                        <span class="material-symbols-outlined text-4xl text-[#bb0112] group-hover:scale-110 transition">info</span>
+                        <span class="absolute top-2 right-2 text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-700 text-white">DESKTOP</span>
+                    </div>
+                    <h4 class="font-bold text-xs text-white group-hover:text-blue-400">About Us Corporate</h4>
+                    <p class="text-[10px] text-slate-400 font-mono mt-0.5">about.html</p>
+                </div>
+
+                <!-- Infrastructure -->
+                <div onclick="selectScreen('infrastructure.html')" class="p-3 bg-black hover:bg-blue-950/40 border border-slate-800 hover:border-blue-500/50 rounded-xl cursor-pointer transition group">
+                    <div class="h-32 bg-black rounded-lg overflow-hidden flex items-center justify-center mb-3 relative border border-slate-800">
+                        <span class="material-symbols-outlined text-4xl text-blue-500/60 group-hover:scale-110 transition">factory</span>
+                        <span class="absolute top-2 right-2 text-[9px] font-mono px-1.5 py-0.5 rounded bg-blue-600 text-white">MOBILE</span>
+                    </div>
+                    <h4 class="font-bold text-xs text-white group-hover:text-blue-400">Our Infrastructure</h4>
+                    <p class="text-[10px] text-slate-400 font-mono mt-0.5">infrastructure.html</p>
+                </div>
+
+                <!-- Sustainability -->
+                <div onclick="selectScreen('sustainability.html')" class="p-3 bg-black hover:bg-blue-950/40 border border-slate-800 hover:border-blue-500/50 rounded-xl cursor-pointer transition group">
+                    <div class="h-32 bg-black rounded-lg overflow-hidden flex items-center justify-center mb-3 relative border border-slate-800">
+                        <span class="material-symbols-outlined text-4xl text-emerald-500/60 group-hover:scale-110 transition">eco</span>
+                        <span class="absolute top-2 right-2 text-[9px] font-mono px-1.5 py-0.5 rounded bg-blue-600 text-white">MOBILE</span>
+                    </div>
+                    <h4 class="font-bold text-xs text-white group-hover:text-blue-400">Sustainability & ESG</h4>
+                    <p class="text-[10px] text-slate-400 font-mono mt-0.5">sustainability.html</p>
+                </div>
+
+                <!-- Contact Us -->
+                <div onclick="selectScreen('contact.html')" class="p-3 bg-black hover:bg-blue-950/40 border border-slate-800 hover:border-blue-500/50 rounded-xl cursor-pointer transition group">
+                    <div class="h-32 bg-black rounded-lg overflow-hidden flex items-center justify-center mb-3 relative border border-slate-800">
+                        <span class="material-symbols-outlined text-4xl text-blue-500/60 group-hover:scale-110 transition">mail</span>
+                        <span class="absolute top-2 right-2 text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-700 text-white">DESKTOP</span>
+                    </div>
+                    <h4 class="font-bold text-xs text-white group-hover:text-blue-400">Contact Us Corporate</h4>
+                    <p class="text-[10px] text-slate-400 font-mono mt-0.5">contact.html</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        let currentViewport = 'desktop';
+
+        function setViewport(mode) {
+            currentViewport = mode;
+            const wrapper = document.getElementById('frame-wrapper');
+            const btnDesktop = document.getElementById('btn-desktop');
+            const btnMobile = document.getElementById('btn-mobile');
+            const btnFull = document.getElementById('btn-full');
+
+            // Reset buttons
+            [btnDesktop, btnMobile, btnFull].forEach(b => {
+                b.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium text-slate-400 hover:text-white transition-all';
+            });
+
+            if (mode === 'desktop') {
+                wrapper.className = 'preview-container device-desktop overflow-hidden';
+                btnDesktop.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium bg-[#00236f] text-white shadow-sm transition-all';
+            } else if (mode === 'mobile') {
+                wrapper.className = 'preview-container device-mobile overflow-hidden';
+                btnMobile.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium bg-[#00236f] text-white shadow-sm transition-all';
+            } else if (mode === 'full') {
+                wrapper.className = 'preview-container w-full h-full border-none shadow-none rounded-none overflow-hidden';
+                btnFull.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium bg-[#00236f] text-white shadow-sm transition-all';
+            }
+        }
+
+        function loadPage(pageUrl, btn) {
+            document.getElementById('main-frame').src = pageUrl;
+            document.getElementById('open-external-btn').href = pageUrl;
+
+            if (btn) {
+                document.querySelectorAll('.nav-tab').forEach(t => {
+                    t.className = 'nav-tab px-3 py-1.5 rounded-md text-slate-300 hover:text-white hover:bg-slate-800/80 flex items-center gap-1.5 whitespace-nowrap';
+                });
+                btn.className = 'nav-tab active px-3 py-1.5 rounded-md text-white bg-[#00236f] border border-blue-500/30 flex items-center gap-1.5 whitespace-nowrap';
+            }
+        }
+
+        function toggleGridModal() {
+            const modal = document.getElementById('screens-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        function selectScreen(pageUrl) {
+            loadPage(pageUrl);
+            toggleGridModal();
+        }
+    </script>
+</body>
+</html>

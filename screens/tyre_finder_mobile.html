@@ -1,0 +1,339 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ZATCO - Tyre Finder</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=Josefin+Sans:wght@300;400;500;600;700&amp;family=Work+Sans:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#1e3a8a",
+                        "tertiary-fixed-dim": "#b9c7df",
+                        "on-surface": "#191c1e",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary-fixed": "#0d1c2e",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#93000b",
+                        "on-error": "#ffffff",
+                        "secondary": "#bb0112",
+                        "surface-container": "#eceef0",
+                        "on-tertiary-container": "#9eadc4",
+                        "tertiary": "#1d2b3d",
+                        "secondary-fixed": "#ffdad6",
+                        "outline-variant": "#c5c5d3",
+                        "on-surface-variant": "#444651",
+                        "on-background": "#191c1e",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "tertiary-container": "#334154",
+                        "secondary-container": "#e02928",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#d8dadc",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary-fixed-variant": "#3a485b",
+                        "primary": "#00236f",
+                        "inverse-primary": "#b6c4ff",
+                        "on-primary-fixed": "#00164e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#fffbff",
+                        "background": "#f7f9fb",
+                        "on-primary-container": "#90a8ff",
+                        "secondary-fixed-dim": "#ffb4ab",
+                        "outline": "#757682",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f7f9fb",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container-highest": "#e0e3e5",
+                        "tertiary-fixed": "#d5e3fc",
+                        "on-secondary-fixed": "#410002",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#264191",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface": "#f7f9fb",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f2f4f6",
+                        "primary-fixed": "#dce1ff",
+                        "surface-tint": "#4059aa"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "max-width": "1280px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["IBM Plex Sans", "sans-serif"],
+                        "body-lg": ["Work Sans", "sans-serif"],
+                        "display-lg-mobile": ["IBM Plex Sans", "sans-serif"],
+                        "display-lg": ["IBM Plex Sans", "sans-serif"],
+                        "headline-lg": ["IBM Plex Sans", "sans-serif"],
+                        "body-md": ["Work Sans", "sans-serif"],
+                        "label-md": ["Josefin Sans", "sans-serif"],
+                        "label-sm": ["Josefin Sans", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom scrollbar for technical feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f7f9fb;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c5c5d3;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #757682;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-fixed selection:text-on-primary-fixed flex flex-col min-h-screen font-headline-lg">
+<!-- TopAppBar -->
+<header class="bg-surface text-primary border-b-2 border-outline-variant flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto h-20 sticky top-0 z-50">
+<button aria-label="Menu" class="p-2 hover:bg-surface-container-high active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-outline rounded transition-all duration-200 text-on-surface">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="text-headline-lg font-headline-lg font-bold text-primary tracking-tighter uppercase">
+            ZATCO
+        </div>
+<button aria-label="Language" class="p-2 hover:bg-surface-container-high active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-outline rounded transition-all duration-200 text-on-surface">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</button>
+</header>
+<!-- Page Header / Hero -->
+<section class="bg-surface-container-low border-b border-outline-variant">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-16">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-4 tracking-tighter">Tyre Finder</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                Explore our catalog of high-performance industrial, agriculture, and earthmoving tires. Engineered for extreme conditions and maximum load capacity.
+            </p>
+</div>
+</section>
+<!-- Main Content: Catalog Layout -->
+<main class="flex-1 w-full max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12 flex flex-col md:flex-row gap-gutter">
+<!-- Filter Sidebar (Advanced Filters) -->
+<aside class="w-full md:w-72 flex-shrink-0 mb-8 md:mb-0">
+<div class="bg-surface border border-outline-variant rounded p-6 sticky top-28">
+<div class="flex items-center justify-between mb-6 border-b border-outline-variant pb-4">
+<h2 class="font-headline-md text-headline-md text-on-surface">Filters</h2>
+<button class="text-primary font-label-md text-label-md uppercase hover:text-primary/80 active:scale-[0.98] focus:outline-none focus:underline transition-all duration-200 tracking-widest">Clear All</button>
+</div>
+<!-- Filter Category: Application -->
+<div class="mb-6">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase mb-3 tracking-widest">Application</h3>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="form-checkbox h-5 w-5 text-primary border-outline rounded-[2px] focus:ring-primary-fixed" type="checkbox">
+<span class="font-body-md text-on-surface group-hover:text-primary transition-colors">Agriculture</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="form-checkbox h-5 w-5 text-primary border-outline rounded-[2px] focus:ring-primary-fixed" type="checkbox">
+<span class="font-body-md text-on-surface group-hover:text-primary transition-colors">Industrial</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="form-checkbox h-5 w-5 text-primary border-outline rounded-[2px] focus:ring-primary-fixed" type="checkbox">
+<span class="font-body-md text-on-surface group-hover:text-primary transition-colors">Earthmoving</span>
+</label>
+</div>
+</div>
+<!-- Filter Category: Rim Size -->
+<div class="mb-6">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase mb-3 tracking-widest">Rim Size (Inch)</h3>
+<select class="w-full form-select bg-surface border border-outline-variant text-on-surface font-label-md rounded-[2px] focus:ring-primary focus:border-primary">
+<option value="">All Sizes</option>
+<option value="20">20"</option>
+<option value="24">24"</option>
+<option value="25">25"</option>
+<option value="29">29"</option>
+<option value="33">33"</option>
+</select>
+</div>
+<!-- Filter Category: Ply Rating -->
+<div class="mb-6">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase mb-3 tracking-widest">Min Ply Rating</h3>
+<input class="w-full accent-primary h-2 bg-surface-container rounded-full appearance-none cursor-pointer" max="40" min="10" step="2" type="range" value="20">
+<div class="flex justify-between mt-2 font-label-sm text-label-sm text-on-surface-variant">
+<span class="">10 PR</span>
+<span class="font-bold text-on-surface text-label-md font-label-md">20 PR+</span>
+<span class="">40 PR</span>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md uppercase py-3 rounded-[4px] hover:bg-primary/90 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-200 shadow-[inset_0_-2px_0_rgba(0,0,0,0.2)]">
+                    Apply Filters
+                </button>
+</div>
+</aside>
+<!-- Product Grid Area -->
+<section class="flex-1 w-full">
+<!-- Controls Bar -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4 bg-surface p-4 border border-outline-variant rounded">
+<div class="font-body-md text-on-surface-variant">
+                    Showing <span class="font-bold text-on-surface">24</span> results for Industrial &amp; Earthmoving
+                </div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase whitespace-nowrap" for="sort">Sort by</label>
+<select class="w-full sm:w-auto form-select bg-surface border border-outline-variant text-on-surface font-label-md text-label-sm rounded-[2px] focus:ring-primary focus:border-primary py-1.5" id="sort">
+<option>Recommended</option>
+<option>Load Capacity: High to Low</option>
+<option>Size: Small to Large</option>
+</select>
+</div>
+</div>
+<!-- Grid Layout -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Product Card 1: Earthmoving -->
+<article class="bg-surface border border-outline-variant border-t-4 border-t-secondary rounded-[2px] flex flex-col group hover:shadow-lg transition-shadow duration-300">
+<div class="relative h-56 bg-surface-container p-6 flex items-center justify-center border-b border-outline-variant overflow-hidden">
+<!-- Simulated Tire Image placeholder -->
+<div class="absolute inset-0 bg-[url('placeholder')] bg-cover bg-center opacity-80 mix-blend-multiply group-hover:scale-105 transition-transform duration-500" data-alt="A studio photograph of a massive, heavy-duty earthmoving tire with deep, aggressive treads. The tire is starkly lit against a clean, off-white background, highlighting the rugged rubber texture and structural design. The lighting emphasizes the deep grooves and solid construction. The aesthetic is highly technical, industrial, and focused on product durability."></div>
+<div class="absolute top-4 left-4 bg-secondary text-on-primary font-label-sm text-label-sm uppercase px-2 py-1 rounded-[2px] shadow-sm">
+                            Heavy Duty
+                        </div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<span class="text-primary font-label-sm text-label-sm uppercase tracking-widest">Earthmoving</span>
+<span class="bg-surface-container-highest text-on-surface px-2 py-0.5 rounded-[2px] font-label-sm text-[10px] border border-outline-variant">E-4</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-bold tracking-tighter">ZT-RockMaster 3000</h3>
+<!-- Technical Specs Grid -->
+<div class="grid grid-cols-2 gap-y-3 gap-x-4 mb-6 border-t border-b border-surface-variant py-4 mt-auto"><div class=""><div class="font-label-sm text-label-sm text-on-surface-variant mb-0.5 uppercase tracking-widest">Load/Speed</div><div class="font-label-md text-label-md text-on-surface">209A2/188B</div></div><div class=""><div class="font-label-sm text-label-sm text-on-surface-variant mb-0.5 uppercase tracking-widest">Compound</div><div class="font-label-md text-label-md text-on-surface">Cut-Resistant</div></div><div class=""><div class="font-label-sm text-label-sm text-on-surface-variant mb-0.5 uppercase tracking-widest">Diameter</div><div class="font-label-md text-label-md text-on-surface">1865 mm</div></div><div class=""><div class="font-label-sm text-label-sm text-on-surface-variant mb-0.5 uppercase tracking-widest">Static Radius</div><div class="font-label-md text-label-md text-on-surface">825 mm</div></div></div>
+<button class="w-full border-2 border-primary text-primary font-label-md text-label-md uppercase py-2 rounded-[4px] hover:bg-surface-container-high active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-outline transition-all duration-200 flex items-center justify-center gap-2">
+<span class="">View Specs</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Product Card 2: Industrial -->
+<article class="bg-surface border border-outline-variant border-t-4 border-t-primary rounded-[2px] flex flex-col group hover:shadow-lg transition-shadow duration-300">
+<div class="relative h-56 bg-surface-container p-6 flex items-center justify-center border-b border-outline-variant overflow-hidden">
+<div class="absolute inset-0 bg-[url('placeholder')] bg-cover bg-center opacity-80 mix-blend-multiply group-hover:scale-105 transition-transform duration-500" data-alt="A clean, isolated studio shot of an industrial solid forklift tire. The tire has a smooth, blocky tread pattern designed for warehouse floors. It is illuminated by crisp, white studio lighting that highlights the dense, solid rubber compound. The background is a stark, light gray, fitting a highly technical product catalog aesthetic. The mood is precise and reliable."></div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<span class="text-tertiary font-label-sm text-label-sm uppercase tracking-widest">Industrial Solid</span>
+<span class="bg-surface-container-highest text-on-surface px-2 py-0.5 rounded-[2px] font-label-sm text-[10px] border border-outline-variant">L-2</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-bold tracking-tighter">ZT-LiftPro Solid</h3>
+<div class="grid grid-cols-2 gap-y-3 gap-x-4 mb-6 border-t border-b border-surface-variant py-4 mt-auto"><div class=""><div class="font-label-sm text-label-sm text-on-surface-variant mb-0.5 uppercase tracking-widest">Max Speed</div><div class="font-label-md text-label-md text-on-surface">25 km/h</div></div><div class=""><div class="font-label-sm text-label-sm text-on-surface-variant mb-0.5 uppercase tracking-widest">Rim Width</div><div class="font-label-md text-label-md text-on-surface">5.00S-12</div></div><div class=""><div class="font-label-sm text-label-sm text-on-surface-variant mb-0.5 uppercase tracking-widest">Compound</div><div class="font-label-md text-label-md text-on-surface">Abrasion-Res.</div></div><div class=""><div class="font-label-sm text-label-sm text-on-surface-variant mb-0.5 uppercase tracking-widest">Pattern Depth</div><div class="font-label-md text-label-md text-on-surface">60 mm</div></div></div>
+<button class="w-full border-2 border-primary text-primary font-label-md text-label-md uppercase py-2 rounded-[4px] hover:bg-surface-container-high active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-outline transition-all duration-200 flex items-center justify-center gap-2">
+<span class="">View Specs</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Product Card 3: Earthmoving / Grader -->
+<article class="bg-surface border border-outline-variant border-t-4 border-t-secondary rounded-[2px] flex flex-col group hover:shadow-lg transition-shadow duration-300">
+<div class="relative h-56 bg-surface-container p-6 flex items-center justify-center border-b border-outline-variant overflow-hidden">
+<div class="absolute inset-0 bg-[url('placeholder')] bg-cover bg-center opacity-80 mix-blend-multiply group-hover:scale-105 transition-transform duration-500" data-alt="A highly detailed product photograph of a large motor grader tire. The tire features an open, self-cleaning tread design with deep lugs. The lighting is sharp and industrial, emphasizing the strength and structure of the sidewall. The background is a solid, light slate color, creating a modern, high-utility technical presentation suitable for an engineering catalog."></div>
+<div class="absolute top-4 right-4 bg-tertiary text-on-tertiary font-label-sm text-label-sm uppercase px-2 py-1 rounded-[2px] shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified">verified</span>
+                            Top Rated
+                        </div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<span class="text-primary font-label-sm text-label-sm uppercase tracking-widest">Earthmoving</span>
+<span class="bg-surface-container-highest text-on-surface px-2 py-0.5 rounded-[2px] font-label-sm text-[10px] border border-outline-variant">G-2/L-2</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-bold tracking-tighter">ZT-Grader Traction</h3>
+<div class="grid grid-cols-2 gap-y-3 gap-x-4 mb-6 border-t border-b border-surface-variant py-4 mt-auto"><div class=""><div class="font-label-sm text-label-sm text-on-surface-variant mb-0.5 uppercase tracking-widest">Pressure</div><div class="font-label-md text-label-md text-on-surface">450 kPa</div></div><div class=""><div class="font-label-sm text-label-sm text-on-surface-variant mb-0.5 uppercase tracking-widest">Rec. Rim</div><div class="font-label-md text-label-md text-on-surface">10.00VA</div></div><div class=""><div class="font-label-sm text-label-sm text-on-surface-variant mb-0.5 uppercase tracking-widest">Overall Width</div><div class="font-label-md text-label-md text-on-surface">365 mm</div></div><div class=""><div class="font-label-sm text-label-sm text-on-surface-variant mb-0.5 uppercase tracking-widest">Rolling Circ.</div><div class="font-label-md text-label-md text-on-surface">4050 mm</div></div></div>
+<button class="w-full border-2 border-primary text-primary font-label-md text-label-md uppercase py-2 rounded-[4px] hover:bg-surface-container-high active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-outline transition-all duration-200 flex items-center justify-center gap-2">
+<span class="">View Specs</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</article>
+</div>
+<!-- Pagination (Simple structural representation) -->
+<div class="mt-12 flex justify-center items-center gap-2">
+<button class="w-10 h-10 border border-outline-variant rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 border border-primary bg-primary text-on-primary font-label-md rounded flex items-center justify-center">1</button>
+<button class="w-10 h-10 border border-outline-variant bg-surface text-on-surface font-label-md rounded flex items-center justify-center hover:bg-surface-container-high active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-outline transition-all duration-200">2</button>
+<button class="w-10 h-10 border border-outline-variant bg-surface text-on-surface font-label-md rounded flex items-center justify-center hover:bg-surface-container-high active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-outline transition-all duration-200">3</button>
+<button class="w-10 h-10 border border-outline-variant rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-tertiary dark:bg-on-tertiary-fixed text-on-tertiary dark:text-tertiary-fixed border-t-4 border-secondary full-width bottom-0 mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-12 max-w-max-width mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="text-headline-md font-headline-md font-bold text-on-tertiary mb-4">ZATCO</div>
+<p class="text-body-md font-body-md text-tertiary-fixed-dim">
+                    Engineered for Performance. Global leaders in industrial and heavy-duty tire manufacturing.
+                </p>
+</div>
+<div class="col-span-1 md:col-span-3 grid grid-cols-2 sm:grid-cols-3 gap-8">
+<div>
+<h4 class="text-label-md font-label-md uppercase tracking-wider text-on-tertiary mb-4 border-b border-surface-tint pb-2 inline-block">Company</h4>
+<ul class="space-y-3">
+<li class=""><a class="text-label-sm font-label-sm text-tertiary-fixed-dim hover:text-primary transition-colors duration-200" href="#">About Us</a></li>
+<li class=""><a class="text-label-sm font-label-sm text-tertiary-fixed-dim hover:text-primary transition-colors duration-200" href="#">Sustainability</a></li>
+<li class=""><a class="text-label-sm font-label-sm text-tertiary-fixed-dim hover:text-primary transition-colors duration-200" href="#">Global Offices</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-label-md font-label-md uppercase tracking-wider text-on-tertiary mb-4 border-b border-surface-tint pb-2 inline-block">Resources</h4>
+<ul class="space-y-3">
+<li class=""><a class="text-label-sm font-label-sm text-tertiary-fixed-dim hover:text-primary transition-colors duration-200" href="#">Dealer Portal</a></li>
+<li class=""><a class="text-label-sm font-label-sm text-tertiary-fixed-dim hover:text-primary transition-colors duration-200" href="#">Media Center</a></li>
+<li class=""><a class="text-label-sm font-label-sm text-tertiary-fixed-dim hover:text-primary transition-colors duration-200" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-label-md font-label-md uppercase tracking-wider text-on-tertiary mb-4 border-b border-surface-tint pb-2 inline-block">Legal</h4>
+<ul class="space-y-3">
+<li class=""><a class="text-label-sm font-label-sm text-tertiary-fixed-dim hover:text-primary transition-colors duration-200" href="#">Terms of Use</a></li>
+<li class=""><a class="text-label-sm font-label-sm text-tertiary-fixed-dim hover:text-primary transition-colors duration-200" href="#">Privacy Policy</a></li>
+<li class=""><a class="text-label-sm font-label-sm text-tertiary-fixed-dim hover:text-primary transition-colors duration-200" href="#">Cookie Settings</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="border-t border-surface-tint px-margin-desktop py-6 max-w-max-width mx-auto">
+<p class="text-label-sm font-label-sm text-tertiary-fixed-dim">
+                © 2024 ZATCO Tires. All Rights Reserved. Engineered for Performance.
+            </p>
+</div>
+</footer>
+
+
+</body></html>

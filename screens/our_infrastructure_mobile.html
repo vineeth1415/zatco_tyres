@@ -1,0 +1,281 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>About ZATCO - Infrastructure</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=Josefin+Sans:wght@300;400;500;600;700&amp;family=Work+Sans:wght@400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#1e3a8a",
+                        "tertiary-fixed-dim": "#b9c7df",
+                        "on-surface": "#191c1e",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary-fixed": "#0d1c2e",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#93000b",
+                        "on-error": "#ffffff",
+                        "secondary": "#bb0112",
+                        "surface-container": "#eceef0",
+                        "on-tertiary-container": "#9eadc4",
+                        "tertiary": "#1d2b3d",
+                        "secondary-fixed": "#ffdad6",
+                        "outline-variant": "#c5c5d3",
+                        "on-surface-variant": "#444651",
+                        "on-background": "#191c1e",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "tertiary-container": "#334154",
+                        "secondary-container": "#e02928",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#d8dadc",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary-fixed-variant": "#3a485b",
+                        "primary": "#00236f",
+                        "inverse-primary": "#b6c4ff",
+                        "on-primary-fixed": "#00164e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#fffbff",
+                        "background": "#f7f9fb",
+                        "on-primary-container": "#90a8ff",
+                        "secondary-fixed-dim": "#ffb4ab",
+                        "outline": "#757682",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f7f9fb",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container-highest": "#e0e3e5",
+                        "tertiary-fixed": "#d5e3fc",
+                        "on-secondary-fixed": "#410002",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#264191",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface": "#f7f9fb",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f2f4f6",
+                        "primary-fixed": "#dce1ff",
+                        "surface-tint": "#4059aa"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "max-width": "1280px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["IBM Plex Sans"],
+                        "body-lg": ["Work Sans"],
+                        "display-lg-mobile": ["IBM Plex Sans"],
+                        "display-lg": ["IBM Plex Sans"],
+                        "headline-lg": ["IBM Plex Sans"],
+                        "body-md": ["Work Sans"],
+                        "label-md": ["Josefin Sans"],
+                        "label-sm": ["Josefin Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        .tech-border {
+            border-top: 4px solid theme('colors.secondary');
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col font-headline-lg">
+<!-- TopAppBar -->
+<header class="bg-surface border-b-2 border-outline-variant w-full z-50 sticky top-0">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto h-20">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-primary p-2">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<a class="text-headline-lg font-headline-lg font-bold text-primary tracking-tighter" href="#">ZATCO</a>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-on-surface font-medium transition-colors duration-200 hover:text-primary" href="#">Products</a>
+<a class="text-secondary border-b-2 border-secondary font-bold transition-colors duration-200 hover:text-primary" href="#">About Us</a>
+<a class="text-on-surface font-medium transition-colors duration-200 hover:text-primary" href="#">Sustainability</a>
+<a class="text-on-surface font-medium transition-colors duration-200 hover:text-primary" href="#">Media Center</a>
+<a class="text-on-surface font-medium transition-colors duration-200 hover:text-primary" href="#">Contact</a>
+</nav>
+<button class="text-primary p-2 hover:text-secondary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative w-full h-[60vh] md:h-[80vh] flex items-center justify-center bg-surface-variant overflow-hidden">
+<img alt="ZATCO Industrial Facility Exterior" class="absolute inset-0 w-full h-full object-cover opacity-90 mix-blend-multiply" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDN7xRQzM2oa3M0xS_2j-rdPyzsrw-V42IQbR0VWRFq5t6IZO4HrZX1RCddSVrQBnhM7c5u9Zje6XkRdkHtP9cYB5t87dolASdXaI6d8eSWIjVCfOUHGQIMBOb6dQxXQtNaevhTyiU7YxUnHR_tiuWFDoxNT04lQsDl1krTcdlbxIok_1ghp5j2eT96QGbGqfRCGxbArV9wUkVUe_VF0G_kVwXz7GQWdTh8d14-dbTc_CCs650UPtqsppBoELSAoNBmuTI">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<h1 class="text-display-lg-mobile md:text-display-lg font-display-lg text-primary mb-4 bg-surface/80 p-4 inline-block backdrop-blur-sm tech-border tracking-tighter">
+                    ENGINEERING TOMORROW
+                </h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant bg-surface/80 p-4 inline-block backdrop-blur-sm mt-2 max-w-2xl mx-auto">
+                    A look inside our state-of-the-art manufacturing infrastructure, where precision meets scale.
+                </p>
+</div>
+</section>
+<!-- World-Class Manufacturing -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-primary mb-6 tracking-tighter">World-Class Manufacturing</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant mb-6 leading-relaxed">
+                        Our facilities are designed with high-utility architecture, prioritizing workflow efficiency and safety. Utilizing advanced robotics and automated assembly lines, we ensure every tire meets exacting specifications.
+                    </p>
+<ul class="space-y-4 mb-8">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary icon-filled mt-1" data-icon="factory">factory</span>
+<div>
+<h3 class="text-label-md font-label-md text-on-surface uppercase">Automated Lines</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Minimizing human error through precision robotics.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary icon-filled mt-1" data-icon="architecture">architecture</span>
+<div>
+<h3 class="text-label-md font-label-md text-on-surface uppercase">Scalable Infrastructure</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Built to expand alongside global demand.</p>
+</div>
+</li>
+</ul>
+<a class="inline-flex items-center justify-center bg-primary text-on-primary px-6 py-3 rounded text-label-md font-label-md uppercase transition-colors hover:bg-primary/90 active:scale-[0.98] focus:ring-2 focus:ring-primary focus:ring-offset-2 duration-200" href="#">
+                        Explore Capabilities
+                    </a>
+</div>
+<div class="relative h-96 bg-surface-container border border-outline-variant p-2 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Interior view of a modern tire manufacturing plant, clean and brightly lit. Heavy automated machinery in deep blue and safety yellow handling large black industrial tires. High-key lighting, industrial modern aesthetic, focus on precision and scale." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGyJi2FR7E2Z514Qq9kOd6RDSxjeU77cT6h2GbUdvEwIBcJU9MNmCkwtwVLcCRO-59_dQt33o7gjGSvh1Oi6M0Od9aEZhsEvOErXwDVoG7-RZBTFWBDcog2PwSheBWyISQcXhe7UCVN1UxG3mtiUDIZhev4H-sCxm_lpLzBfWjUd3A2x1NtLgyqUGwX7NFLgqwuxcua5hCLdmT3FsMWeFu6z7B2HSNtskGzzDKBzCdPI9IJyBi4ZJKYA">
+</div>
+</div>
+</section>
+<!-- Quality Assurance (Bento-style) -->
+<section class="py-24 bg-surface-container-lowest border-y border-outline-variant">
+<div class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-headline-lg font-headline-lg text-primary mb-4 tracking-tighter">Quality Assurance Center</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+                        Every batch undergoes rigorous stress testing in our dedicated QA labs before deployment.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 bg-surface border border-outline-variant tech-border p-8 flex flex-col justify-between min-h-[300px]">
+<div>
+<span class="material-symbols-outlined text-primary mb-4 text-4xl" data-icon="science">science</span>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-2">Material Science Lab</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Advanced compound analysis ensuring optimal grip and wear resistance under extreme thermal conditions.</p>
+</div>
+<div class="mt-6">
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary w-3/4 h-full"></div>
+</div>
+<p class="text-label-sm font-label-sm text-outline mt-2 uppercase">Testing Capacity: 75% Active</p>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant p-6 flex flex-col items-center text-center justify-center min-h-[300px] transition-colors hover:bg-surface-container-high active:scale-[0.98] focus:ring-2 focus:ring-outline duration-200">
+<span class="material-symbols-outlined text-secondary text-5xl mb-4 icon-filled" data-icon="tire_repair">tire_repair</span>
+<h3 class="text-label-md font-label-md text-on-surface uppercase mb-2">Stress Testing</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Simulated extreme loads.</p>
+</div>
+<div class="bg-surface border border-outline-variant p-6 flex flex-col items-center text-center justify-center min-h-[300px] transition-colors hover:bg-surface-container-high active:scale-[0.98] focus:ring-2 focus:ring-outline duration-200">
+<span class="material-symbols-outlined text-secondary text-5xl mb-4 icon-filled" data-icon="thermometer">thermometer</span>
+<h3 class="text-label-md font-label-md text-on-surface uppercase mb-2">Thermal Analysis</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Heat dissipation metrics.</p>
+</div>
+<div class="md:col-span-2 bg-tertiary text-on-tertiary p-8 flex flex-col justify-center min-h-[300px] relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="text-headline-md font-headline-md mb-2">Compliance &amp; Certifications</h3>
+<p class="text-body-md font-body-md text-tertiary-fixed-dim mb-6 max-w-md">Meeting and exceeding ISO standards for heavy-duty industrial applications globally.</p>
+<a class="inline-flex items-center gap-2 text-label-md font-label-md text-inverse-primary hover:text-primary-fixed transition-colors uppercase" href="#">
+                                View Certificates <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<span class="material-symbols-outlined absolute -right-10 -bottom-10 text-9xl text-on-tertiary-fixed opacity-20 transform -rotate-12" data-icon="verified">verified</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Our Heritage -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="flex flex-col-reverse md:flex-row gap-12 items-center">
+<div class="w-full md:w-1/2">
+<img class="w-full h-auto border-4 border-surface-variant grayscale" data-alt="Historical black and white photo of the first ZATCO manufacturing plant from decades ago. Solid industrial brick architecture, workers in period-appropriate gear standing near early tire molds. High contrast, serious and reliable mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-542ELxlMfgyYCdpa0K_o2Pv83C2Nb_VYJ0Xd2N4JVUJ7SzBNk8Eerh_wLWqhJuDFnMc21nqlNyYuWPJHCRbEMqWrvKYY7ii31cEDKnZlNjy3qDTqX_hWMgD-xCDhdcyQqj7r2FN9uKL9YpLxsXD3RZ83hDK-3-8Yo1wMcgQw7dWHCSsRZ0UJfhnJev1-CsnJP8tahiRA1TUYEU4fBJPoDWZZ5-doVHEIvXCOx0MzD0ibMywBBczulQ">
+</div>
+<div class="w-full md:w-1/2">
+<h2 class="text-headline-lg font-headline-lg text-primary mb-6 tracking-tighter">Our Heritage</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant mb-6 leading-relaxed">
+                        Founded on principles of durability and structural integrity, ZATCO has evolved from a regional supplier to a global industrial force. Our roots in foundational engineering still guide our infrastructure decisions today.
+                    </p>
+<div class="border-l-4 border-secondary pl-6 py-2 my-8">
+<p class="text-body-lg font-body-lg text-on-surface italic leading-relaxed">"Performance is not just measured on the road, but in the foundation of the facilities that build them."</p>
+</div>
+<div class="grid grid-cols-2 gap-6 mt-8 border-t border-outline-variant pt-8">
+<div>
+<span class="text-display-lg font-display-lg text-primary block font-bold">1985</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">Established</span>
+</div>
+<div>
+<span class="text-display-lg font-display-lg text-primary block font-bold">40+</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">Global Facilities</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-tertiary text-on-tertiary border-t-4 border-secondary">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-12 max-w-max-width mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="text-headline-md font-headline-md font-bold text-on-tertiary mb-4">ZATCO</div>
+<p class="text-label-sm font-label-sm text-tertiary-fixed-dim">Engineered for Performance.</p>
+</div>
+<div class="col-span-1 md:col-span-3 flex flex-wrap gap-x-8 gap-y-4 md:justify-end items-center">
+<a class="text-label-sm font-label-sm text-tertiary-fixed-dim transition-colors hover:text-primary duration-200" href="#">Terms of Use</a>
+<a class="text-label-sm font-label-sm text-tertiary-fixed-dim transition-colors hover:text-primary duration-200" href="#">Privacy Policy</a>
+<a class="text-label-sm font-label-sm text-tertiary-fixed-dim transition-colors hover:text-primary duration-200" href="#">Dealer Portal</a>
+<a class="text-label-sm font-label-sm text-tertiary-fixed-dim transition-colors hover:text-primary duration-200" href="#">Cookie Settings</a>
+<a class="text-label-sm font-label-sm text-tertiary-fixed-dim transition-colors hover:text-primary duration-200" href="#">Global Offices</a>
+</div>
+<div class="col-span-1 md:col-span-4 text-left md:text-center mt-8 pt-8 border-t border-on-tertiary-fixed">
+<p class="text-body-md font-body-md text-tertiary-fixed-dim">© 2024 ZATCO Tires. All Rights Reserved. Engineered for Performance.</p>
+</div>
+</div>
+</footer>
+
+
+</body></html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>ZATCO Tyres - Fitment Finder & PSI Pressure Guide</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#00236f",
+                        "secondary": "#bb0112",
+                        "tertiary": "#1d2b3d",
+                        "background": "#f7f9fb"
+                    },
+                    "fontFamily": {
+                        "headline": ["IBM Plex Sans", "sans-serif"],
+                        "body": ["Work Sans", "sans-serif"],
+                        "mono": ["Josefin Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-[#f7f9fb] text-slate-900 flex flex-col min-h-screen">
+
+    <header class="bg-white border-b border-slate-200 w-full sticky top-0 z-50 shadow-sm">
+        <div class="flex justify-between items-center px-4 md:px-12 max-w-[1280px] mx-auto h-20">
+            <a href="home.html" class="flex items-center gap-3">
+                <img src="images/zatco-logo.jpg" alt="ZATCO Tyres"
+                    class="h-10 md:h-12 object-contain rounded bg-black px-3 py-1.5 border border-slate-800 shadow-md">
+            </a>
+            <nav class="hidden lg:flex gap-6 text-sm font-headline font-semibold">
+                <a class="text-slate-700 hover:text-primary transition py-2" href="home.html">Home</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="product-detail.html">Products</a>
+                <a class="text-[#bb0112] border-b-2 border-[#bb0112] py-2" href="tyre-finder.html">Tyre Finder</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="compare-tires.html">Compare</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="case-study.html">Case Studies</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="dealer-portal.html">Dealer
+                    Network</a>
+                <a class="text-slate-700 hover:text-primary transition py-2" href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow py-10 px-4 md:px-12 max-w-[1280px] mx-auto">
+        <div class="bg-white border border-slate-200 rounded-xl p-8 shadow-md mb-12">
+            <h1 class="font-headline font-bold text-2xl md:text-3xl text-[#00236f] mb-2">Find Exact Tyre Fitment for
+                Your Vehicle</h1>
+            <p class="text-slate-600 text-sm mb-6">Select your vehicle segment, make, and model to view recommended
+                ZATCO tyre codes, sizes, and inflation PSI guide.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                <div>
+                    <label class="block text-xs font-mono text-slate-600 uppercase mb-1">1. Category</label>
+                    <select id="sel-cat" onchange="updateModels()"
+                        class="w-full border border-slate-300 rounded p-2.5 text-sm bg-slate-50 font-medium">
+                        <option value="motorcycle">Motorcycle</option>
+                        <option value="scooter">Scooter</option>
+                        <option value="3wheeler">3-Wheeler / Auto</option>
+                        <option value="lcv">Light Commercial (LCV)</option>
+                        <option value="tractor">Tractor</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-mono text-slate-600 uppercase mb-1">2. Manufacturer Make</label>
+                    <select id="sel-make" onchange="updateModels()"
+                        class="w-full border border-slate-300 rounded p-2.5 text-sm bg-slate-50 font-medium">
+                        <option value="hero">Hero MotoCorp</option>
+                        <option value="bajaj">Bajaj Auto</option>
+                        <option value="honda">Honda 2-Wheelers</option>
+                        <option value="mahindra">Mahindra Commercial</option>
+                        <option value="tata">Tata Motors</option>
+                        <option value="swaraj">Swaraj Tractors</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-mono text-slate-600 uppercase mb-1">3. Vehicle Model</label>
+                    <select id="sel-model"
+                        class="w-full border border-slate-300 rounded p-2.5 text-sm bg-slate-50 font-medium">
+                        <option value="splendor">Splendor Plus / HF Deluxe</option>
+                        <option value="pulsar">Pulsar 150 / 180</option>
+                        <option value="activa">Activa 5G / 6G</option>
+                        <option value="bolero">Bolero Pickup ExtraLong</option>
+                        <option value="tata407">Tata 407 Gold</option>
+                        <option value="swaraj744">Swaraj 744 FE</option>
+                    </select>
+                </div>
+                <div class="flex items-end">
+                    <button onclick="findFitment()"
+                        class="w-full bg-[#00236f] hover:bg-[#001850] text-white font-headline font-semibold text-sm uppercase h-[42px] rounded transition flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-sm">search</span>
+                        Show Recommendations
+                    </button>
+                </div>
+            </div>
+
+            <!-- Fitment Results Container -->
+            <div id="fitment-result"
+                class="bg-blue-50 border border-blue-200 p-6 rounded-lg font-mono text-xs text-slate-800 hidden">
+                <div class="flex items-center justify-between border-b border-blue-200 pb-3 mb-4">
+                    <h3 class="font-headline font-bold text-base text-[#00236f]" id="res-title">Matched ZATCO Tyre
+                        Fitment</h3>
+                    <span class="bg-[#00236f] text-white px-2 py-0.5 rounded text-[10px]"
+                        id="res-code">ZAT-FIT-2026</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div><span class="text-slate-500 block">Recommended Tyre Model:</span><strong id="res-model"
+                            class="text-sm text-slate-900">ZT-100 Grip</strong></div>
+                    <div><span class="text-slate-500 block">Tyre Size & Ply Rating:</span><strong id="res-size"
+                            class="text-sm text-slate-900">90/90-18 6PR</strong></div>
+                    <div><span class="text-slate-500 block">Recommended Inflation PSI:</span><strong id="res-psi"
+                            class="text-sm text-emerald-700">36 PSI (Rear) / 28 PSI (Front)</strong></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PSI Pressure Reference Table -->
+        <div class="bg-white border border-slate-200 rounded-xl p-8 shadow-sm">
+            <h2 class="font-headline font-bold text-xl text-[#00236f] mb-4">ZATCO Recommended Tyre Inflation Pressure
+                (PSI) Reference</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-xs font-mono">
+                    <thead>
+                        <tr class="bg-slate-100 border-b border-slate-200 text-slate-700 uppercase">
+                            <th class="p-3">Vehicle Segment</th>
+                            <th class="p-3">ZATCO Model</th>
+                            <th class="p-3">Tyre Size</th>
+                            <th class="p-3">Front PSI</th>
+                            <th class="p-3">Rear PSI (Normal)</th>
+                            <th class="p-3">Rear PSI (Heavy Load)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-slate-800">
+                        <tr>
+                            <td class="p-3 font-bold">Motorcycle (100-125cc)</td>
+                            <td class="p-3">ZT-100 Grip</td>
+                            <td class="p-3">90/90-18</td>
+                            <td class="p-3">28 PSI</td>
+                            <td class="p-3">36 PSI</td>
+                            <td class="p-3 text-red-600 font-bold">40 PSI</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold">Motorcycle (150-200cc)</td>
+                            <td class="p-3">ZT-125 SpeedGrip</td>
+                            <td class="p-3">100/90-17</td>
+                            <td class="p-3">30 PSI</td>
+                            <td class="p-3">38 PSI</td>
+                            <td class="p-3 text-red-600 font-bold">42 PSI</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold">Scooter (Activa / Jupiter)</td>
+                            <td class="p-3">ZT-Scoot Urban</td>
+                            <td class="p-3">90/100-10</td>
+                            <td class="p-3">24 PSI</td>
+                            <td class="p-3">32 PSI</td>
+                            <td class="p-3 text-red-600 font-bold">36 PSI</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold">3-Wheeler Auto-Rickshaw</td>
+                            <td class="p-3">ZT-3W Payload King</td>
+                            <td class="p-3">4.00-8 8PR</td>
+                            <td class="p-3">32 PSI</td>
+                            <td class="p-3">44 PSI</td>
+                            <td class="p-3 text-red-600 font-bold">50 PSI</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold">Light Commercial (Bolero)</td>
+                            <td class="p-3">ZT-LCV Titan Load</td>
+                            <td class="p-3">7.00-16 12PR</td>
+                            <td class="p-3">55 PSI</td>
+                            <td class="p-3">65 PSI</td>
+                            <td class="p-3 text-red-600 font-bold">75 PSI</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold">Tractor Rear</td>
+                            <td class="p-3">ZT-AgriTuf 45°</td>
+                            <td class="p-3">13.6-28 12PR</td>
+                            <td class="p-3">N/A</td>
+                            <td class="p-3">20 PSI (Field)</td>
+                            <td class="p-3 text-red-600 font-bold">24 PSI (Haulage)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-black text-white border-t-4 border-[#bb0112] py-8 text-center text-xs font-mono">
+        © 2026 ZATCO Tyres - zatco tyres Group India. All Rights Reserved.
+    </footer>
+
+    <script>
+        function updateModels() {
+            // Dropdown dynamic update trigger
+        }
+        function findFitment() {
+            const cat = document.getElementById('sel-cat').value;
+            const resBox = document.getElementById('fitment-result');
+            resBox.classList.remove('hidden');
+
+            if (cat === 'lcv') {
+                document.getElementById('res-title').innerText = 'Recommended LCV Commercial Fitment';
+                document.getElementById('res-model').innerText = 'ZT-LCV Titan Load 12PR';
+                document.getElementById('res-size').innerText = '7.00-16 12PR Heavy Steel Casing';
+                document.getElementById('res-psi').innerText = '65 PSI (Front) / 75 PSI (Loaded Rear)';
+            } else if (cat === 'tractor') {
+                document.getElementById('res-title').innerText = 'Recommended Agricultural Tractor Fitment';
+                document.getElementById('res-model').innerText = 'ZT-AgriTuf 45° Lugs';
+                document.getElementById('res-size').innerText = '13.6-28 / 14.9-28 12PR';
+                document.getElementById('res-psi').innerText = '20 PSI (Field Tillage) / 24 PSI (Road Haulage)';
+            } else {
+                document.getElementById('res-title').innerText = 'Recommended 2-Wheeler Fitment';
+                document.getElementById('res-model').innerText = 'ZT-100 Grip / ZT-Scoot Urban';
+                document.getElementById('res-size').innerText = '90/90-18 6PR / 90/100-10';
+                document.getElementById('res-psi').innerText = '28 PSI (Front) / 36 PSI (Rear)';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ZATCO - Quote Request Confirmed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600;700&amp;family=Josefin+Sans:wght@300;400;500;600;700&amp;family=Work+Sans:wght@400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#fffbff",
+                        "tertiary-fixed-dim": "#b9c7df",
+                        "tertiary-container": "#334154",
+                        "surface-tint": "#4059aa",
+                        "on-surface-variant": "#444651",
+                        "primary": "#00236f",
+                        "on-primary-fixed-variant": "#264191",
+                        "error": "#ba1a1a",
+                        "secondary": "#bb0112",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary-fixed": "#ffdad6",
+                        "surface-container": "#eceef0",
+                        "surface-container-high": "#e6e8ea",
+                        "on-primary-fixed": "#00164e",
+                        "primary-container": "#1e3a8a",
+                        "inverse-surface": "#2d3133",
+                        "secondary-fixed-dim": "#ffb4ab",
+                        "on-secondary-fixed": "#410002",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#b6c4ff",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#3a485b",
+                        "on-background": "#191c1e",
+                        "on-primary-container": "#90a8ff",
+                        "primary-fixed": "#dce1ff",
+                        "on-surface": "#191c1e",
+                        "secondary-container": "#e02928",
+                        "on-tertiary-container": "#9eadc4",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#93000b",
+                        "surface": "#f7f9fb",
+                        "outline-variant": "#c5c5d3",
+                        "tertiary-fixed": "#d5e3fc",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "error-container": "#ffdad6",
+                        "outline": "#757682",
+                        "surface-bright": "#f7f9fb",
+                        "surface-variant": "#e0e3e5",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary": "#1d2b3d",
+                        "background": "#f7f9fb",
+                        "on-tertiary-fixed": "#0d1c2e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "max-width": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Josefin Sans"],
+                        "display-lg-mobile": ["IBM Plex Sans"],
+                        "headline-lg": ["IBM Plex Sans"],
+                        "label-sm": ["Josefin Sans"],
+                        "body-md": ["Work Sans"],
+                        "body-lg": ["Work Sans"],
+                        "display-lg": ["IBM Plex Sans"],
+                        "headline-md": ["IBM Plex Sans"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col items-center justify-center p-margin-mobile md:p-margin-desktop">
+<!-- Transactional Screen - No Global Nav Shell -->
+<main class="w-full max-w-3xl bg-surface-container-lowest border border-outline-variant shadow-sm rounded-lg overflow-hidden flex flex-col md:flex-row relative">
+<!-- Left Side: Graphic / Branding -->
+<div class="md:w-1/3 bg-primary text-on-primary flex flex-col justify-between p-8 relative overflow-hidden">
+<div class="relative z-10">
+<span class="font-headline-md text-headline-md font-bold tracking-tight">ZATCO</span>
+<p class="font-body-md text-body-md mt-2 text-primary-fixed-dim">Industrial Tires &amp; Solutions</p>
+</div>
+<div class="relative z-10 mt-16 md:mt-0">
+<div class="bg-on-primary/10 p-4 rounded-full inline-flex mb-4">
+<span class="material-symbols-outlined text-4xl" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg mb-2">Quote Requested</h1>
+<p class="font-body-md text-body-md text-primary-fixed-dim">Your request has been successfully submitted to our industrial sales team.</p>
+</div>
+<!-- Decorative background element -->
+<div class="absolute -bottom-16 -right-16 opacity-10">
+<span class="material-symbols-outlined text-[200px]" data-icon="precision_manufacturing">precision_manufacturing</span>
+</div>
+</div>
+<!-- Right Side: Details & Actions -->
+<div class="md:w-2/3 p-8 flex flex-col justify-center">
+<div class="mb-12">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Reference Number</p>
+<div class="flex items-center gap-3">
+<span class="font-label-md text-label-md bg-surface-container py-2 px-4 rounded border border-outline-variant font-bold text-primary tracking-widest">ZTC-8492-AXL</span>
+<button class="text-on-surface-variant hover:text-primary transition-colors" title="Copy Reference">
+<span class="material-symbols-outlined text-sm" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+</div>
+<div class="border-t-2 border-primary border-opacity-20 pt-6 mb-12">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">Request Summary</h2>
+<div class="grid grid-cols-2 gap-y-4 gap-x-8">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Fleet Size</p>
+<p class="font-body-md text-body-md font-medium">50-100 Vehicles</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Primary Application</p>
+<p class="font-body-md text-body-md font-medium">Heavy Construction</p>
+</div>
+<div class="col-span-2">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Requested Models</p>
+<p class="font-body-md text-body-md font-medium">12x Titan-Grip OTR, 8x Armor-Tread L5</p>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 border border-outline-variant rounded flex gap-4 items-start mb-8">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="schedule">schedule</span>
+<div>
+<h3 class="font-label-md text-label-md font-bold mb-1">Next Steps</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">A ZATCO specialist will review your specifications and contact you at <strong>operations@example.com</strong> within 24 hours to discuss pricing and availability.</p>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 mt-auto">
+<a class="border-2 border-outline text-on-surface font-label-md text-label-md uppercase py-3 px-6 rounded text-center hover:border-primary hover:text-primary transition-colors flex-1" href="#">Return to Dashboard</a>
+<button class="bg-primary text-on-primary font-label-md text-label-md uppercase py-3 px-6 rounded text-center hover:bg-on-primary-fixed-variant transition-colors flex-1">Download PDF</button>
+</div>
+</div>
+</main><footer class="w-full max-w-3xl mt-8 pt-8 border-t border-outline-variant">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-end">
+    <div class="flex flex-col gap-2"><h4 class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Stay Informed</h4><p class="font-label-sm text-label-sm text-on-surface-variant">Get technical updates and engineering guides.</p></div>
+    <form class="flex gap-2 flex-col sm:flex-row">
+      <input type="email" placeholder="Email Address" class="flex-1 bg-surface-container-highest border border-outline rounded px-4 py-3 font-label-md text-label-md text-on-surface focus:outline-none focus:border-primary placeholder:font-label-md" required="">
+      <button type="submit" class="bg-primary text-on-primary font-label-md text-label-md uppercase py-3 px-8 rounded hover:bg-on-primary-fixed-variant transition-colors whitespace-nowrap">Subscribe</button>
+    </form>
+  </div>
+  <div class="mt-8 flex justify-between items-center border-t border-outline-variant border-opacity-20 pt-4">
+    <p class="font-label-sm text-label-sm text-on-surface-variant opacity-60">© 2024 ZATCO Industrial. All rights reserved.</p>
+    <div class="flex gap-4 items-center mr-4">
+  <a href="#" class="text-on-surface-variant opacity-60 hover:text-primary transition-colors">
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+    </svg>
+  </a>
+  <a href="#" class="text-on-surface-variant opacity-60 hover:text-primary transition-colors">
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 5.1-.1.947 4.046 4.046 0 0 1-1.771 2.233 8.073 8.073 0 0 0 4.614-1.26 8.194 8.194 0 0 1-4.003 4.148z"></path>
+    </svg>
+  </a>
+  <a href="#" class="text-on-surface-variant opacity-60 hover:text-primary transition-colors">
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.377.505 9.377.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
+    </svg>
+  </a>
+</div><div class="flex gap-4">
+      <a href="#" class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors">Technical Specs</a>
+      <a href="#" class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors">Support</a>
+    </div>
+  </div>
+</footer>
+
+
+</body></html>

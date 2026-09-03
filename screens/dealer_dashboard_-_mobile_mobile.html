@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZATCO Dealer Dashboard - Mobile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=Josefin+Sans:wght@300;400;500;600;700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#00236f",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "surface-dim": "#d8dadc",
+                        "tertiary-fixed": "#d5e3fc",
+                        "secondary-container": "#e02928",
+                        "outline": "#757682",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary-fixed-dim": "#b9c7df",
+                        "background": "#f7f9fb",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "on-primary-container": "#90a8ff",
+                        "on-primary-fixed-variant": "#264191",
+                        "on-secondary-fixed": "#410002",
+                        "on-background": "#191c1e",
+                        "on-surface-variant": "#444651",
+                        "on-secondary-container": "#fffbff",
+                        "surface-container": "#eceef0",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#334154",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary-fixed": "#ffdad6",
+                        "surface": "#f7f9fb",
+                        "inverse-primary": "#b6c4ff",
+                        "tertiary": "#1d2b3d",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#93000b",
+                        "on-primary-fixed": "#00164e",
+                        "inverse-surface": "#2d3133",
+                        "outline-variant": "#c5c5d3",
+                        "primary-container": "#1e3a8a",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#4059aa",
+                        "secondary-fixed-dim": "#ffb4ab",
+                        "on-tertiary-container": "#9eadc4",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#bb0112",
+                        "surface-container-high": "#e6e8ea",
+                        "primary-fixed": "#dce1ff",
+                        "on-tertiary-fixed-variant": "#3a485b",
+                        "surface-bright": "#f7f9fb",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary-fixed": "#0d1c2e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "max-width": "1280px",
+                        "margin-desktop": "64px",
+                        "base": "8px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Josefin Sans"],
+                        "body-lg": ["Work Sans"],
+                        "display-lg-mobile": ["IBM Plex Sans"],
+                        "headline-lg": ["IBM Plex Sans"],
+                        "label-md": ["Josefin Sans"],
+                        "body-md": ["Work Sans"],
+                        "headline-md": ["IBM Plex Sans"],
+                        "display-lg": ["IBM Plex Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            /* Force light mode background despite 'dark' class requested by prompt structure, adhering to "Light Mode: The page should be in light mode." */
+            background-color: #f7f9fb;
+            color: #191c1e;
+        }
+        
+        /* Hide scrollbar for horizontal scrolling containers */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col pb-20 font-body-lg">
+<!-- Top Summary Section -->
+<header class="px-margin-mobile pt-margin-mobile pb-6 bg-surface shadow-sm border-b border-outline-variant">
+<div class="flex justify-between items-center mb-4">
+<div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Good morning,</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Manager</p>
+</div>
+<div class="h-10 w-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-outline-variant">
+<img class="object-cover w-full h-full" data-alt="A close-up, professional headshot of a fleet manager in a modern industrial setting. The lighting is crisp and natural, highlighting a modern corporate environment. The overall aesthetic is clean, bright light-mode, and highly detailed, conveying reliability and expertise in a technical field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRG6bVCNjD1VMzKbVQCqHUUJJLfSRrHHbQlQf-24982UEKTYsivrYoRNIvEmkosxHqeRmDG3r_g_EmWK5cSVJbB1Rk9WbxuR7cfStuEvA7st2iMVHF5L7FHhNWKP8JgjNtt4yw1SNM6ozgiM3jCjCzpInwQCiOT-s00xNAiQNvEFyA0eKEnCYQGUox5IcMyuFjzg8WI9eQQAmQ5A_KY9vE71sXxLVgneiV3rvHDTzEmB9C7fd8BKLslQ"/>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-3 rounded uppercase flex items-center justify-center gap-2 hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+            New Quote
+        </button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow flex flex-col gap-6 pt-6 overflow-y-auto">
+<!-- KPI Cards (Horizontal Scroll) -->
+<section class="pl-margin-mobile">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-3">Overview</h2>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-4 pr-margin-mobile">
+<!-- Asset Card -->
+<div class="min-w-[200px] flex-shrink-0 bg-surface border border-outline-variant rounded-lg p-4 shadow-sm border-t-2 border-t-primary">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-primary">conveyor_belt</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Total Assets</span>
+</div>
+<div class="font-display-lg-mobile text-display-lg-mobile text-on-surface">1,245</div>
+<div class="font-label-sm text-label-sm text-secondary-container mt-1 flex items-center">
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span> 2.1%
+                    </div>
+</div>
+<!-- Quotes Card -->
+<div class="min-w-[200px] flex-shrink-0 bg-surface border border-outline-variant rounded-lg p-4 shadow-sm border-t-2 border-t-primary">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-primary">request_quote</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Active Quotes</span>
+</div>
+<div class="font-display-lg-mobile text-display-lg-mobile text-on-surface">38</div>
+<div class="font-label-sm text-label-sm text-primary mt-1 flex items-center">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span> 14%
+                    </div>
+</div>
+<!-- Inventory Card -->
+<div class="min-w-[200px] flex-shrink-0 bg-surface border border-outline-variant rounded-lg p-4 shadow-sm border-t-2 border-t-primary">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-primary">inventory_2</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Low Stock</span>
+</div>
+<div class="font-display-lg-mobile text-display-lg-mobile text-on-surface">12</div>
+<div class="font-label-sm text-label-sm text-secondary mt-1 flex items-center">
+<span class="material-symbols-outlined text-[16px]">warning</span> Action Req.
+                    </div>
+</div>
+</div>
+</section>
+<!-- Priority Alerts -->
+<section class="px-margin-mobile">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container">priority_high</span>
+                Priority Alerts
+            </h2>
+<div class="flex flex-col gap-3">
+<div class="bg-error-container border border-on-error-container/20 rounded p-4 flex gap-3 items-start">
+<span class="material-symbols-outlined text-on-error-container mt-0.5">assignment_late</span>
+<div>
+<h3 class="font-label-md text-label-md text-on-error-container uppercase">Urgent Request</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Quote #QT-8921 requires immediate technical review for OTR specifications.</p>
+</div>
+</div>
+<div class="bg-tertiary-fixed border border-tertiary-container/20 rounded p-4 flex gap-3 items-start">
+<span class="material-symbols-outlined text-on-tertiary-container mt-0.5">check_circle</span>
+<div>
+<h3 class="font-label-md text-label-md text-on-tertiary-fixed-variant uppercase">Quote Approved</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Global Logistics Corp approved QT-8919. Awaiting fulfillment.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Recent Quotes -->
+<section class="px-margin-mobile pb-6">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-3">Recent Quotes</h2>
+<div class="bg-surface border border-outline-variant rounded overflow-hidden">
+<!-- List Item 1 -->
+<div class="p-4 border-b border-outline-variant flex justify-between items-center bg-surface hover:bg-surface-container-lowest transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container-highest flex items-center justify-center text-primary font-bold">GL</div>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Global Logistics</h4>
+<span class="font-label-sm text-label-sm bg-surface-container px-2 py-0.5 rounded text-on-surface-variant mt-1 inline-block uppercase">Pending</span>
+</div>
+</div>
+<div class="text-right">
+<div class="font-label-md text-label-md text-on-surface">$14,500</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1 text-right">QT-8920</div>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="p-4 flex justify-between items-center bg-surface hover:bg-surface-container-lowest transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container-highest flex items-center justify-center text-primary font-bold">AM</div>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Apex Mining</h4>
+<span class="font-label-sm text-label-sm bg-tertiary-fixed px-2 py-0.5 rounded text-on-tertiary-fixed-variant mt-1 inline-block uppercase">Approved</span>
+</div>
+</div>
+<div class="text-right">
+<div class="font-label-md text-label-md text-on-surface">$82,000</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1 text-right">QT-8919</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Actions Grid -->
+<section class="px-margin-mobile pb-8">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-3">Quick Actions</h2>
+<div class="grid grid-cols-2 gap-3">
+<button class="bg-surface border border-outline-variant rounded p-4 flex flex-col items-center justify-center gap-2 hover:bg-surface-container-lowest transition-colors h-24">
+<span class="material-symbols-outlined text-primary">qr_code_scanner</span>
+<span class="font-label-md text-label-md text-on-surface">Scan Serial</span>
+</button>
+<button class="bg-surface border border-outline-variant rounded p-4 flex flex-col items-center justify-center gap-2 hover:bg-surface-container-lowest transition-colors h-24">
+<span class="material-symbols-outlined text-primary">search</span>
+<span class="font-label-md text-label-md text-on-surface">Search Parts</span>
+</button>
+<button class="bg-surface border border-outline-variant rounded p-4 flex flex-col items-center justify-center gap-2 hover:bg-surface-container-lowest transition-colors h-24 col-span-2">
+<span class="material-symbols-outlined text-primary">support_agent</span>
+<span class="font-label-md text-label-md text-on-surface">Contact Support</span>
+</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Component -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-2 bg-surface dark:bg-background border-t border-outline-variant dark:border-outline shadow-lg z-50">
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-lg p-2 Active: scale-95 transition-transform">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm-mobile text-label-sm-mobile">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-2 hover:bg-surface-container-low">
+<span class="material-symbols-outlined">request_quote</span>
+<span class="font-label-sm-mobile text-label-sm-mobile">Quotes</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-2 hover:bg-surface-container-low">
+<span class="material-symbols-outlined">conveyor_belt</span>
+<span class="font-label-sm-mobile text-label-sm-mobile">Assets</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-2 hover:bg-surface-container-low">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm-mobile text-label-sm-mobile">Profile</span>
+</button>
+</nav>
+</body></html>
