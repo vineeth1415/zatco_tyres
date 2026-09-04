@@ -1,5 +1,26 @@
 /* ZATCO Component Loader & Global Tyre Rolling Preloader */
 (function () {
+    // 0. Inject Browser Title Favicon Logo
+    function injectFavicon() {
+        var existingFavicon = document.querySelector("link[rel*='icon']");
+        if (!existingFavicon) {
+            var link = document.createElement('link');
+            link.rel = 'icon';
+            link.type = 'image/png';
+            link.href = 'images/zatco_z_symbol.png';
+            document.head.appendChild(link);
+
+            var shortcutLink = document.createElement('link');
+            shortcutLink.rel = 'shortcut icon';
+            shortcutLink.type = 'image/png';
+            shortcutLink.href = 'images/zatco_z_symbol.png';
+            document.head.appendChild(shortcutLink);
+        } else {
+            existingFavicon.href = 'images/zatco_z_symbol.png';
+        }
+    }
+    injectFavicon();
+
     // 1. Inject Preloader Styles & DOM immediately on page access
     function createPreloader() {
         if (document.getElementById('zatco-preloader')) return;
