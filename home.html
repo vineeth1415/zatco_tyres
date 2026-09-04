@@ -103,96 +103,51 @@
         .font-mono {
             font-family: 'Josefin Sans', sans-serif;
         }
-
-        /* === Scroll-Driven Tyre Spin === */
-        #scroll-tyre {
-            will-change: transform;
-            filter: drop-shadow(0 0 30px rgba(59,130,246,0.35)) drop-shadow(0 20px 40px rgba(0,0,0,0.8));
-            transition: filter 0.3s ease;
-        }
-        #scroll-tyre:hover {
-            filter: drop-shadow(0 0 45px rgba(187,1,18,0.5)) drop-shadow(0 20px 50px rgba(0,0,0,0.9));
-        }
-        .scroll-hint {
-            animation: hintBounce 1.5s ease-in-out infinite;
-        }
-        @keyframes hintBounce {
-            0%, 100% { transform: translateY(0); opacity: 0.6; }
-            50% { transform: translateY(6px); opacity: 1; }
-        }
     </style>
+
 </head>
 
 <body class="bg-background text-on-background antialiased flex flex-col min-h-screen">
 
     <!-- Top Navigation Header -->
-    <header class="bg-surface border-b border-outline-variant w-full sticky top-0 z-50 shadow-sm">
-        <div class="flex justify-between items-center w-full px-4 md:px-12 max-w-[1280px] mx-auto h-20">
-            <div class="flex items-center gap-4">
-                <a href="home.html" class="flex items-center gap-3">
-                    <img src="images/zatco-logo.jpg" alt="ZATCO Tyres"
-                        class="h-10 md:h-12 object-contain rounded bg-black px-3 py-1.5 border border-slate-800 shadow-md">
-                </a>
-            </div>
-
-            <!-- Navigation Links -->
-            <nav class="hidden lg:flex items-center gap-6 text-sm font-headline font-semibold">
-                <a class="text-secondary border-b-2 border-secondary py-2" href="home.html">Home</a>
-                <a class="text-slate-700 hover:text-primary transition py-2" href="product-detail.html">Products</a>
-                <a class="text-slate-700 hover:text-primary transition py-2" href="tyre-finder.html">Tyre Finder</a>
-                <a class="text-slate-700 hover:text-primary transition py-2" href="compare-tires.html">Compare</a>
-                <a class="text-slate-700 hover:text-primary transition py-2" href="case-study.html">Case Studies</a>
-                <a class="text-slate-700 hover:text-primary transition py-2" href="dealer-portal.html">Dealer
-                    Network</a>
-                <a class="text-slate-700 hover:text-primary transition py-2" href="about.html">About Us</a>
-                <a class="text-slate-700 hover:text-primary transition py-2" href="contact.html">Contact</a>
-            </nav>
-
-            <!-- Action buttons -->
-            <div class="flex items-center gap-3">
-                <a href="https://wa.me/919876543210" target="_blank"
-                    class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded border border-emerald-600/30 bg-emerald-50 text-emerald-800 text-xs font-semibold hover:bg-emerald-100 transition">
-                    <span class="material-symbols-outlined text-sm text-emerald-600">chat</span>
-                    WhatsApp Concierge
-                </a>
-                <a href="dealer-login.html" style="background-color: #0a2540;"
-                    class="bg-[#0a2540] hover:bg-[#061729] text-white text-xs font-headline font-semibold px-4 py-2 rounded transition shadow-sm">
-                    Dealer Portal
-                </a>
-            </div>
-        </div>
-    </header>
+    <div id="header-placeholder"></div>
 
     <main class="flex-grow">
         <!-- Hero Section — Scroll-Driven Tyre -->
-        <section id="hero-section" class="relative w-full min-h-[680px] flex items-center bg-black text-white overflow-hidden">
-            <!-- Background Image -->
-            <div class="absolute inset-0 z-0">
-                <img class="w-full h-full object-cover opacity-15" src="images/IMG_0093.JPG.jpeg"
-                    alt="ZATCO Industrial Plant & Tyre Engineering">
-                <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/50"></div>
+        <!-- Interactive Tyre Animation -->
+
+        <section id="hero-section"
+            class="relative w-full min-h-[680px] flex items-center bg-black text-white overflow-hidden">
+            <!-- Background Video -->
+            <div class="absolute inset-0 z-0 overflow-hidden">
+                <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-60">
+                    <source src="images/Black and Red Grunge Welcome Banner.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/30"></div>
             </div>
 
-            <!-- Hero Grid: Left copy | Right tyre -->
+            <!-- Hero Content -->
             <div class="relative z-10 w-full px-6 md:px-16 max-w-[1280px] mx-auto py-20">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
 
                     <!-- Left: Text Content -->
                     <div class="space-y-7">
-                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#bb0112]/20 border border-[#bb0112]/50 text-[#ffb4ab] text-xs font-mono font-semibold uppercase tracking-widest">
+                        <div
+                            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#bb0112]/20 border border-[#bb0112]/50 text-[#ffb4ab] text-xs font-mono font-semibold uppercase tracking-widest">
                             <span class="w-2 h-2 rounded-full bg-[#bb0112] animate-pulse"></span>
                             ISO 9001:2015 &amp; BIS ISI Certified
                         </div>
 
-                        <h1 class="font-headline font-bold text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1]">
-                            UNSTOPPABLE<br/>
-                            ROAD MILEAGE.<br/>
+                        <h1
+                            class="font-headline font-bold text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1]">
+                            UNSTOPPABLE<br />
+                            ROAD MILEAGE.<br />
                             <span class="text-blue-400">EXTREME GRIP.</span>
                         </h1>
 
                         <p class="text-slate-400 text-base md:text-lg leading-relaxed max-w-lg">
                             Engineered for Indian highways, rugged off-road terrain, and heavy commercial payloads.
-                            Precision high-silica rubber compounding by ZATCO Tyres Group India.
+                            Precision high-silica rubber compounding by ZATCO Tyres India.
                         </p>
 
                         <div class="flex flex-wrap gap-4 items-center">
@@ -209,7 +164,8 @@
                         </div>
 
                         <!-- Trust Badges -->
-                        <div class="flex flex-wrap gap-6 pt-4 border-t border-slate-800 text-xs font-mono text-slate-400">
+                        <div
+                            class="flex flex-wrap gap-6 pt-4 border-t border-slate-800 text-xs font-mono text-slate-400">
                             <div class="flex items-center gap-1.5">
                                 <span class="material-symbols-outlined text-emerald-400 text-base">verified</span>
                                 100% Laser Inspected
@@ -225,35 +181,7 @@
                         </div>
                     </div>
 
-                    <!-- Right: Scroll-Driven Tyre -->
-                    <div class="flex flex-col items-center justify-center gap-6">
-                        <!-- Tyre Wrapper -->
-                        <div class="relative flex items-center justify-center">
-                            <!-- Outer ring glow -->
-                            <div class="absolute w-[340px] h-[340px] rounded-full border border-blue-900/40 animate-pulse"></div>
-                            <div class="absolute w-[290px] h-[290px] rounded-full border border-slate-700/60"></div>
-                            <!-- Ground shadow -->
-                            <div class="absolute bottom-[-16px] w-48 h-4 bg-gradient-to-r from-transparent via-blue-600/40 to-transparent blur-lg rounded-full"></div>
-                            <!-- The Tyre Image — spins on scroll -->
-                            <img id="scroll-tyre"
-                                src="images/bright_tyre_hero.png"
-                                alt="ZATCO High-Performance Tyre"
-                                class="w-64 h-64 md:w-80 md:h-80 object-contain select-none">
-                        </div>
 
-                        <!-- Scroll hint -->
-                        <div class="flex flex-col items-center gap-1 text-slate-500 text-xs font-mono">
-                            <span class="material-symbols-outlined scroll-hint text-slate-600 text-xl">keyboard_arrow_down</span>
-                            Scroll to spin the tyre
-                        </div>
-
-                        <!-- Tyre spec chips -->
-                        <div class="flex gap-3 text-[11px] font-mono">
-                            <span class="px-2.5 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-400">295/80 R22.5</span>
-                            <span class="px-2.5 py-1 rounded-full bg-slate-900 border border-slate-800 text-blue-400">16PR STEEL</span>
-                            <span class="px-2.5 py-1 rounded-full bg-slate-900 border border-slate-800 text-emerald-400">SILICA TREAD</span>
-                        </div>
-                    </div>
 
                 </div>
             </div>
@@ -311,9 +239,16 @@
                     </div>
                     <div class="flex items-end">
                         <button type="submit"
-                            class="w-full bg-[#00236f] hover:bg-[#001850] text-white font-headline font-semibold text-sm uppercase h-[42px] rounded transition flex justify-center items-center gap-2 shadow">
-                            <span class="material-symbols-outlined text-sm">search</span>
-                            Find Matched Tyres
+                            class="w-full bg-[#000000] hover:bg-[#bb0112] text-white font-headline font-semibold text-sm uppercase h-[42px] rounded transition-all duration-300 ease-out flex justify-center items-center gap-2 shadow hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] group">
+
+                            <span
+                                class="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">
+                                search
+                            </span>
+
+                            <span class="transition-transform duration-300 group-hover:translate-x-0.5">
+                                Find Matched Tyres
+                            </span>
                         </button>
                     </div>
                 </form>
@@ -331,7 +266,7 @@
                     <div
                         class="absolute bottom-4 left-4 right-4 bg-black/90 backdrop-blur p-3 rounded border border-slate-800">
                         <p class="font-headline font-semibold text-xs text-white">Automated Mixing & Extrusion Line</p>
-                        <p class="text-[10px] text-slate-400 font-mono">zatco tyres Flagship Campus</p>
+                        <p class="text-[10px] text-slate-400 font-mono">ZATCO Tyres Flagship Campus</p>
                     </div>
                 </div>
                 <div class="lg:col-span-7 space-y-4">
@@ -340,7 +275,7 @@
                         Corporate Lineage
                     </div>
                     <h2 class="font-headline font-bold text-2xl md:text-3xl tracking-tight text-white">
-                        Engineering Trust: Built by zatco tyres Group India
+                        Engineering Trust: Built by ZATCO Tyres India
                     </h2>
                     <blockquote
                         class="text-slate-300 italic text-sm md:text-base leading-relaxed border-l-4 border-[#bb0112] pl-4 py-1">
@@ -351,7 +286,7 @@
                     </blockquote>
                     <div
                         class="pt-2 flex items-center justify-between text-xs font-mono text-slate-400 border-t border-slate-800">
-                        <span>Executive Board • zatco tyres Group</span>
+                        <span>Executive Board • ZATCO Tyres India</span>
                         <span class="text-emerald-400 flex items-center gap-1">
                             <span class="w-2 h-2 rounded-full bg-emerald-400"></span> 100% BIS ISI Approved
                         </span>
@@ -624,7 +559,7 @@
                         </div>
                         <p class="text-xs text-slate-700 leading-relaxed mb-4">
                             "We installed ZATCO 7.00-16 12PR Titan Load tyres across 8 Bolero Pickups operating on
-                            Jaipur-Delhi goods corridors. After 84,500 km, we experienced zero sidewall bulges and
+                            Mumbai-Hyderabad goods corridors. After 84,500 km, we experienced zero sidewall bulges and
                             uniform tread wear."
                         </p>
                     </div>
@@ -632,9 +567,9 @@
                         <img src="images/IMG_0078.JPG.jpeg" alt="Rajesh Kumar Verma"
                             class="w-10 h-10 rounded-full object-cover border border-slate-300">
                         <div>
-                            <h4 class="font-headline font-bold text-xs text-slate-900">Rajesh Kumar Verma</h4>
+                            <h4 class="font-headline font-bold text-xs text-slate-900">Rohit Vemula</h4>
                             <p class="text-[10px] text-slate-500 font-mono">Fleet Logistics Manager • Apex Transport,
-                                Jaipur</p>
+                                Hyderabad</p>
                         </div>
                     </div>
                 </div>
@@ -660,7 +595,7 @@
                             class="w-10 h-10 rounded-full bg-[#00236f] text-white flex items-center justify-center font-bold text-xs">
                             AP</div>
                         <div>
-                            <h4 class="font-headline font-bold text-xs text-slate-900">Anand V. Pillai</h4>
+                            <h4 class="font-headline font-bold text-xs text-slate-900">Anand Mohan</h4>
                             <p class="text-[10px] text-slate-500 font-mono">Daily Commuter • Kochi, Kerala</p>
                         </div>
                     </div>
@@ -688,7 +623,8 @@
                             GS</div>
                         <div>
                             <h4 class="font-headline font-bold text-xs text-slate-900">Sardar Gurdeep Singh</h4>
-                            <p class="text-[10px] text-slate-500 font-mono">Agri Business Operator • Ludhiana, Punjab
+                            <p class="text-[10px] text-slate-500 font-mono">Agri Business Operator • Hyderabad, Andhra
+                                Pradesh
                             </p>
                         </div>
                     </div>
@@ -727,7 +663,7 @@
                         </h3>
                     </div>
                     <p class="text-xs text-slate-600 mb-4">Located in Kochi, Calicut, Thrissur, Bangalore, Chennai,
-                        Jaipur, and Ludhiana with instant fitting services.</p>
+                        Hyderabad, and Coimbatore with instant fitting services.</p>
                     <a href="dealer-portal.html"
                         class="inline-flex items-center gap-2 bg-[#bb0112] hover:bg-red-700 text-white text-xs font-headline font-semibold px-4 py-2 rounded">
                         <span>Find Dealer Near You</span>
@@ -739,113 +675,11 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black text-white border-t-4 border-[#bb0112] mt-auto">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-4 md:px-12 py-12 max-w-[1280px] mx-auto text-xs">
-            <div class="space-y-3">
-                <div class="flex items-center gap-2">
-                    <div
-                        class="w-8 h-8 rounded bg-[#00236f] flex items-center justify-center font-headline font-bold text-white text-base">
-                        Z</div>
-                    <span class="font-headline font-bold text-lg text-white">ZATCO TYRES</span>
-                </div>
-                <p class="text-slate-400 leading-relaxed">
-                    Engineered for unstoppable road mileage & extreme payload grip. Manufactured by zatco tyres Group
-                    India.
-                </p>
-                <div class="text-[11px] font-mono text-emerald-400">
-                    ISO 9001:2015 & BIS ISI Certified
-                </div>
-            </div>
-
-            <div>
-                <h4 class="font-mono uppercase font-bold text-slate-300 mb-3 tracking-wider">Quick Navigation</h4>
-                <ul class="space-y-2 text-slate-400">
-                    <li><a href="home.html" class="hover:text-white transition">Home</a></li>
-                    <li><a href="product-detail.html" class="hover:text-white transition">Product Specs Catalog</a></li>
-                    <li><a href="tyre-finder.html" class="hover:text-white transition">Fitment Recommendation Tool</a>
-                    </li>
-                    <li><a href="compare-tires.html" class="hover:text-white transition">Tyre Comparison Matrix</a></li>
-                    <li><a href="case-study.html" class="hover:text-white transition">Fleet Case Studies</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="font-mono uppercase font-bold text-slate-300 mb-3 tracking-wider">Corporate & B2B</h4>
-                <ul class="space-y-2 text-slate-400">
-                    <li><a href="dealer-portal.html" class="hover:text-white transition">Authorized Dealer Network</a>
-                    </li>
-                    <li><a href="dealer-login.html" class="hover:text-white transition">B2B Dealer Dashboard</a></li>
-                    <li><a href="infrastructure.html" class="hover:text-white transition">zatco tyres Manufacturing
-                            Campus</a></li>
-                    <li><a href="sustainability.html" class="hover:text-white transition">Green Rubber &
-                            Sustainability</a></li>
-                    <li><a href="contact.html" class="hover:text-white transition">Contact Corporate HQ</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="font-mono uppercase font-bold text-slate-300 mb-3 tracking-wider">Support & Help</h4>
-                <p class="text-slate-400 mb-2">Toll Free: 1800-425-9876</p>
-                <p class="text-slate-400 mb-2">Email: support@zatcotyres.com</p>
-                <p class="text-slate-400 mb-4">WhatsApp: +91 98765 43210</p>
-                <a href="https://wa.me/919876543210" target="_blank"
-                    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-emerald-700 hover:bg-emerald-600 text-white font-semibold text-xs">
-                    <span class="material-symbols-outlined text-sm">chat</span>
-                    Chat on WhatsApp
-                </a>
-            </div>
-        </div>
-
-        <div class="border-t border-slate-800 text-center py-4 text-[11px] font-mono text-slate-500">
-            © 2026 ZATCO Tyres - zatco tyres Group India. All Rights Reserved. Engineered for Performance.
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
+    <script src="components.js"></script>
     <script>
-        /* === Scroll-Driven Tyre Spin === */
-        (function () {
-            const tyre = document.getElementById('scroll-tyre');
-            if (!tyre) return;
-
-            let totalRotation = 0;
-            let rafId = null;
-            let targetRotation = 0;
-
-            // Listen to wheel event anywhere on the page
-            window.addEventListener('wheel', function (e) {
-                // Each pixel scrolled = ~0.5 degree of rotation
-                const delta = e.deltaY * 0.5;
-                targetRotation += delta;
-                if (!rafId) {
-                    rafId = requestAnimationFrame(animateTyre);
-                }
-            }, { passive: true });
-
-            // Also tie to window scroll for touch/trackpad
-            let lastScrollY = window.scrollY;
-            window.addEventListener('scroll', function () {
-                const scrollDelta = window.scrollY - lastScrollY;
-                targetRotation += scrollDelta * 0.8;
-                lastScrollY = window.scrollY;
-                if (!rafId) {
-                    rafId = requestAnimationFrame(animateTyre);
-                }
-            }, { passive: true });
-
-            function animateTyre() {
-                // Smooth interpolation toward target
-                totalRotation += (targetRotation - totalRotation) * 0.12;
-                tyre.style.transform = `rotate(${totalRotation}deg)`;
-
-                if (Math.abs(targetRotation - totalRotation) > 0.1) {
-                    rafId = requestAnimationFrame(animateTyre);
-                } else {
-                    rafId = null;
-                }
-            }
-        })();
-
         /* === Fleet TCO Calculator === */
         function calculateSavings() {
             const fleetSize = parseInt(document.getElementById('calc-fleet-size').value) || 1;
