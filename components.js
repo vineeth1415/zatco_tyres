@@ -32,14 +32,6 @@
                 0% { transform: rotate(0deg); }
                 100% { transform: rotate(360deg); }
             }
-            @keyframes zatcoRoad {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-50%); }
-            }
-            @keyframes zatcoPulse {
-                0%, 100% { opacity: 0.7; transform: scale(0.98); }
-                50% { opacity: 1; transform: scale(1.02); }
-            }
         `;
         document.head.appendChild(style);
 
@@ -48,28 +40,21 @@
         preloader.style.cssText = 'position: fixed; inset: 0; z-index: 999999; background-color: #050505; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.4s ease, visibility 0.4s ease; opacity: 1; visibility: visible; pointer-events: auto;';
 
         preloader.innerHTML = `
-            <div style="position: relative; width: 140px; height: 140px; display: flex; align-items: center; justify-content: center;">
-                <div style="position: absolute; inset: -10px; border: 2px dashed rgba(187, 1, 18, 0.5); border-radius: 50%; animation: zatcoSpin 4s linear infinite reverse;"></div>
-                
-                <!-- Rotating Wheel Assembly with Attached Exact Z Emblem -->
-                <div style="position: relative; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center; animation: zatcoSpin 0.9s linear infinite;">
-                    <img src="images/rolling_hero_tyre.png" alt="Rolling Tyre" style="width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 15px rgba(187, 1, 18, 0.6));" onerror="this.style.opacity='0.4';">
-                    
-                    <!-- Attached Z Logo Emblem in Center Wheel Hub -->
-                    <div style="position: absolute; width: 56px; height: 56px; border-radius: 50%; background: #000000; border: 2px solid #ffffff; display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); z-index: 10;">
-                        <img src="images/zatco_z_symbol.png" alt="ZATCO Z Emblem" style="width: 100%; height: 100%; object-fit: contain;">
-                    </div>
+            <div style="position: relative; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
+                <!-- 1D Rolling Tyre with ZATCO's Main Logo Inside -->
+                <div style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center; animation: zatcoSpin 1s linear infinite; filter: drop-shadow(0 0 14px rgba(187, 1, 18, 0.45));">
+                    <img src="images/rolling_tyre_1d.svg" alt="1D Rolling Tyre" style="width: 100%; height: 100%; object-fit: contain;">
                 </div>
             </div>
             
-            <div style="width: 160px; height: 3px; background: rgba(255,255,255,0.1); margin-top: 24px; border-radius: 99px; overflow: hidden; position: relative;">
-                <div style="width: 200%; height: 100%; background: linear-gradient(90deg, #bb0112 0%, #ffffff 50%, #bb0112 100%); animation: zatcoRoad 1s linear infinite;"></div>
-            </div>
+            <!-- Static Non-Animated Loading Road Line -->
+            <div style="width: 140px; height: 2px; background: #bb0112; margin-top: 24px; border-radius: 99px; opacity: 0.85;"></div>
 
-            <div style="margin-top: 18px; font-family: system-ui, -apple-system, sans-serif; font-weight: 800; letter-spacing: 3px; color: #ffffff; font-size: 13px; text-transform: uppercase; text-align: center; animation: zatcoPulse 1.4s ease-in-out infinite;">
+            <!-- Static Non-Animated Brand Title -->
+            <div style="margin-top: 14px; font-family: system-ui, -apple-system, sans-serif; font-weight: 800; letter-spacing: 3px; color: #ffffff; font-size: 13px; text-transform: uppercase; text-align: center;">
                 <span style="color: #bb0112;">ZATCO</span> TYRES
             </div>
-            <div style="font-family: monospace; font-size: 10px; color: #94a3b8; margin-top: 6px; letter-spacing: 1.5px; text-transform: uppercase;">
+            <div style="font-family: monospace; font-size: 10px; color: #94a3b8; margin-top: 5px; letter-spacing: 1.5px; text-transform: uppercase;">
                 Loading High-Performance Fitments...
             </div>
         `;

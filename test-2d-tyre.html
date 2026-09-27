@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZATCO - 1D Tyre Preloader Preview</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: system-ui, -apple-system, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        @keyframes zatcoSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .grid {
+            display: flex;
+            gap: 36px;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .card {
+            background: #0d0d0f;
+            border: 1px solid #222226;
+            border-radius: 16px;
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 250px;
+            text-align: center;
+        }
+
+        .badge {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            padding: 4px 10px;
+            border-radius: 99px;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .static-road {
+            width: 140px;
+            height: 2px;
+            background: #bb0112;
+            margin-top: 22px;
+            border-radius: 2px;
+            opacity: 0.8;
+        }
+
+        .static-title {
+            margin-top: 14px;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+
+        .static-subtitle {
+            font-family: monospace;
+            font-size: 10px;
+            color: #71717a;
+            margin-top: 4px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: 18px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px;">ZATCO 1D Tyre Preloader</h1>
+    <p style="color: #a1a1aa; font-size: 12px; margin-top: 0;">Page loading effect is completely static (no pulse, no sliding road, no spinning ring). Only the tyre rolls.</p>
+
+    <div class="grid">
+        <!-- Variant 1 (Recommended): 1D Tyre Outline with Circular ZATCO Logo (Rolling Together) -->
+        <div class="card" style="border-color: #bb0112; box-shadow: 0 0 25px rgba(187, 1, 18, 0.25);">
+            <div class="badge" style="color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.3);">Option 1 (Recommended)</div>
+            
+            <!-- 1D Rolling Tyre Assembly (Tire + Logo Roll Together) -->
+            <div style="position: relative; width: 110px; height: 110px; display: flex; align-items: center; justify-content: center; animation: zatcoSpin 1s linear infinite;">
+                <!-- 1D Line Art Tyre SVG -->
+                <img src="images/rolling_tyre_1d.svg" alt="1D Tyre" style="width: 100%; height: 100%; object-fit: contain;">
+                
+                <!-- ZATCO Main Logo Inside Tyre -->
+                <div style="position: absolute; width: 62px; height: 62px; display: flex; align-items: center; justify-content: center; border-radius: 50%; overflow: hidden;">
+                    <img src="images/zatco logo only.png" alt="ZATCO Logo" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+            </div>
+
+            <!-- Static Loading Elements (NOT animated) -->
+            <div class="static-road"></div>
+            <div class="static-title"><span style="color: #bb0112;">ZATCO</span> TYRES</div>
+            <div class="static-subtitle">Loading...</div>
+        </div>
+
+        <!-- Variant 2: 1D Tyre Outline with Logo Floating Upright -->
+        <div class="card">
+            <div class="badge" style="color: #60a5fa; border: 1px solid rgba(96, 165, 250, 0.3);">Option 2: Floating Logo</div>
+            
+            <!-- 1D Tyre Rolls, Logo Inside Stays Upright -->
+            <div style="position: relative; width: 110px; height: 110px; display: flex; align-items: center; justify-content: center;">
+                <!-- 1D Tyre Only Spins -->
+                <img src="images/rolling_tyre_1d.svg" alt="1D Tyre" style="width: 100%; height: 100%; object-fit: contain; animation: zatcoSpin 1s linear infinite;">
+                
+                <!-- ZATCO Main Logo Inside (Static / Upright) -->
+                <div style="position: absolute; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 50%; overflow: hidden;">
+                    <img src="images/zatco logo only.png" alt="ZATCO Logo" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+            </div>
+
+            <!-- Static Loading Elements (NOT animated) -->
+            <div class="static-road"></div>
+            <div class="static-title"><span style="color: #bb0112;">ZATCO</span> TYRES</div>
+            <div class="static-subtitle">Loading...</div>
+        </div>
+
+        <!-- Variant 3: 1D Tyre with Full Wordmark Logo Inside -->
+        <div class="card">
+            <div class="badge" style="color: #eab308; border: 1px solid rgba(234, 179, 8, 0.3);">Option 3: Full Wordmark Inside</div>
+            
+            <!-- 1D Tyre Rolls, Full Logo Static Inside -->
+            <div style="position: relative; width: 110px; height: 110px; display: flex; align-items: center; justify-content: center;">
+                <img src="images/rolling_tyre_1d.svg" alt="1D Tyre" style="width: 100%; height: 100%; object-fit: contain; animation: zatcoSpin 1s linear infinite;">
+                
+                <!-- Full ZATCO Logo Inside -->
+                <div style="position: absolute; width: 80px; height: 26px; display: flex; align-items: center; justify-content: center;">
+                    <img src="images/zatco-logo.jpg" alt="ZATCO Logo" style="width: 100%; height: 100%; object-fit: contain; filter: invert(0);">
+                </div>
+            </div>
+
+            <!-- Static Loading Elements (NOT animated) -->
+            <div class="static-road"></div>
+            <div class="static-title"><span style="color: #bb0112;">ZATCO</span> TYRES</div>
+            <div class="static-subtitle">Loading...</div>
+        </div>
+    </div>
+</body>
+</html>
