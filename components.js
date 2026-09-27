@@ -142,6 +142,20 @@
         if (headerTarget) {
             loadComponent('#header-placeholder, header', 'header.html', function () {
                 highlightActiveNav();
+                
+                // Mobile menu toggle logic
+                var mobileBtn = document.getElementById('mobile-menu-btn');
+                var mobileMenu = document.getElementById('mobile-menu');
+                if (mobileBtn && mobileMenu) {
+                    mobileBtn.addEventListener('click', function() {
+                        mobileMenu.classList.toggle('hidden');
+                        var icon = mobileBtn.querySelector('.material-symbols-outlined');
+                        if (icon) {
+                            icon.textContent = mobileMenu.classList.contains('hidden') ? 'menu' : 'close';
+                        }
+                    });
+                }
+                
                 checkComplete();
             });
         } else {

@@ -1,5 +1,5 @@
 <!-- Top Navigation Header -->
-<header class="bg-surface bg-white border-b border-outline-variant border-slate-200 w-full sticky top-0 z-50 shadow-sm">
+<header class="bg-surface bg-white border-b border-outline-variant border-slate-200 w-full sticky top-0 z-50 shadow-sm relative">
     <div class="flex justify-between items-center w-full px-4 md:px-12 max-w-[1280px] mx-auto h-20">
         <div class="flex items-center gap-4">
             <a href="home.html" class="flex items-center gap-3">
@@ -30,15 +30,32 @@
 
         <!-- Action buttons -->
         <div class="flex items-center gap-3">
-            <!-- <a href="https://wa.me/919876543210" target="_blank"
-                class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded border border-emerald-600/30 bg-emerald-50 text-emerald-800 text-xs font-semibold hover:bg-emerald-100 transition">
-                <span class="material-symbols-outlined text-sm text-emerald-600">chat</span>
-                WhatsApp Concierge
-            </a> -->
             <a href="dealer-login.html" style="background-color: #0a2540;"
-                class="bg-[#0a2540] hover:bg-[#061729] text-white text-xs font-headline font-semibold px-4 py-2 rounded transition shadow-sm">
+                class="hidden sm:inline-block bg-[#0a2540] hover:bg-[#061729] text-white text-xs font-headline font-semibold px-4 py-2 rounded transition shadow-sm">
                 Dealer Portal
             </a>
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-800 hover:text-[#bb0112] focus:outline-none flex items-center justify-center">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
         </div>
+    </div>
+    
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white shadow-lg border-b border-slate-200 z-40 max-h-[calc(100vh-5rem)] overflow-y-auto">
+        <nav class="flex flex-col p-4 font-headline space-y-4">
+            <a class="text-black font-bold hover:text-[#bb0112] transition-colors py-2 border-b border-slate-100" href="home.html">Home</a>
+            <a class="text-black font-bold hover:text-[#bb0112] transition-colors py-2 border-b border-slate-100" href="product-detail.html">Products</a>
+            <a class="text-black font-bold hover:text-[#bb0112] transition-colors py-2 border-b border-slate-100" href="tyre-finder.html">Tyre Finder</a>
+            <a class="text-black font-bold hover:text-[#bb0112] transition-colors py-2 border-b border-slate-100" href="compare-tires.html">Compare</a>
+            <a class="text-black font-bold hover:text-[#bb0112] transition-colors py-2 border-b border-slate-100" href="case-study.html">Case Studies</a>
+            <a class="text-black font-bold hover:text-[#bb0112] transition-colors py-2 border-b border-slate-100" href="dealer-portal.html">Dealer Network</a>
+            <a class="text-black font-bold hover:text-[#bb0112] transition-colors py-2 border-b border-slate-100" href="about.html">About Us</a>
+            <a class="text-black font-bold hover:text-[#bb0112] transition-colors py-2 border-b border-slate-100" href="contact.html">Contact</a>
+            
+            <a href="dealer-login.html" style="background-color: #0a2540;" class="sm:hidden block text-center bg-[#0a2540] hover:bg-[#061729] text-white text-sm font-headline font-semibold px-4 py-3 rounded mt-2 shadow-sm">
+                Dealer Portal
+            </a>
+        </nav>
     </div>
 </header>
